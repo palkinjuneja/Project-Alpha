@@ -1,0 +1,92 @@
+questions
+
+1. Creater details? 
+2. project status
+3. edit project (good to have)
+4. Search options (confirmed- people by role and skill )
+5. Role for search (dropdown or radio)
+
+1. Login/SignUp and profile (1week for 2 developers) 42 hrs 
+	- Action Item: Research and find complexity
+	- cognito can handle login/signup
+	- model database, skills
+2. People : find/skill, categorizing (10 days for 2 developers) 60 hrs
+	- role/skill based search
+3. project : creation, and onboarding people to project (15 days for 2 developers) 90 hrs 
+	- creation (backend api)
+	- onboarding flow
+4. project : discoverability 
+	- Need Clarity and try to trim down the categories
+	- Project searching by a tag - 7days for 2 developers
+5. Chat/communication 
+   - redirect to linkedin (?)
+
+
+DB Design :
+API Design :
+front end / backend :
+deployment:
+
+
+Mongo Schema :
+Entities:
+1 credentilas: userid , accesstoken  (??)   - [Nayan]: Not created as of now
+2 Users : 
+user_id , Name, skill(array, autocomplete), overview, email, linkedin, github, portfolio, project_id(array), login_token, Role(string , dropdown or radio),  collaborationRequestids(array)
+U1	[P1,P3]	[R1,R2]
+U2	[P2,P4]	[R3,R4]
+
+3 CollaborationSchema{  (storing every request)
+	Colab_request_id : string
+	project id : projectid
+	sender : userid
+	receiver : userid
+	status of request: string (pending, accepted, rejected)
+}
+
+4 const projectSchema = new mongoose.Schema({
+    projectid: {
+	type:(id),
+	required: true
+	},
+    projectname: {
+        type: String,
+        required: true
+    },
+    description:{
+        type: String,
+        required: true
+    },
+   ownername{
+	type:String,
+	required : true
+	},
+   
+    ownerid:{
+        type: (id),
+        required: true
+    },
+    dateofcreation:{
+        type: Date,
+        default: Date.now
+    },
+    status:{
+        type: string, [openforcolab, active, completed]   
+        required: true
+    }
+    collaborators:[
+	user1: {id:userid, name:username},
+	user2: {id:userid, name:username}
+    ]
+    Domain{
+ 	 String type - (categories list)
+	}
+    requirement{
+	(skill requirements list)
+	}
+   
+	
+})
+
+	
+
