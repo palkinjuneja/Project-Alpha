@@ -6,6 +6,7 @@ const projectRouter = express.Router();
 projectRouter.get('/', async(req, res) => {
     try{
         const project = await Project.find({});
+        console.log(project);
         if(project){
             res.status(200);
             res.json(project);
