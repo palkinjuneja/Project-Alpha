@@ -1,0 +1,145 @@
+.XsigninOnboard {
+    background-color:white;
+    padding: 0 0 0 52px;
+    display: flex;
+    align-items: flex-start;
+  }
+  .Xgroup1 {
+    margin-top: 9px;
+    margin-right: 1px;
+    padding: 19px 0 0;
+    position: relative;
+  }
+  .Xu {
+    font-family: "Lato";
+    font-size: 37px;
+    font-weight: 900;
+    line-height: normal;
+    color: tomato;
+    position: relative;
+  }
+  .XuTwo {
+    font-family: "Lato";
+    font-size: 36px;
+    font-weight: 900;
+    line-height: normal;
+    color: tomato;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .XflexWrapperTwo {
+    /* margin-right: 107px; */
+    width: 50%;
+    padding: 50px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .Xunion {
+    /* font-family: "Lato"; */
+    font-size: 26px;
+    font-weight: 700;
+    line-height: normal;
+    color: black-2;
+    margin-bottom: 92px;
+    opacity: 0.X63;
+  }
+  .XworkOnTheRealWorldProjectsWithEas {
+    height: 167px;
+    width: 502px;
+    /* font-family: "Montserrat"; */
+    font-size: 36px;
+    font-weight: 400;
+    line-height: normal;
+    color: black-2;
+    display: flex;
+    margin-bottom: 108px;
+    margin-left: 39px;
+  }
+  .XsignInWith {
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 600;
+    line-height: normal;
+    color: black-2;
+    margin-bottom: 24px;
+    margin-left: 40px;
+  }
+  .Xvector {
+    width: 57.24%;
+    height: 5.69%;
+    margin-bottom: 32px;
+    margin-left: 39px;
+  }
+  .XalreadyHaveAnAccount {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: normal;
+    color: black-2;
+    margin-bottom: 6px;
+    margin-left: 39px;
+  }
+  .Xlogin {
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 700;
+    line-height: normal;
+    color: red;
+    margin-bottom: 321px;
+    margin-left: 39px;
+  }
+  .XtermsOfService {
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: normal;
+    color: black-2;
+    margin-left: 38px;
+  }
+  .XrelativeWrapperOne {
+    width:50%;
+    position: relative;
+  }
+  .XfoundationsocialLinkedin {
+    width: 59px;
+    height: 59px;
+    position: absolute;
+    left: -29px;
+    bottom: 482px;
+  }
+  .XflexWrapperOne {
+    background-color: black;
+    padding: 53px 83px 364px 226px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-start; */
+    position: relative;
+  }
+  .XwhyLinkedIn {
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 700;
+    line-height: normal;
+    color: white;
+    margin-bottom: 267px;
+    margin-left: 428px;
+  }
+  .XcollaborationOnProjectsMadeEasyWith {
+    max-width: 420px;
+    /* font-family: "Montserrat"; */
+    font-size: 36px;
+    font-weight: 700;
+    line-height: normal;
+    color: white;
+    margin-bottom: 16px;
+    margin-left: 1px;
+  }
+  .XfindThePassionateTeamToKickStartY {
+    max-width: 383px;
+    font-family: "Open Sans";
+    font-size: 24px;
+    font-weight: 400;
+    line-height: normal;
+    color: white;
+  }
