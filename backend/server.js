@@ -1,16 +1,26 @@
 const express = require('express');
-const cors = require("cors")                    
+const cors = require("cors")    
+ const dotenv = require('dotenv');                
 const app = express();
 const session = require('express-session');
 const passport = require('passport');
 const LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
 const routes = require('./routes.js');
 const config = require('./config')
+const mongoose = require('mongoose')
 
 app.use(cors())
 app.use(express.json())
 
-// app.set('view engine', 'ejs');
+
+//connecting to database
+//  dotenv.config();
+// require('./Connect/dbConnect')()
+
+const dbURi ='mongodb+srv://admin:Admin@union.um26t.mongodb.net/Union?retryWrites=true&w=majority'
+mongoose.connect(dbURi, {useNewUrlParser:true, useUnifiedTopology:true})
+.then((result) => console.log("connected to database"))   // to fire when database is connected
+.catch((err)=>console.log(err))
 
 app.use(session({
   resave: false,

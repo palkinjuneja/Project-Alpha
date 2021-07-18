@@ -5,8 +5,8 @@ import "../styles/figmaProfile.css";
 
 const LinkedInImport = () => {
 
-  const [details, setDetails] = useState("")
-
+  const [details, setDetails] = useState("")  // data from linkapi 
+  const [data,setData] = useState("")     // data from database
   
   useEffect(() => {
     retrieveProfile();
@@ -14,6 +14,17 @@ const LinkedInImport = () => {
 
   const retrieveProfile = () => {
     DataService.getProfile()
+      .then(response => {
+        console.log(response.data);
+        setDetails(response.data)
+      })
+      .catch(e => {
+        console.log(e);
+      })
+  }
+
+  const getDataFromDb = () => {
+    DataService.getData()
       .then(response => {
         console.log(response.data);
         setDetails(response.data)

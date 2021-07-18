@@ -7,7 +7,11 @@ class DataService{
     }
 
     getData(){
-        return http.get("/userData") // from mongoDB
+        return http.get("/data") // from mongoDB
+    }
+
+    setProfile(){
+        return http.post("/data")  // to mongoDB
     }
 }
 
