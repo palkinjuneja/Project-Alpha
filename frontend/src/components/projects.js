@@ -5,7 +5,7 @@ import Footer from './footer';
 import '../stylesheet/app.css'
 
 
-function Projects() {
+function Projects(props) {
 
     const [projects, setState] = useState([]);
 
@@ -31,12 +31,12 @@ function Projects() {
 
     return (
         <div>
-          <div class="topnav">
+          <div className="topnav">
           <span style={{paddingLeft: 60}}>
             <span style={{fontSize:37, color:"pink"}}>O</span><span style={{fontSize:27, color:"white"}}>union</span>
           </span>
-    <div class="topnav-right" style={{paddingRight: 63}}>
-      <a href="#myProjects">My Projects</a>
+    <div className="topnav-right" style={{paddingRight: 63}}>
+      <a href={"/user/"+"60f2bd89c6897f3604ef596d"}>My Projects</a>
       <a href="#myProjects">Display Pic</a>
     </div>
   </div>

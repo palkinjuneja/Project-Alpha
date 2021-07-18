@@ -3,6 +3,7 @@ const cors = require("cors");
 const app = express();
 const dotenv = require('dotenv');
 const projectRouter = require('./routers/projectRouter');
+const userRouter = require('./routers/userRouter');
 
 app.use(cors());
 
@@ -13,6 +14,10 @@ dotenv.config();
 require('./config/dbConnect')();
 
 //Routes
+
+//User Router
+app.use('/user', userRouter);
+
 //Project Router
 app.use('/project', projectRouter);
 

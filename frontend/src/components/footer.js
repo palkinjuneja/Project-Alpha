@@ -1,7 +1,7 @@
 import React from "react";
 import "../stylesheet/app.css";
 
-const Footer = () => {
+const Footer = () => { 
   return (
 <footer class="text-center text-lg-start bg-light text-muted">
   {/* <section
@@ -80,14 +80,14 @@ const Footer = () => {
             <span>Collaboration Made Easy!</span>
             <div className="bttm-right">
             <a href="#" class="fa fa-linkedin"></a>
-                <a href="#" class="fa fa-twitter"></a>
+                {/* <a href="#" class="fa fa-twitter"></a> */}
             </div>
             <hr/>
             <span>© 2021 Copyright : All rights are reserved!</span>
             <div className="bttm-right">
-                <span>Join Union</span>
+                {/* <span>Join Union</span>
                 <span>FAQs</span>
-                <span>Support Us</span>
+                <span>Support Us</span> */}
             </div>
         </div>
 

@@ -6,11 +6,11 @@ const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: false
     },
     email: {
         type: String,
-        required: true,
+        required: false,
         unique: true
     },
     skill: {
@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
     },
     linkedin: {
         type: String,
-        required: true
+        required: false
     },
     github: {
         type: String,
@@ -31,25 +31,12 @@ const userSchema = new mongoose.Schema({
     },
     portfolio: {
         type: String,
-        required: true
+        required: false
     },
     project_id: {
         type: [mongoose.Schema.Types.ObjectId],         // refers to Project Collection from User
         ref: 'Project',
-        required: false
-    },
-    login_token: {
-        type: String,
         required: true
-    },
-    role: {
-        type: String,
-        required: true
-    },
-    collaboration_request_id: {
-        type: [mongoose.Schema.Types.ObjectId],         //refers to Collaboration Collection from User
-        ref: 'Collaboration',
-        required: false
     }
 });
 

@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Projects from './components/projects';
+import App from './components/app';
 
 ReactDOM.render(
   <div>
-    <Projects />
+    <App />
   </div>,
   document.getElementById('root')
 );
