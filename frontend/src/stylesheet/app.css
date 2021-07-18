@@ -5,6 +5,10 @@ footer{
   padding: 30px;
 }
 
+input{
+  width: 20%;
+}
+
 h4::first-letter{
   font-size: 200%;
   color: pink;

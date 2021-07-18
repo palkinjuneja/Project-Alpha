@@ -51,7 +51,7 @@ function Projects(props) {
   </pre>
   <h3 className="container-fluid">Project Lists</h3>
   <pre style = {{background: "white", border: "none"}}>
-
+    <button type="button" class="btn btn-primary" style = {{float: "right", marginRight: 20}} onClick={event =>  window.location.href='http://localhost:3000/createProject'}>Create Project</button>
   </pre>
     <div className="container-fluid">
       {
