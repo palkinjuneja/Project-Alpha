@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useState } from 'react';
 import axios from 'axios';
 import Footer from './footer';
 import '../stylesheet/app.css'
@@ -37,19 +37,13 @@ function CreateProject(props) {
                 return {...prevErr, project_name:"Project Name can't be empty."}
             })
         }
-        if(project.description == "")
+        if(project.description === "")
         {
             setError((prevErr)=>{
                 return {...prevErr, description:"Description can't be empty."}
             })
         }
-        if(project.domain == "")
-        {
-            setError((prevErr)=>{
-                return {...prevErr, domain:"Domain can't be empty."}
-            })
-        }
-        if(project.requirements == "")
+        if(project.requirements === "")
         {
             setError((prevErr)=>{
                 return {...prevErr, requirements:"Requirements can't be empty."}
@@ -95,23 +89,23 @@ function CreateProject(props) {
 
     <div className="alignForm">
         <form onSubmit={onSubmit} className="container">
-            <div class="form-group col-md-6">
+            <div className="form-group col-md-6">
                 <div>
                     <label htmlFor="project_name">Project Name</label> <span style={{color: "red"}}>{projectError.project_name}</span>
-                    <input type="text" class="form-control" autoComplete="off" value={project.project_name} onChange={getInputs} name="project_name"/>
+                    <input type="text" className="form-control" autoComplete="off" value={project.project_name} onChange={getInputs} name="project_name"/>
                 </div><br/>
                 <div>
                     <label htmlFor="description">Description</label> <span style={{color: "red"}}>{projectError.description}</span>
-                    <input type="text" class="form-control" autoComplete="off" value={project.description} onChange={getInputs} name="description"/>
+                    <input type="text" className="form-control" autoComplete="off" value={project.description} onChange={getInputs} name="description"/>
                 </div><br/>
                 <div>
                     <label htmlFor="domain">Domain</label> <span style={{color: "red"}}>{projectError.domain}</span>
-                    <input type="text" class="form-control" autoComplete="off" value={project.domain} onChange={getInputs} name="domain"/>
+                    <input type="text" className="form-control" autoComplete="off" value={project.domain} onChange={getInputs} name="domain"/>
                 </div>
                 <br/>
                 <div>
                     <label htmlFor="requirements">Requirements</label> <span> (comma separated values. e.g HTML, CSS, JS) </span> <span style={{color: "red"}}>{projectError.requirements}</span>
-                    <input type="text" class="form-control" autoComplete="off" value={project.requirements} onChange={getInputs} name="requirements"/>
+                    <input type="text" className="form-control" autoComplete="off" value={project.requirements} onChange={getInputs} name="requirements"/>
                 </div>
                 <br/>
                 <div>
@@ -121,7 +115,7 @@ function CreateProject(props) {
                             <option value="Closed">Closed</option>
                         </select>
                     </label>
-                    <input type="submit" class="btn btn-primary" value="Submit" style={{marginLeft: 30}}/>
+                    <input type="submit" className="btn btn-primary" value="Submit" style={{marginLeft: 30}}/>
                 </div>
             </div>
         </form>
