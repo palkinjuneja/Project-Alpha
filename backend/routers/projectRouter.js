@@ -6,7 +6,6 @@ const projectRouter = express.Router();
 projectRouter.get('/', async(req, res) => {
     try{
         const project = await Project.find({});
-        // console.log(project);
         if(project){
             res.status(200);
             res.json(project);
@@ -20,7 +19,6 @@ projectRouter.get('/', async(req, res) => {
 projectRouter.get('/:id', async(req, res) => {
     try{
         const project = await Project.findById(req.params.id);
-        // console.log("Debug:", project);
         if(project){
             res.status(200);
             res.json(project);
@@ -35,7 +33,6 @@ projectRouter.get('/:id', async(req, res) => {
 projectRouter.post('/create/', async(req, res) => {
     try{
         const project = await Project.create(req.body);
-        // console.log(project);
         if(project){
             res.status(200);
             res.json(project);

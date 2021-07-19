@@ -76,6 +76,9 @@ function Projects(props) {
     <Pagination showPerPage={showPerPage} pageNoChange={pageNoChange} projectCount={projects.length}/>
     </div>
     </div>
+    <pre style = {{background: "white", border: "none"}}>
+
+    </pre>
     <Footer />
   </div>
 )

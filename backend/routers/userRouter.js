@@ -6,7 +6,6 @@ const userRouter = express.Router();
 userRouter.get('/', async(req, res) => {
     try{
         const user = await User.find();
-        // console.log("User::"+ user);
         if(user){
             res.status(200);
             res.json(user);
@@ -20,7 +19,6 @@ userRouter.get('/', async(req, res) => {
 userRouter.get('/:id', async(req, res) => {
     try{
         const user = await User.findById(req.params.id);
-        // console.log(user);
         if(user){
             res.status(200);
             res.json(user);
@@ -34,14 +32,12 @@ userRouter.get('/:id', async(req, res) => {
 userRouter.post('/create/', async(req, res) => {
     try{
         const user = await User.create(req.body);
-        // console.log(user);
         if(user){
             res.status(200);
             res.json(user);
         }
     }
     catch(err){
-        // console.log(err); 
         res.json(err);
     }
 });

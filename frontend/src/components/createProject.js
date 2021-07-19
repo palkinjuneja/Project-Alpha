@@ -26,7 +26,6 @@ function CreateProject(props) {
     const getInputs = (event)=>{
         const name = event.target.name;
         const value = event.target.value;
-        console.log(name, value);
         setData({...project, [name]: value});
     }   
 
@@ -58,13 +57,6 @@ function CreateProject(props) {
         }
         if(project.project_name !== "" && project.description !== "" && project.domain !== "" && project.requirements !== "")
         {
-            console.log(project);
-            
-            const x = project.requirements;
-            console.log("?", x);
-
-            // let arr = x.split(",");
-
             const projectData = {
                 project_name: project.project_name,
                 owner: "Nayan",
@@ -74,17 +66,13 @@ function CreateProject(props) {
                 requirement: project.requirements.split(","),
                 status: project.status
             }
-
-            console.log("??", projectData);
             
             axios.post("http://localhost:8000/project/create", projectData)
             .then(res=>{
-                console.log(res.data)
                 window.location="http://localhost:3000/project";
             }
             )
     		.catch(err=>console.log("Error: "+err));
-
         }
     }
 
@@ -105,9 +93,9 @@ function CreateProject(props) {
     <pre style = {{background: "white", border: "none"}}></pre>
     <pre style = {{background: "white", border: "none"}}></pre>
 
-    <div className="">
-        <form onSubmit={onSubmit}>
-            <div class="form-group">
+    <div className="alignForm">
+        <form onSubmit={onSubmit} className="container">
+            <div class="form-group col-md-6">
                 <div>
                     <label htmlFor="project_name">Project Name</label> <span style={{color: "red"}}>{projectError.project_name}</span>
                     <input type="text" class="form-control" autoComplete="off" value={project.project_name} onChange={getInputs} name="project_name"/>
@@ -128,39 +116,22 @@ function CreateProject(props) {
                 <br/>
                 <div>
                     <label htmlFor="status">Status <span style={{paddingRight: 10}}></span>
-                        <select style={{padding: 5, borderRadius: 5, borderColor: 'grey'}} autoComplete="off" value={project.status} onChange={getInputs} name="status">
+                        <select style={{padding: 5, borderRadius: 5, borderColor: '#c0c0c0', fontWeight: "normal"}} autoComplete="off" value={project.status} onChange={getInputs} name="status">
                             <option value="Open">Open</option>
                             <option value="Closed">Closed</option>
                         </select>
                     </label>
-                </div><br/>
+                    <input type="submit" class="btn btn-primary" value="Submit" style={{marginLeft: 30}}/>
+                </div>
             </div>
-            <input type="submit" class="btn btn-primary" value="Submit"/>
         </form>
     </div>
     
     </div>
-    
-    <pre style = {{background: "white", border: "none"}}>
-
-    </pre>
-    
-    <pre style = {{background: "white", border: "none"}}>
-
-    </pre>
-
-    <pre style = {{background: "white", border: "none"}}>
-
-    </pre>
-    
-    <pre style = {{background: "white", border: "none"}}>
-
-    </pre>
-    <pre style = {{background: "white", border: "none"}}>
-
-    </pre>
     <br/>
-    <Footer />
+    <div className="stickBttm">
+        <Footer />
+    </div>
   </div>
 )
 }
