@@ -1,4 +1,4 @@
-import React, {useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import Footer from './footer';
 import '../stylesheet/app.css'
@@ -41,6 +41,12 @@ function CreateProject(props) {
         {
             setError((prevErr)=>{
                 return {...prevErr, description:"Description can't be empty."}
+            })
+        }
+        if(project.domain === "")
+        {
+            setError((prevErr)=>{
+                return {...prevErr, domain:"Domain can't be empty."}
             })
         }
         if(project.requirements === "")
@@ -115,7 +121,7 @@ function CreateProject(props) {
                             <option value="Closed">Closed</option>
                         </select>
                     </label>
-                    <input type="submit" className="btn btn-primary" value="Submit" style={{marginLeft: 30}}/>
+                    <input type="submit" className="btn btn-primary" value="Submit" style={{marginLeft: 19}}/>
                 </div>
             </div>
         </form>
