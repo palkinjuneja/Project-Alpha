@@ -1,8 +1,8 @@
-const mongoose = require('mongoose');
-
-const collaboratorSchema = new mongoose.Schema({
+import pkg from 'mongoose';
+const { Schema, model } = pkg
+const collaboratorSchema = new Schema({
     user_id: {
-        type: mongoose.Schema.ObjectId,
+        type: Schema.ObjectId,
         ref: 'User', //refers to User Collection
         required: true
     },
@@ -13,7 +13,7 @@ const collaboratorSchema = new mongoose.Schema({
 });
 
 // Project Schema
-const projectSchema = new mongoose.Schema({
+const projectSchema = new Schema({
     project_name: {
         type: String,
         required: true
@@ -27,7 +27,7 @@ const projectSchema = new mongoose.Schema({
         required : true
 	},
     owner_id:{
-        type: mongoose.Schema.ObjectId,
+        type: Schema.ObjectId,
         ref: 'User', //refers to User Collection
         required: true
     },
@@ -50,5 +50,5 @@ const projectSchema = new mongoose.Schema({
     collaborators: [collaboratorSchema]
 })
 
-const Project = mongoose.model('Project', projectSchema);
-module.exports = Project;
+const Project = model('Project', projectSchema);
+export default Project;

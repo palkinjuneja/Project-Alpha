@@ -1,10 +1,17 @@
-const mongoose = require('mongoose');
+import pkg from 'mongoose';  // mongoose is CommonJs module (ES6)
+const {connect}=pkg;
 
 //connect and create a new db "projectAlpha
 const dbConnect = () =>{
-    mongoose.connect(process.env.MONGODB_URL, {useNewUrlParser: true, useUnifiedTopology: true})
+    console.log(process.env.MONGODB_URL);
+    connect(process.env.MONGODB_URL, {
+                                        useNewUrlParser: true,
+                                        useUnifiedTopology: true,
+                                        useCreateIndex: true,
+                                        useFindAndModify: true
+                                    })
     .then(() => console.log("DB connected"))
     .catch((error) => console.log(error));
 }
 
-module.exports = dbConnect;
+export default dbConnect;

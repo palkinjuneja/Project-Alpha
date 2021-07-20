@@ -1,9 +1,10 @@
-const mongoose = require('mongoose');
+import pkg from 'mongoose';
+const { Schema, model } = pkg
 
 // User Schema
 // [Nayan]: revisit this schema once the requirements become more clear
 
-const userSchema = new mongoose.Schema({
+const userSchema = new Schema({
     name: {
         type: String,
         required: false
@@ -34,11 +35,11 @@ const userSchema = new mongoose.Schema({
         required: false
     },
     project_id: {
-        type: [mongoose.Schema.Types.ObjectId],         // refers to Project Collection from User
+        type: [Schema.Types.ObjectId],         // refers to Project Collection from User
         ref: 'Project',
         required: true
     }
 });
 
-const User = mongoose.model('User', userSchema);
-module.exports = User;
+const User = model('User', userSchema);
+export default User;

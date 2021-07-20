@@ -1,28 +1,27 @@
-const express = require('express');
-const cors = require("cors");
+import express, { json } from 'express';
+import cors from "cors";
 const app = express();
-const dotenv = require('dotenv');
-const projectRouter = require('./routers/projectRouter');
-const userRouter = require('./routers/userRouter');
+import { config } from 'dotenv';
+import projectRouter from './routers/projectRouter.js';
+import userRouter from './routers/userRouter.js';
 
 app.use(cors());
 
 //Passing incoming Data as JSON to Backend
-app.use(express.json());
+app.use(json());
 
-dotenv.config();
-require('./config/dbConnect')();
-
+config();
+import dbConnect from './config/dbConnect.js';
+dbConnect();
 //Routes
 
 //User Router
 app.use('/user', userRouter);
-
 //Project Router
 app.use('/project', projectRouter);
 
 //Server
-const PORT = 8000
+const PORT = 5000;
 app.listen(PORT, ()=>{
     console.log(`Server is up and ruinning in PORT ${PORT}`);
 })
