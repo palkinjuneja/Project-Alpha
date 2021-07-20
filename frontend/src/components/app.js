@@ -1,18 +1,24 @@
 import {React} from 'react'
-import {BrowserRouter as Router, Route} from "react-router-dom";
 import '../stylesheet/app.css';
-import MyProject from './myProjects';
-import Project from './projects';
+import Projects from '../components/projects';
+import ProjectDetails from './projectDetails';
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom"
 import CreateProject from './createProject';
+import MyProject from './myProjects';
 
-function app() {
+function App() {
   return (
-    <Router>
-        <Route path="/project" component={Project} />
-        <Route path="/user/:id" component={MyProject} />
-        <Route path="/createProject" component={CreateProject} />
+    <div>
+      <Router>
+        <Switch>
+          <Route exact path="/projects" component={Projects} />
+          <Route  path="/projects/:id" component={ProjectDetails} />
+          <Route path="/user/:id" component={MyProject} />
+          <Route path="/createProject" component={CreateProject} />
+        </Switch>
     </Router>
+    </div>
   );
 }
 
-export default app;
+export default App;

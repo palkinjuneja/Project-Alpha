@@ -77,7 +77,7 @@ function CreateProject(props) {
 
             console.log("??", projectData);
             
-            axios.post("http://localhost:8000/project/create", projectData)
+            axios.post("http://localhost:5000/project/create", projectData)
             .then(res=>{
                 console.log(res.data)
                 window.location="http://localhost:3000/project";

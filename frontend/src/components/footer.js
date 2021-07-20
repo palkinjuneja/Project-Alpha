@@ -1,9 +1,9 @@
 import React from "react";
 import "../stylesheet/app.css";
 
-const Footer = () => { 
+const Footer = () => {
   return (
-<footer class="text-center text-lg-start bg-light text-muted">
+<footer className="text-center text-lg-start bg-light text-muted">
   {/* <section
     class="d-flex justify-content-center justify-content-lg-between"
   >
@@ -13,9 +13,9 @@ const Footer = () => {
       <a href="#" class="me-4">linkedin</a>
     </div>
   </section> */}
-  <section class="">
-    <div class="container text-center text-md-start mt-5">
-      <div class="row mt-3">
+  <section className="">
+    <div className="container text-center text-md-start mt-5">
+      <div className="row mt-3">
         {/* <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
           <h6 class="text-uppercase fw-bold mb-4">
             <i class="fas fa-gem me-3"></i>Company name
@@ -80,14 +80,14 @@ const Footer = () => {
             <span>Collaboration Made Easy!</span>
             <div className="bttm-right">
             <a href="#" class="fa fa-linkedin"></a>
-                {/* <a href="#" class="fa fa-twitter"></a> */}
+               
             </div>
             <hr/>
             <span>© 2021 Copyright : All rights are reserved!</span>
             <div className="bttm-right">
-                {/* <span>Join Union</span>
+                <span>Join Union</span>
                 <span>FAQs</span>
-                <span>Support Us</span> */}
+                <span>Support Us</span>
             </div>
         </div>
 

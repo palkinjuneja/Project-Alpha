@@ -3,7 +3,8 @@ import React, { useState, useEffect} from 'react';
 function Pagination({showPerPage, pageNoChange, projectCount}) {
 
     const [counter, setCounter] = useState(1);
-    const [numberOfButtons, setNumberOfButtons] = useState(3);
+    const noOfPages=3;
+    const [numberOfButtons, setNumberOfButtons] = useState(noOfPages);
 
     useEffect(() => {
         const end = showPerPage * counter;
