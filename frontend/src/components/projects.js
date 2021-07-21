@@ -20,7 +20,7 @@ function Projects(props) {
        }
     }
     
-    useEffect(() => getData(), []);
+    useEffect(() => getData(), [projects]);
 
     const [showPerPage, setPerPage] = useState(12);
     const [pageNumber, setPageNumber] = useState({ start: 0, end: showPerPage});  
