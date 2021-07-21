@@ -1,8 +1,14 @@
+
+
 .XsigninOnboard {
     background-color:white;
     padding: 0 0 0 52px;
     display: flex;
     align-items: flex-start;
+    /* zoom: 3;  */
+    /* -moz-transform: scale(3); 
+    -moz-transform-origin: 0 0;
+     */ 
   }
   .Xgroup1 {
     margin-top: 9px;
@@ -59,15 +65,15 @@
   }
   .XsignInWith {
     font-family: "Open Sans";
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 24px;
+    font-weight: 700;
     line-height: normal;
     color: black-2;
     margin-bottom: 24px;
     margin-left: 40px;
   }
   .Xvector {
-    width: 57.24%;
+    width: 76.24%;
     height: 5.69%;
     margin-bottom: 32px;
     margin-left: 39px;

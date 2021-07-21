@@ -1,0 +1,138 @@
+.editProfile {
+    background-color: rgba(255, 255, 255, 1);
+    /* padding: 69px 0 168px; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .OuserView__basicInfoText__name{
+    letter-spacing: 0.18px;
+    font-family: "Lato";
+    font-size: 100%;
+    font-weight: bold;
+    margin-bottom: 5%;
+}
+  .OrelativeWrapperTwo {
+    margin-bottom: 42px;
+    position: relative;
+  }
+  .Orectangle61 {
+    width: 1440px;
+    height: 170px;
+    background-color: rgba(247, 247, 247, 1);
+    position: relative;
+  }
+  .Orectangle2 {
+    width: 196px;
+    height: 172.43px;
+    position: absolute;
+    left: 110px;
+    bottom: -149.43px;
+    border: 2px solid rgba(34, 34, 35, 1);
+    border-radius: 10px;
+  }
+  .Ogroup188 {
+      /* padding:10px; */
+    margin-bottom: 102.42px;
+    margin-left: 930px;
+    display: flex;
+    align-items: flex-start;
+  }
+  .OflexWrapperTwo {
+    background-size: 100% 100%;
+    background-position: center;
+    background-image: url("https://static.overlay-tech.com/assets/62b631c6-6eed-4fe1-8074-9909cdb71e40.svg");
+    padding: 2.51px 3.24px 3.15px 5.52px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  
+  .OflexWrapperFourteen {
+    margin-bottom: 42px;
+    padding: 0 0 0 111px;
+    display: flex;
+    align-items: flex-start;
+  }
+  .OflexWrapperTwenty {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* padding-top: 0; */
+    padding: 30px;
+  }
+
+  .OflexWrapperTwenty:not(:last-of-type) {
+    margin-right: 118px;
+  }
+  
+  .Oexperience {
+    font-family: "Lato";
+    font-size: 18px;
+    font-weight: 700;
+    line-height: normal;
+    color: rgba(34, 34, 35, 1);
+    margin-bottom: 24px;
+  }
+  .OflexWrapperThree {
+    background-color: rgba(247, 247, 247, 0.5);
+    border-radius: 5px;
+    padding: 37px 333px 135px 31px;
+    display: flex;
+    align-items: flex-start;
+    border: 1px solid rgba(34, 34, 35, 1);
+  }
+  .OtellUsAboutYourPreviousExperience {
+    width: 326px;
+    font-family: "Karla";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: normal;
+    color: rgba(0, 0, 0, 1);
+  }
+  .OflexWrapperFour {
+    background-color: rgba(247, 247, 247, 0.5);
+    margin-bottom: 100px;
+    margin-left: 510px;
+    border-radius: 25px;
+    padding: 13px 20px 96px 23px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    border: 1px solid rgba(34, 34, 35, 1);
+    margin-right: 944px;
+  }
+  .OflexWrapperFifteen {
+    margin-bottom: 31px;
+    display: flex;
+    align-items: center;
+  }
+  .OvectorTwelve {
+    width: 19.18%;
+    height: 66.67%;
+  }
+  .OvectorThirteen {
+    width: 14.58%;
+    height: 66.67%;
+  }
+  .OflexWrapperTen {
+    background-color: rgba(255, 255, 255, 1);
+    margin-right: 18px;
+    border-radius: 10px;
+    padding: 4px 25px 4px 29px;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 1);
+  }
+  .OflexWrapperThirteen {
+    margin-left: 493px;
+    border-radius: 10px;
+    /* padding: 15px 60px 15px 84px; */
+    display: flex;
+    align-items: center;
+    /* border: 1px solid rgba(0, 0, 0, 1); */
+  }
+  

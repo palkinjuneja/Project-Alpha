@@ -7,6 +7,8 @@ import SigninOnboard from './components/figmaLogin';
 import LinkedInImport from './components/figmaProfile';
 import CompletedProfile from './components/figmaProfileComp';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import NavBar from './components/NavBar';
+import EditProfile from './components/EditProfile';
 
 function App() {
 
@@ -24,10 +26,14 @@ function App() {
             <Route path='/procomp'>
               <CompletedProfile />
             </Route>
+            <Route path='/edit'>
+             <EditProfile />
+            </Route>
           </Switch>
         </div>
       </div>
     </Router>
+    
   );
 }
 

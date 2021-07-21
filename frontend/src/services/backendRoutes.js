@@ -10,8 +10,8 @@ class DataService{
         return http.get("/data") // from mongoDB
     }
 
-    setProfile(){
-        return http.post("/data")  // to mongoDB
+    setProfile(data){
+        return http.post("/profile",data)  // to mongoDB
     }
 }
 

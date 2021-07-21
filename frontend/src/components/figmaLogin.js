@@ -35,7 +35,7 @@ const SigninOnboard = () => {
         {/* <div className='XfoundationsocialLinkedin' /> */}
         <div className='XflexWrapperOne'>
           <p className='XwhyLinkedIn'>
-            Why Linked in?
+            {/* Why Linked in? */}
           </p>
           <p
             className='XcollaborationOnProjectsMadeEasyWith

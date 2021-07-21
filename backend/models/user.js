@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 // User Schema
 // [Nayan]: revisit this schema once the requirements become more clear
+// some values modified
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -15,11 +16,11 @@ const userSchema = new mongoose.Schema({
     },
     skill: {
         type: [String],
-        required: false
+        required: true
     },
     overview: {
         type: String,
-        required: false
+        required: true
     },
     linkedin: {
         type: String,
@@ -31,7 +32,7 @@ const userSchema = new mongoose.Schema({
     },
     portfolio: {
         type: String,
-        required: true
+        required: false
     },
     project_id: {
         type: [mongoose.Schema.Types.ObjectId],         // refers to Project Collection from User
@@ -50,6 +51,16 @@ const userSchema = new mongoose.Schema({
         type: [mongoose.Schema.Types.ObjectId],         //refers to Collaboration Collection from User
         ref: 'Collaboration',
         required: false
+    },
+
+    time :{
+        type: Number,
+        required : true
+    },
+    
+    photo :{
+        type : String,
+        required : true
     }
 });
 
