@@ -1,9 +1,12 @@
+import passport from 'passport';
+import express from 'express';
+import querystring from 'querystring';
 
-const passport = require('passport');
-const express = require('express');
 var router = express.Router();
 
-const User = require('./models/user')
+import User from './models/user.js'
+
+// const User = require('./models/user')
 
 router.get('/', function (req, res) {
   res.send('<h3>Sample Page</h3>')
@@ -11,8 +14,8 @@ router.get('/', function (req, res) {
 
 
 router.get('/profile', isLoggedIn, async function (req, res) {   //ask the team
-  details = req.user    // details returned by lindekin api
-  id = details.id      // linkedin id
+  let details = req.user    // details returned by lindekin api
+  let id = details.id      // linkedin id
 
   await router.get('/details', (req, res) => {
     res.json(details)
@@ -25,29 +28,56 @@ router.get('/profile', isLoggedIn, async function (req, res) {   //ask the team
   })
   .then(response=>{
     if(!response){
+      
+      // const query = querystring.stringfy({
+      //   "login_token": details.id,
+      //   "name":details.displayName,
+      //   "photo": details.photo[3].value,
+      //   "email":details.email
+      // });
+      // res.redirect(
+      //   'http://localhost:3000/newUser/?'+query
+      // )
       res.redirect("http://localhost:3000/edit") 
     }
-    // userinfo=response
+
     router.get('/data',(req,res)=>{
       res.json(response)
     })
-    res.redirect("http://localhost:3000/procomp")  //might have to change to router.redirect
+
+    const query = querystring.stringify({
+      "login_token": response.login_token,
+      "name":response.email,
+      "skill":response.skill,
+      "overview":response.overview,
+      "linkedin":response.linkedin,
+      "github":response.github,
+      "portfolio":response.portfolio,
+      "role":response.role,
+      "time":response.time,
+      "photo":response.photo,
+      "email":response.email
+    });
+    console.log("hello")
+    console.log(query)
+    res.redirect('http://localhost:3000/oldUser/?'+query)
+    // res.redirect("http://localhost:3000/procomp")  //might have to change to router.redirect
   })
   .catch(err=>{
-    console.log("could not get data from the database")
+    console.log(err)
   })
   
 
 });
 
 router.post("/profile",(req,res)=>{
- 
-  data=req.body
-  id = data.login_token
+  let info = req
+  let data=req.body
+  let id = data.login_token
 
   User.count({login_token:id}, (err,count)=>{
     if(count>0){ 
-      var query = {login_token:id};  /// add time and photo
+      var query = {login_token:id};  
       var newValues =  { $set:{ skill: data.skill, overview: data.overview, linkedin: data.linkedin, github: data.github , portfolio: data.portfolio, role: data.role, time: data.time, photo:data.photo }};
       User.updateOne(query,newValues,(err,response)=>{
         if(err){
@@ -55,6 +85,11 @@ router.post("/profile",(req,res)=>{
           throw err
         }
         console.log("document updated")
+        // console.log(data)
+        router.get('/data',(req,res)=>{
+          console.log(data)
+          res.json(data)
+        })
         res.json({status:"success"})
       })
     }
@@ -63,6 +98,9 @@ router.post("/profile",(req,res)=>{
       const user = new User(req.body)
       user.save()
       .then((result)=>{
+         router.get('/data',(req,res)=>{
+          res.json(data)
+        })
           res.json({status:"success"})
       })
       .catch((err)=>{
@@ -70,7 +108,6 @@ router.post("/profile",(req,res)=>{
       })
     }
   })
-
   // const user = new User(req.body)
   // user.save()
   // .then((result)=>{
@@ -104,4 +141,4 @@ function isLoggedIn(req, res, next) {
   res.redirect('/');
 }
 
-module.exports = router;
+export default router

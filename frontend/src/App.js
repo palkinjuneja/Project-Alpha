@@ -1,39 +1,40 @@
 
 import './App.css';
-
-//importing hooks from react module
 import {useEffect, useState} from 'react'
 import SigninOnboard from './components/figmaLogin';
-import LinkedInImport from './components/figmaProfile';
 import CompletedProfile from './components/figmaProfileComp';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import NavBar from './components/NavBar';
 import EditProfile from './components/EditProfile';
+import OldUser from './components/oldUser';
+import { UserContext } from './userContext';
+import UserView from './components/profile';
 
 function App() {
-
+  const [user,setUser] = useState("context message")
   return (
-    <Router>
-      <div className="App">
-        <div className="content">
-          <Switch>
-            <Route path='/first'>
-              <SigninOnboard />
-            </Route>
-            <Route path='/profile'>
-              <LinkedInImport />
-            </Route>
-            <Route path='/procomp'>
-              <CompletedProfile />
-            </Route>
-            <Route path='/edit'>
-             <EditProfile />
-            </Route>
-          </Switch>
+    <UserContext.Provider value={[user,setUser]}>
+      <Router>
+        <div className="App">
+          <div className="content">
+            <Switch>
+            
+              <Route path='/first'>
+                <SigninOnboard />
+              </Route>
+              <Route path='/profile'>
+                <UserView />
+              </Route>
+              <Route path='/edit'>
+               <EditProfile />
+              </Route>
+              <Route path='/oldUser/*'>
+               <OldUser />
+              </Route>              
+            </Switch>
+          </div>
         </div>
-      </div>
-    </Router>
-    
+      </Router>
+      </UserContext.Provider>    
   );
 }
 

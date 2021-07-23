@@ -1,7 +1,6 @@
 import { useParams } from 'react-router-dom';
 import {useState} from 'react';
-import axios from 'axios';
-import React ,{useEffect}from "react";
+import React ,{useEffect,useContext}from "react";
 import "../styles/EditProfile2.css";
 import NavBar from "./NavBar";
 import TimerIcon from '@material-ui/icons/Timer';
@@ -20,6 +19,7 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import { makeStyles } from '@material-ui/core/styles';
 import LinkIcon from '@material-ui/icons/Link';
 import DataService from "../services/backendRoutes"
+import { UserContext } from '../userContext';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -33,6 +33,8 @@ const useStyles = makeStyles((theme) => ({
   }))
   
 const EditProfile = () => {
+    const {user,setUser} = useContext(UserContext)
+    // console.log(value)
     const {userId} = useParams();
     const [userData,setUserData]= useState({});
     console.log(userId);
@@ -141,7 +143,8 @@ const submitHandler = (event)=>{
         
         DataService.setProfile(userData)
         .then(res=>{
-          console.log(res.data);
+           console.log(res.data);
+           //set user here
             window.location="http://localhost:3000/procomp";
         }
         )
@@ -234,7 +237,7 @@ const submitHandler = (event)=>{
           </div>
           <div className='OflexWrapperFourteen'>
             <div className='OflexWrapperTwenty'>
-              <div className='OuserView__basicInfoText__name'>{details.displayName}</div>
+              <div className='OuserView__basicInfoText__name'>{user.displayName}</div>
                 <div style={{display:"flex"}}>
                 <WorkIcon />
                 <form>
@@ -254,7 +257,7 @@ const submitHandler = (event)=>{
                 <div style={{fontFamily:"Open Sans",
                              fontWeight:"bold",
                              paddingTop:0}
-                    }><p>{details.emails[0].value}</p> </div>
+                    }><p>{user.email}</p> </div>
                     </div>
         
               <div style={{display:"flex"}}>

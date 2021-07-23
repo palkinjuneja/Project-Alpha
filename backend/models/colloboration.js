@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 // Collaboration Schema
 const collaborationSchema = new mongoose.Schema({
@@ -24,4 +24,4 @@ const collaborationSchema = new mongoose.Schema({
 });
 
 const Collaboration = mongoose.model('Collaboration', collaborationSchema);
-module.exports = Collaboration;
+export default Collaboration

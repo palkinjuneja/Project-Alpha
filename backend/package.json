@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Basic application for setting up Linkedin login using node and passport",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -17,6 +18,8 @@
     "express-session": "^1.17.1",
     "mongoose": "^5.13.3",
     "passport": "^0.4.1",
-    "passport-linkedin-oauth2": "^2.0.0"
+    "passport-linkedin-oauth2": "^2.0.0",
+    "querystring": "^0.2.0",
+    "url": "^0.11.0"
   }
 }
