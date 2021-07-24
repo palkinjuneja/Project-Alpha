@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import axios from 'axios';
 import {useState} from 'react'
 import Select from 'react-select'
@@ -11,6 +11,8 @@ import FindPeople from './FindPeople';
 import FooterModule from './FooterModule';
 import SearchIcon from '@material-ui/icons/Search';
 import { Button } from '@material-ui/core';
+import { CurrentUserContext } from "./CurrentUserContext"
+
 
 
 function UserMain() {
@@ -20,6 +22,8 @@ function UserMain() {
     const [searchType, setsearchType] = React.useState("All");
     const [searchValue,setsearchValue]= React.useState(null);
     const [currentPage,setcurrenPage]=React.useState(0);
+    const {currentUser,setCurrentUser} = useContext(CurrentUserContext)
+
     const start =currentPage*12;
     const end = start+12;
 
@@ -91,6 +95,7 @@ function UserMain() {
             if(userCall){
             fetchUsers();
             }
+            setCurrentUser("Updated")
         });
 
 
@@ -98,6 +103,7 @@ function UserMain() {
     return (
         < div className={styles.main}>
         <NavBar middleText="Users"/>
+        <p>{currentUser}</p>
         <div className = {styles.userInput}>
           <div  className = {styles.searchBar}>
             <input className={styles.searchInput} placeholder="Type a Role or Skill" type="text" onChange={(event)=>onTextInput(event)}></input>

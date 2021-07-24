@@ -1,7 +1,11 @@
 import React from 'react'
 import styles from '../stylesheet/NavBar.module.css'
+// import { useCurrentUser } from "./CurrentUserContext"
 
 function NavBar({middleText}) {
+    
+    // const { currentUser} = useCurrentUser();
+
     return (
         <div>
             <div className={styles.navBarRow}>
@@ -10,8 +14,8 @@ function NavBar({middleText}) {
                 </div>
                 <div className={styles.navBarColumn_Mid}>{middleText? middleText : ""}</div>
                 <div className={styles.navBarColumn_Right}>
-                    <a className ={styles.navBarProject} href={"/user/"+"60f2bd89c6897f3604ef596d"}>My Projects</a>
-			        <a className ={styles.navBarUser} href="#myProjects"></a>
+                    <a className ={styles.navBarProject} href={"/user/"}>MyProjects</a>
+			        <a className ={styles.navBarUser} href="#myProjects">Image</a>
                 </div>
 		    </div>
         </div>

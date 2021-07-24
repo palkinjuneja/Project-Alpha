@@ -1,0 +1,22 @@
+.ImageBox{
+    border:1px solid pink;
+    width: 30%;
+    height:30%;
+    margin-right: 10%;
+}
+.UserRole{
+    margin-left: 5%;
+    float : right;
+
+}
+.UserRole{
+    margin: 5%;
+
+}
+.UserSkill{
+    margin-top:5%;
+    margin-left: 5%;
+    color:black;
+    
+    
+}

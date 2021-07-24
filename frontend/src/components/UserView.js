@@ -57,7 +57,7 @@ function UserView() {
                    <p className={styles.userView__experience__headings}>Experience</p>
                    <p className={styles.userView__experience__text}>{userData.overview}</p>
                    <p className={styles.userView__experience__headings}>Skills</p>
-                   {userSkill ? <div>{userSkill.map((eachSkill)=>(<p className={styles.userView__experience__text}>{userSkill.indexOf(eachSkill)+1}.   {eachSkill}</p>))}
+                   {userSkill ? <div>{userSkill.map((eachSkill)=>(<p className={styles.userView__experience__text}>{userSkill.indexOf(eachSkill)+1}.{eachSkill}</p>))}
                    </div>:<p></p>}
                </div>
                <div className={styles.userView__availability}><EventAvailableIcon/> <p className={styles.userView__availability__text}> &nbsp;&nbsp;{userData.availability} Hrs per week</p></div>
