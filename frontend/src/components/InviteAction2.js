@@ -10,6 +10,8 @@ import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
 import style from '../stylesheet/InviteAction.module.css'
+import MailIcon from '@material-ui/icons/Mail';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 const styles = (theme) => ({
   root: {
@@ -57,7 +59,7 @@ const DialogTitle = withStyles(stylesTitle)((props) => {
 const DialogContent = withStyles((theme) => ({
   root: {
     padding: theme.spacing(2),
-    height:'150px'
+    height:'500px'
   },
 }))(MuiDialogContent);
 
@@ -65,10 +67,11 @@ const DialogActions = withStyles((theme) => ({
   root: {
     margin: 0,
     padding: theme.spacing(1),
+    justifyContent: 'center'
   },
 }))(MuiDialogActions);
 
- function InviteAction2({modalAction,userName,userRole,skills,userImage,projectId,collaborationId,userId,ownerName,ownerId}) {
+ function InviteAction2({modalAction,userName,userRole,userLinkedIn, userEmail, skills,userImage,projectId,collaborationId,userId,ownerName,ownerId}) {
   const [open, setOpen] = React.useState(modalAction);
   const [request,setRequest] = React.useState("");
   var skillList = [];
@@ -94,6 +97,7 @@ const DialogActions = withStyles((theme) => ({
       
       axios.put(getRequest).then(res=>{
             console.log("Request Handled Successfully");
+            setOpen(false)
         }).catch(err=>{
             console.log("error:",{err});
             return (
@@ -103,15 +107,17 @@ const DialogActions = withStyles((theme) => ({
     }
     
     
-  }, [])
+  }, [request])
 
   const handleAccept=((event)=>{
       console.log("Request Accepted");
-      setRequest("accepted")     
+      setRequest("accepted")  
+      handleClose()   
   })
   const handleDecline=((event)=>{
     console.log("Request Declined")
     setRequest("rejected")
+    handleClose()
 })
 
 console.log("EachSkill ",skills)
@@ -124,28 +130,36 @@ console.log("EachSkill ",skills)
         <DialogContent dividers>
         
           <Typography gutterBottom>
-          <span className={style.ImageBox}>{userImage}</span>
-            <span className={style.UserName}>{userName}</span>
-          </Typography>
-          <Typography gutterBottom>
-            <span className={style.UserRole}>{userRole}</span>
+          <div style={{display:'flex', justifyContent:'space-between',}}>
+           
+           <img className={style.ImageBox}src ="https://static.overlay-tech.com/assets/2ec1cdf0-ee25-4b06-a775-86ba85ff4196.png"/>
+           
+           <span style={{display:'flex' , flexDirection:'column', justifyContent:'center',alignItems:'center', justifyContent:'center'}}>
+              <p><b>{userName}</b> <br></br> 
+              {userRole} </p></span>
+              <span style={{display:'flex' , flexDirection:'column', justifyContent:'center'}}> <a href={userLinkedIn}><LinkedInIcon/></a> <a href={userEmail}><MailIcon/></a></span>
+           </div>
+          <hr></hr>
           </Typography>
          <Typography gutterBottom>
-          <ul className={style.UserSkill}>           
+           <div style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
+           <p style={{padding:'0px', margin:'0px'}}> <b>Skills</b></p>
+          <ul>           
             {skills.map((eachSkill) => {
-                
                 return (
                   <li>{eachSkill}</li>
                 )
             })}
           </ul>
+           </div>
+           
           </Typography>  
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={handleAccept} color="success">
+          <Button autoFocus onClick={handleAccept} style={{backgroundColor:'#08ad2c', color:'white'}}>
             Accept
           </Button>
-          <Button autoFocus onClick={handleDecline} color="danger">
+          <Button autoFocus onClick={handleDecline} style={{backgroundColor:'#F42B2B', color:'white'}}>
             Decline
           </Button>
         </DialogActions>

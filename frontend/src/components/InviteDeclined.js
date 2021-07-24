@@ -13,6 +13,7 @@ import style from '../stylesheet/InviteAction.module.css'
 import MailIcon from '@material-ui/icons/Mail';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
+
 const styles = (theme) => ({
   root: {
     margin: 0,
@@ -59,7 +60,7 @@ const DialogTitle = withStyles(stylesTitle)((props) => {
 const DialogContent = withStyles((theme) => ({
   root: {
     padding: theme.spacing(2),
-    height:'150px'
+    maxHeight:'500px'
   },
 }))(MuiDialogContent);
 
@@ -67,6 +68,7 @@ const DialogActions = withStyles((theme) => ({
   root: {
     margin: 0,
     padding: theme.spacing(1),
+    justifyContent:'center'
   },
 }))(MuiDialogActions);
 
@@ -88,26 +90,33 @@ const DialogActions = withStyles((theme) => ({
     <div>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-          Collaboration Request Declined &nbsp; &nbsp; &nbsp; &nbsp;
+          Request Declined
         </DialogTitle>
         <DialogContent dividers>
         
           <Typography gutterBottom>
-          <span className={style.ImageBox}>Image</span>
-            <span className={style.UserName}>{ownerName}</span>
+          
+          <div style={{display:'flex', justifyContent:'space-between',}}>
+           
+           <img className={style.ImageBox}src ="https://static.overlay-tech.com/assets/2ec1cdf0-ee25-4b06-a775-86ba85ff4196.png"/>
+           
+           <span style={{display:'flex' , flexDirection:'column', justifyContent:'center',alignItems:'center', justifyContent:'center'}}>
+              <p><b>{ownerName}</b> <br></br> 
+              {ownerRole} </p></span>
+              <span style={{display:'flex' , flexDirection:'column', justifyContent:'center'}}> <a href={ownerLinkedIn}><LinkedInIcon/></a> <a href={ownerEmail}><MailIcon/></a></span>
+           </div>
+          <hr></hr>
           </Typography>
-          <Typography gutterBottom>
-            <span className={style.UserRole}>{ownerRole}</span>
-          </Typography>
+          
          <Typography gutterBottom>
-           Better Luck Next Time !! 
-           <br></br>
-           Unfortunately {ownerName} has declined your request for collaboration on {projectName}
+           
+           <p>Better Luck Next Time !! </p>
+           <p>Unfortunately <b>{ownerName}</b> has declined your request for collaboration on project <b>{projectName}</b></p>
          
           </Typography>  
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={handleAccept} color="success">
+          <Button autoFocus onClick={handleAccept}  style={{backgroundColor:'#08ad2c', color:'white'}}>
             Explore Projects
           </Button>
         </DialogActions>

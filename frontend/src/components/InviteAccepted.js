@@ -67,6 +67,7 @@ const DialogActions = withStyles((theme) => ({
   root: {
     margin: 0,
     padding: theme.spacing(1),
+    justifyContent:'center'
   },
 }))(MuiDialogActions);
 
@@ -93,21 +94,24 @@ const DialogActions = withStyles((theme) => ({
         <DialogContent dividers>
         
           <Typography gutterBottom>
-          <span className={style.ImageBox}>Image</span>
-            <span className={style.UserName}>{ownerName}</span>
-          </Typography>
-          <Typography gutterBottom>
-            <span className={style.UserRole}>{ownerRole}</span>
+         
+          <div style={{display:'flex', justifyContent:'space-between',}}>
+           
+           <img className={style.ImageBox}src ="https://static.overlay-tech.com/assets/2ec1cdf0-ee25-4b06-a775-86ba85ff4196.png"/>
+           
+           <span style={{display:'flex' , flexDirection:'column', justifyContent:'center',alignItems:'center', justifyContent:'center'}}>
+              <p><b>{ownerName}</b> <br></br> 
+              {ownerRole} </p></span>
+              <span style={{display:'flex' , flexDirection:'column', justifyContent:'center'}}> <a href={ownerLinkedIn}><LinkedInIcon/></a> <a href={ownerEmail}><MailIcon/></a></span>
+           </div>
+          <hr></hr>
           </Typography>
          <Typography gutterBottom>
          {ownerName} has accepted your request for collaboration on {projectName}
-         <p>
-             <a target="_blank" href= {ownerLinkedIn}><LinkedInIcon/></a>
-         <a target="_blank" href= {ownerEmail}><MailIcon/></a></p>
           </Typography>  
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={handleAccept} color="success">
+        <Button autoFocus onClick={handleAccept}  style={{backgroundColor:'#08ad2c', color:'white'}}>
             Project Link
           </Button>
         </DialogActions>
