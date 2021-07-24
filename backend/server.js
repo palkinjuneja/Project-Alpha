@@ -10,7 +10,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 const app = express();
 app.use(cors());
-app.use('/getUsers',route);
+app.use('/',route);
 const dbPort = process.env.PORT;
 const dbHost =process.env.MONGODB_URL;
 console.log(dbHost);
