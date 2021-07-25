@@ -276,7 +276,9 @@ const submitHandler = (event)=>{
                     <div>
                         <textarea style={{height:393,
                         width:717,
-                        fontSize:20}}
+                        fontSize:20,
+                          backgroundColor:'antiquewhite'
+                        }}
                         type="text"
                         value={experience}
                         onChange={handleexperience}

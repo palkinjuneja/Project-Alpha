@@ -6,6 +6,11 @@
     margin-top: 8px;
 }
 
+.editProfileButton:hover{
+  background-color:black; /* Green */
+  color: white;
+}
+
 .editProfile {
   background-color: rgba(255, 255, 255, 1);
   /* padding: 69px 0 168px; */

@@ -108,16 +108,7 @@ const NewProfile = () => {
     setInputFields(values);
   }
 
-  const retrieveProfile = () => {
-    DataService.getProfile()
-      .then(response => {
-        console.log(response.data);
-        setDetails(response.data)
-      })
-      .catch(e => {
-        console.log(e);
-      })
-  }
+
 
   const retrieveData = () => {
 
@@ -213,8 +204,8 @@ const NewProfile = () => {
                         id="linkedin"
                         type="text"
                         value={linkedin}
-                        onChange={handlelinkedin}
-                        placeholder="Your Linkedin Account"
+                        // onChange={handlelinkedin}
+                        // placeholder="Your Linkedin Account"
                         readOnly="readonly"
                       ></input>
                     </div>
@@ -229,8 +220,8 @@ const NewProfile = () => {
                         id="github"
                         type="text"
                         value={github}
-                        onChange={handlegithub}
-                        placeholder="Your Github Link"
+                        // onChange={handlegithub}
+                        // placeholder="Your Github Link"
                         readOnly="readonly"
                       ></input>
                     </div>
@@ -245,8 +236,8 @@ const NewProfile = () => {
                         id="portfolio"
                         type="text"
                         value={profile}
-                        onChange={handleprofile}
-                        placeholder="Your Portfolio Link"
+                        // onChange={handleprofile}
+                        // placeholder="Your Portfolio Link"
                         readOnly="readonly"
                       ></input>
                     </div>
@@ -265,8 +256,8 @@ const NewProfile = () => {
                     }}
                       type="text"
                       value={experience}
-                      onChange={handleexperience}
-                      placeholder="Tell us something about your previous experience..."
+                      // onChange={handleexperience}
+                      // placeholder="Tell us something about your previous experience..."
                     ></textarea>
                   </div>
                 </form>
