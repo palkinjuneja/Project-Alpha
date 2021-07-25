@@ -53,6 +53,7 @@ function MyProject(props) {
         return(
           <div>
             <h1 style={{color: "red" , textAlign: "center"}}>No Projects Found!!</h1>
+            <h1 style={{color: "green" , textAlign: "center"}}>Please Start Contributing</h1>
           </div>
         )
       }
