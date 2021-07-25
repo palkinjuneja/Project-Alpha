@@ -93,7 +93,7 @@ function CreateProject(props) {
     </div>
   </div>
 
-    <div style={{paddingLeft: 50, paddingRight: 50}}>
+    <div style={{paddingLeft: "3%"}}>
     <pre style = {{background: "white", border: "none"}}></pre>
     <pre style = {{background: "white", border: "none"}}></pre>
 

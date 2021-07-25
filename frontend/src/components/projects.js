@@ -84,7 +84,7 @@ function Projects(props) {
 
     <div style={{paddingLeft: 50, paddingRight: 50}}>
   <div className = "container-fluid">
-      <h3>Find Ideas, Collaborate together and Build the Portfolio for your Career</h3>
+      <h2>Find Ideas, Collaborate together and Build the Portfolio for your Career</h2>
   </div>
 
   <pre style = {{background: "white", border: "none"}}>
