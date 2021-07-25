@@ -8,6 +8,7 @@ import NavBar from './NavBar';
 import dotenv from 'dotenv'
 import InviteClick from './InviteClick';
 import {useState} from 'react';
+import Collaborations from './Collaborations';
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
             
             <Route path="/User" component={UserMain}/>
              <Route path="/Project/:ProjectId" component={FindPeople}/>
-           <Route path="/Project" component={FindPeople}/>
+           <Route path="/Project" component={Collaborations}/>
             <Route path ="/" component={InviteClick}/>              
         </Switch>
       </Router>

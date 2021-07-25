@@ -73,7 +73,6 @@ function UserMain() {
             setuserList(res.data);
             setuserCall(false);
             setloading(false);
-           
             console.log(`Fetched Users are ${res.data}`);
         }).catch(err=>{
             console.log("error:",{err});

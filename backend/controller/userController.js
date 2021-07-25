@@ -49,34 +49,49 @@ export const userGetterById = async (request,response)=>{
     }).catch(err=>{response.send("Exception Occurred");})  
 }
 
-export const collaborationRequestGetter =  (request,response)=>{
+
+
+export const collaborationRequestGetter =  async (request,response)=>{
     let requiredStatus = request.query.status;
-    let projectOwner = request.query.user;
+    let user = request.query.user;
+    let searchKey = request.query.key
     console.log("requiredStatus : ",requiredStatus, "owner : ", projectOwner);
     try{
-        let responseList =[];
-        let colab =   Collaboration.find({"status_of_request":requiredStatus , "receiver":"60f597a6d5ede84005e51708"}).then(res =>{
-        console.log("result is ",res);
-        
-        for(let i=0;i<res.length;i++){
-            const finalResponse ={};
-            let user =  User.findById(res[i].sender).then(userResponse =>{
-                console.log("Got user")
-                finalResponse['userDetails']="userResponse"
-                console.log("finalResponse ", finalResponse)
-                return finalResponse
-            })
-            responseList.push(user)
-        }
-        response.send(responseList)   
+        let collabResponse = await Collaboration.find({"status_of_request":requiredStatus , searchKey:user}).then(res =>{
+        response.send(res)
     })
 
     }catch(err){
         console.log(err);
     }
+}
 
-    
+export const collaborationRequestGetterFull =  async (request,response)=>{
+    let requiredStatus = request.query.status;
+    let projectOwner = request.query.user;
+    console.log("requiredStatus : ",requiredStatus, "owner : ", projectOwner);
+    try{
+        let collabResponse = await Collaboration.find({"status_of_request":requiredStatus , "receiver":"60f597a6d5ede84005e51708"}).then(res =>{
+        return res
+    })
+    let compiledResult = async ()=> {
+        let arrayList= await collabResponse.forEach(element => {
+            let user = User.findById(element.sender).then(userResponse =>{
+                console.log("Got user"+userResponse)
+                return userResponse
+            })
+        console.log(user)
+        //arrayList.push(user)
 
+        });
+        return arrayList
+    }
+
+    response.send(compiledResult())
+
+    }catch(err){
+        console.log(err);
+    }
 }
 
 
