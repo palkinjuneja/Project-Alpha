@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Footer from './footer';
 import '../stylesheet/app.css'
 
 
-function CreateProject(props) {
+function EditProject(props) {
 
     let [project, setData] = useState({
         project_name: "",
@@ -63,15 +63,13 @@ function CreateProject(props) {
 
             const projectData = {
                 project_name: project.project_name,
-                owner: "Nayan",
                 description: project.description,
                 domain: project.domain,
-                owner_id: "60d77445f6098441c5c3d439",
                 requirements: reqArray,
                 status: project.status
             }
-            
-            axios.post("http://localhost:8000/project/create", projectData)
+
+            axios.put("http://localhost:8000/project/editProject/"+props.match.params.id, projectData)
             .then(res=>{
                 window.location="http://localhost:3000/project";
             }
@@ -79,6 +77,36 @@ function CreateProject(props) {
     		.catch(err=>console.log("Error: "+err));
         }
     }
+
+
+    const getData = async ()=>{
+        const res = await axios.get("http://localhost:8000/project/"+props.match.params.id);
+        const project = res.data;
+
+        if(project !== ""){
+            let req = "", reqLength = project.requirements.length;
+            const reqArray = project.requirements;
+
+            for(let i=0;i<reqLength;i++)
+            {
+                if(i!=reqLength-1)
+                    req=req+reqArray[i].trim()+", ";
+                else req=req+reqArray[i];
+            }
+
+            setData({
+                project_name: project.project_name,
+                owner: project.owner,
+                description: project.description,
+                domain: project.domain,
+                owner_id: project.owner_id,
+                requirements: req,
+                status: project.status
+            });
+        }
+    }
+
+    useEffect(()=>getData(),[]);
 
     return (
         <div>
@@ -125,7 +153,7 @@ function CreateProject(props) {
                             <option value="Closed">Closed</option>
                         </select>
                     </label>
-                    <input type="submit" className="btn btn-primary" value="Submit" style={{marginLeft: 19}}/>
+                    <input type="submit" className="btn btn-primary" value="Update" style={{marginLeft: 19}}/>
                 </div>
             </div>
         </form>
@@ -140,4 +168,4 @@ function CreateProject(props) {
 )
 }
 
-export default CreateProject;
+export default EditProject;

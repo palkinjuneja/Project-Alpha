@@ -44,4 +44,19 @@ projectRouter.post('/create/', async(req, res) => {
     }
 });
 
+//Update Project
+projectRouter.put('/editProject/:id', async(req, res) => {
+    try{
+        Project.findByIdAndUpdate(req.params.id, { $set: req.body})
+        .then((project)=>{
+            res.json(project);
+            res.status(200);
+        })
+    }
+    catch(err){
+        console.log(err);
+        res.json(err);
+    }
+});
+
 module.exports = projectRouter;

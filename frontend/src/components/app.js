@@ -4,6 +4,7 @@ import '../stylesheet/app.css';
 import MyProject from './myProjects';
 import Project from './projects';
 import CreateProject from './createProject';
+import EditProject from './editProject';
 
 function app() {
   return (
@@ -11,6 +12,7 @@ function app() {
         <Route path="/project" component={Project} />
         <Route path="/user/:id" component={MyProject} />
         <Route path="/createProject" component={CreateProject} />
+        <Route path="/editProject/:id" component={EditProject} />
     </Router>
   );
 }

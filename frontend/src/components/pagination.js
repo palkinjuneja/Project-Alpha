@@ -20,7 +20,7 @@ function Pagination({showPerPage, pageNoChange, projectCount}) {
                 setCounter(counter-1);
         }
         else if(type === "next"){
-            if(counter !== noOfPages)
+            if(counter < noOfPages)
                 setCounter(counter+1);
         }
     };
