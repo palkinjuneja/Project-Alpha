@@ -4,6 +4,7 @@ const app = express();
 const dotenv = require('dotenv');
 const projectRouter = require('./routers/projectRouter');
 const userRouter = require('./routers/userRouter');
+const requestRouter = require('./routers/requestRouter');
 
 app.use(cors());
 
@@ -20,6 +21,9 @@ app.use('/user', userRouter);
 
 //Project Router
 app.use('/project', projectRouter);
+
+//Request Router
+app.use('/request', requestRouter);
 
 //Server
 const PORT = 8000

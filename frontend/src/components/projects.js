@@ -104,7 +104,7 @@ function Projects(props) {
                         <h3 className="card-title">{project.project_name}</h3>
                         <h5 className="card-text">Satus: {project.status}</h5>
                         <p className="card-text">{project.description}</p>
-                        <a href="#" >More</a>
+                        <a href={"/projectDetails/"+project._id}>More</a>
                         <button type="button" class="btn btn-primary" style = {{float: 'right'}} onClick={event =>  window.location.href='http://localhost:3000/editProject/'+project._id}>Edit</button>
                       </div>
                     </div>
