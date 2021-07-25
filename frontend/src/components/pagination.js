@@ -9,8 +9,12 @@ function Pagination({showPerPage, pageNoChange, projectCount}) {
         setnoOfPages(Math.ceil(projectCount/showPerPage));
         const end = showPerPage * counter;
         const start = end-showPerPage;
-        pageNoChange(start, end);
-    }, [counter, noOfPages])
+
+        console.log(start, end, counter);
+
+        pageNoChange(start, end, counter);
+
+    }, [counter, noOfPages, projectCount])
 
     const onButtonClick = (type) =>{
         if(type === "prev"){
@@ -20,7 +24,7 @@ function Pagination({showPerPage, pageNoChange, projectCount}) {
                 setCounter(counter-1);
         }
         else if(type === "next"){
-            if(counter < noOfPages)
+            if(counter !== noOfPages)
                 setCounter(counter+1);
         }
     };
@@ -29,17 +33,17 @@ function Pagination({showPerPage, pageNoChange, projectCount}) {
         <div className="d-flex justify-content-center">
             <nav aria-label="Page navigation">
             <ul className="pagination">
-                <li className="page-item"><a className="page-link" href="#" onClick={()=>onButtonClick("prev")}>Previous</a></li>
+                <li className="page-item"><a className="page-link" href="#" onClick={()=>onButtonClick("prev")} style={{borderColor: "#00AA9E"}}>Previous</a></li>
                 {
                     new Array(Math.ceil(projectCount/showPerPage)).fill("0").map((element, index)=>{
                         return(
                             <li className={`page-item ${index+1 === counter?"active":null}`}>
-                                <a className="page-link" href="#" onClick={()=>setCounter(index+1)}>{index+1}</a>
+                                <a className="page-link" href="#" onClick={()=>setCounter(index+1)} style={{borderColor: "#00AA9E"}}>{index+1}</a>
                             </li>
                         )
                     })
                 }
-                <li className="page-item"><a className="page-link" href="#" onClick={()=>onButtonClick("next")}>Next</a></li>
+                <li className="page-item"><a className="page-link" href="#" onClick={()=>onButtonClick("next") } style={{borderColor: "#00AA9E"}}>Next</a></li>
             </ul>
             </nav>
         </div>

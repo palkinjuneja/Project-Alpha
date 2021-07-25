@@ -23,10 +23,50 @@ function Projects(props) {
     useEffect(() => getData(), [projects]);
 
     const [showPerPage, setPerPage] = useState(12);
-    const [pageNumber, setPageNumber] = useState({ start: 0, end: showPerPage});  
+    const [pageNumber, setPageNumber] = useState({ start: 0, end: showPerPage, cnt: 0});  
 
-    const pageNoChange = (start, end)=>{
-      setPageNumber({start, end});
+    const pageNoChange = (start, end, counter)=>{
+      let cnt = projects.length-showPerPage*(counter-1);
+
+      setPageNumber((prevState)=>{
+        return {...prevState, start:start, end:end, cnt: cnt}
+      });
+    }
+
+    const getSpace = () =>{
+      if(pageNumber.cnt<=4){
+        return(
+          <>
+            <pre style = {{background: "white", border: "none"}}>
+
+            </pre>
+            <pre style = {{background: "white", border: "none"}}>
+              
+            </pre>
+            <pre style = {{background: "white", border: "none"}}>
+              
+            </pre>
+            <pre style = {{background: "white", border: "none"}}>
+              
+            </pre>
+          </>
+        )
+      }
+    }
+
+    const getFooter = () =>{
+      if(pageNumber.cnt>4){
+        return (
+          <Footer />
+        )
+      }
+      else {
+        return(
+          <div>
+            <Footer />
+          </div>
+        )
+      }
     }
 
     return (
@@ -36,6 +76,7 @@ function Projects(props) {
             <span style={{fontSize:37, color:"pink"}}>O</span><span style={{fontSize:27, color:"white"}}>union</span>
           </span>
     <div className="topnav-right" style={{paddingRight: 63}}>
+      <a href={"/project/"} className = "active">Home</a>
       <a href={"/user/"+"60f2bd89c6897f3604ef596d"}>My Projects</a>
       <a href="#myProjects">Display Pic</a>
     </div>
@@ -58,7 +99,7 @@ function Projects(props) {
         projects.slice(pageNumber.start,pageNumber.end).map((project) => {
           return (
             <div className="col-sm-3" key={project._id}>
-                    <div className="card">
+                    <div className="card" style={{borderColor: "#00AA9E"}}>
                       <div className="card-body">
                         <h3 className="card-title">{project.project_name}</h3>
                         <h5 className="card-text">Satus: {project.status}</h5>
@@ -73,14 +114,14 @@ function Projects(props) {
         })
       }
     </div>
-    <div className="container-fluid">
-    <Pagination showPerPage={showPerPage} pageNoChange={pageNoChange} projectCount={projects.length}/>
     </div>
+    {getSpace()}
+    <div className="container-fluid">
+      <Pagination showPerPage={showPerPage} pageNoChange={pageNoChange} projectCount={projects.length}/>
     </div>
     <pre style = {{background: "white", border: "none"}}>
-
     </pre>
-    <Footer />
+    {getFooter()}
   </div>
 )
 }

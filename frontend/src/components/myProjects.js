@@ -28,6 +28,36 @@ function MyProject(props) {
       getData();
     }, []);
 
+
+    const getDiv = () =>{
+      if(projects.length){
+        return (
+          projects.map((project) => {
+            return (
+              <div className="col-sm-3" key={project._id}>
+                      <div className="card" style={{borderColor: "#00AA9E"}}>
+                        <div className="card-body">
+                          <h3 className="card-title">{project.project_name}</h3>
+                          <h5 className="card-text">Satus: {project.status}</h5>
+                          <p className="card-text">{project.description}</p>
+                          <a href="#" >More</a>
+                        </div>
+                      </div>
+                      <br/><br/>
+                  </div>
+            );
+          })
+        )
+      }
+      else{
+        return(
+          <div>
+            <h1 style={{color: "red" , textAlign: "center"}}>No Projects Found!!</h1>
+          </div>
+        )
+      }
+    }
+
     return (
         <div>
           <div className="topnav">
@@ -36,6 +66,7 @@ function MyProject(props) {
           </span>
     <div className="topnav-right" style={{paddingRight: 63}}>
       <a href="http://localhost:3000/project">Home</a>
+      <a href={"http://localhost:3000/user/"+props.match.params.id} className="active">My Projects</a>
       <a href="#myProjects">Display Pic</a>
     </div>
   </div>
@@ -55,23 +86,7 @@ function MyProject(props) {
   </pre>
 
     <div className="container-fluid">
-      {
-        projects.map((project) => {
-          return (
-            <div className="col-sm-3" key={project._id}>
-                    <div className="card">
-                      <div className="card-body">
-                        <h3 className="card-title">{project.project_name}</h3>
-                        <h5 className="card-text">Satus: {project.status}</h5>
-                        <p className="card-text">{project.description}</p>
-                        <a href="#" >More</a>
-                      </div>
-                    </div>
-                    <br/><br/>
-                </div>
-          );
-        })
-      }
+    { getDiv() }
     </div>
     </div>
     <div className="stickBttm">
@@ -82,10 +97,3 @@ function MyProject(props) {
 }
 
 export default MyProject;
-
-
-
-
-
-
-
