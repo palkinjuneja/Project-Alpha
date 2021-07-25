@@ -2,6 +2,7 @@ import React from 'react'
 import '../styles/NavBar.css'
 
 function NavBar({middleText}) {
+    const data = JSON.parse(localStorage.getItem('userDetails'))
     return (
         <div>
             <div className='navBarRow'>
@@ -11,7 +12,9 @@ function NavBar({middleText}) {
                 <div className='navBarColumn_Mid'>{middleText? middleText : ""}</div>
                 <div className='navBarColumn_Right'>
                     <a className ='navBarProject' href={"/user/"+"60f2bd89c6897f3604ef596d"}>My Projects</a>
-			        <a className ='navBarUser' href="#myProjects"></a>
+			        <a className ='navBarUser' href="#myProjects">
+                        {/* <img src={data.photo} height="10px" width="10px"/> */}
+                    </a>
                 </div>
 		    </div>
         </div>

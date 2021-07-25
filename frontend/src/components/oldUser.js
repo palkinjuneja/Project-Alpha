@@ -20,7 +20,7 @@ import {
 
 const OldUser=()=> {    
     const {search} = useLocation()
-    const{name, email, login_token,skill,overview,portfolio,role,photo, github, linkedin,time}=queryString.parse(search)
+    const{name,email,login_token,skill,overview,portfolio,role,photo, github, linkedin,time}=queryString.parse(search)
     const obj ={
       name: name,
       email:email,
@@ -37,22 +37,21 @@ const OldUser=()=> {
     const [user,setUser]  = useContext(UserContext)
  
     useEffect(()=>{
-      console.log("hello")
-      //setUser("message")
-      //window.location="http://localhost:3000/profile"
+     
+      localStorage.setItem('userDetails',JSON.stringify(obj))
+
+      if(obj.overview) window.location="http://localhost:3000/profile"
+      else window.location="http://localhost:3000/edit"
     },[])   //put user
 
-    function onClickHandler(){
-      setUser("new value")
-      //window.location="http://localhost:3000/profile"
-    }
+
 
     return (
         <div> 
-            <h1>Unauthorised access {search} </h1>
-            <h2>User: {JSON.stringify(user)}</h2>
-            <h2>Object : {JSON.stringify(obj)}</h2>
-            <button onClick={onClickHandler}></button>
+            <h1>Redirecting... {search} </h1>
+            {/* <h2>User: {JSON.stringify(user)}</h2>
+            <h2>Object : {JSON.stringify(obj)}</h2> */}
+          
         </div>
     )
 }

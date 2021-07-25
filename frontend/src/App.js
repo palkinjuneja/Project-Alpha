@@ -8,28 +8,32 @@ import EditProfile from './components/EditProfile';
 import OldUser from './components/oldUser';
 import { UserContext } from './userContext';
 import UserView from './components/profile';
+import NewProfile from './components/newProfile';
 
 function App() {
   const [user,setUser] = useState("context message")
+
   return (
     <UserContext.Provider value={[user,setUser]}>
       <Router>
         <div className="App">
           <div className="content">
-            <Switch>
-            
+            <Switch>            
               <Route path='/first'>
                 <SigninOnboard />
               </Route>
-              <Route path='/profile'>
-                <UserView />
+                <Route path='/profile'>
+              <NewProfile />
               </Route>
               <Route path='/edit'>
                <EditProfile />
               </Route>
               <Route path='/oldUser/*'>
                <OldUser />
-              </Route>              
+              </Route>  
+              {/* <Route path='/newProfile'>
+               
+              </Route>              */}
             </Switch>
           </div>
         </div>

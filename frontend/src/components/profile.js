@@ -1,7 +1,6 @@
 import React, { useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import {useState} from 'react';
-import DataService from "../services/backendRoutes"
 
 import styles from '../styles/profile.module.css';
 
@@ -18,35 +17,32 @@ function UserView() {
     const [userData,setUserData]= useState({});
     const [userSkill,setuserSkill]=useState("");
     const [user,setUser] = useContext(UserContext)
+    const data=JSON.parse(localStorage.getItem('userDetails'))
+
+    const onEditHandler=()=>{
+        window.location="http://localhost:3000/edit";
+    }
+
     useEffect(()=>{
-        
-        
-        // const getRequest = process.env.REACT_APP_USER_ID+userId;
-        // axios.get(getRequest).then(res=>{
-        //     setUserData(res.data);
-        //     console.log(res.data.skill);
-        //     setuserSkill(res.data.skill);
-        // }).catch(err=>{
-        //     console.log("error:",{err});
-        //     return (
-        //     <div>{err}</div>
-        //     )
-        // })
+      
     },[])
     return (
         <div className={styles.userView__Page}>
            <NavBar middleText="User Profile"/>
            <div className={styles.userView__Banner}>
+               <button className={styles.editProfile} onClick={onEditHandler}>
+                   Edit Profile
+               </button>
            </div>
            <div className={styles.userView__mainDiv}>
                <div className={styles.userView__basicInfo}>
                    <div className={styles.userView__basicInfoImage}>
-                   <img alt="" className={styles.userView__imageRectabgle} src="https://static.overlay-tech.com/assets/2ec1cdf0-ee25-4b06-a775-86ba85ff4196.png"/>
+                   <img alt="" className={styles.userView__imageRectabgle} src={data.photo}/>
                    </div>
                    <div className={styles.userView__basicInfoText}>
-                   <div className={styles.userView__basicInfoText__name}>{userData.name}</div>
-                   <div className={styles.userView___basicInfoText__role}>{userData.role}</div>
-                   <div className={styles.userView___basicInfoText__email}><p>{userData.email}</p></div>
+                   <div className={styles.userView__basicInfoText__name}>Name: {data.name}</div>
+                   <div className={styles.userView___basicInfoText__role}>Role: {data.role}</div>
+                   <div className={styles.userView___basicInfoText__email}><p>email : {data.email}</p></div>
                    <div className ={styles.userView__socialLinks}>
                        <div className={styles.userView__Link}>
                           <a target="_blank" href= {userData.linkedin}><LinkedInIcon/></a>
@@ -57,9 +53,9 @@ function UserView() {
                    </div>
                 </div>
                <div className={styles.userView__experience}>
-                   <p className={styles.userView__experience__headings}>{JSON.stringify(user)}</p>
+                   <p className={styles.userView__experience__headings}>Experience :{data.overview}</p>
                    <p className={styles.userView__experience__text}>{userData.overview}</p>
-                   <p className={styles.userView__experience__headings}>{user}</p>
+                   <p className={styles.userView__experience__headings}></p>
                    {userSkill ? <div>{userSkill.map((eachSkill)=>(<p className={styles.userView__experience__text}>{userSkill.indexOf(eachSkill)+1}.   {eachSkill}</p>))}
                    </div>:<p></p>}
                </div>

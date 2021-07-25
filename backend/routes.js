@@ -6,7 +6,6 @@ var router = express.Router();
 
 import User from './models/user.js'
 
-// const User = require('./models/user')
 
 router.get('/', function (req, res) {
   res.send('<h3>Sample Page</h3>')
@@ -17,11 +16,12 @@ router.get('/profile', isLoggedIn, async function (req, res) {   //ask the team
   let details = req.user    // details returned by lindekin api
   let id = details.id      // linkedin id
 
+
   await router.get('/details', (req, res) => {
     res.json(details)
 
   })
-
+  
   
   await User.findOne({
     login_token:id
@@ -29,25 +29,28 @@ router.get('/profile', isLoggedIn, async function (req, res) {   //ask the team
   .then(response=>{
     if(!response){
       
-      // const query = querystring.stringfy({
-      //   "login_token": details.id,
-      //   "name":details.displayName,
-      //   "photo": details.photo[3].value,
-      //   "email":details.email
-      // });
-      // res.redirect(
-      //   'http://localhost:3000/newUser/?'+query
-      // )
-      res.redirect("http://localhost:3000/edit") 
-    }
+      const obj = querystring.stringify({
+        "login_token":id,
+        "name":details.displayName,
+        "photo":details.photos[3].value,
+        "email": details.emails[0].value,
+        "skill":[],
+        "overview":"",
+        "linkedin":"",
+        "github":"",
+        "portfolio":"",
+        "role":"",
+        "time":"",
+      });
+   
+      res.redirect('http://localhost:3000/oldUser/?'+obj)
+      // res.redirect("http://localhost:3000/edit") 
+    }else {
 
-    router.get('/data',(req,res)=>{
-      res.json(response)
-    })
-
+ 
     const query = querystring.stringify({
-      "login_token": response.login_token,
-      "name":response.email,
+      "login_token":response.login_token,
+      "name":response.name,
       "skill":response.skill,
       "overview":response.overview,
       "linkedin":response.linkedin,
@@ -58,9 +61,9 @@ router.get('/profile', isLoggedIn, async function (req, res) {   //ask the team
       "photo":response.photo,
       "email":response.email
     });
-    console.log("hello")
     console.log(query)
     res.redirect('http://localhost:3000/oldUser/?'+query)
+  }
     // res.redirect("http://localhost:3000/procomp")  //might have to change to router.redirect
   })
   .catch(err=>{
@@ -108,14 +111,7 @@ router.post("/profile",(req,res)=>{
       })
     }
   })
-  // const user = new User(req.body)
-  // user.save()
-  // .then((result)=>{
-  //     router.redirect('http://localhost:3000/procomp')
-  // })
-  // .catch((err)=>{
-  //     console.log(err)
-  // })
+
 })
 
 

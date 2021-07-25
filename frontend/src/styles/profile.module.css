@@ -5,6 +5,21 @@
     justify-content: center;
    
 }
+
+
+.editProfile{
+    transition-duration: 0.4s;
+    display: flex;
+    font-size: 25px;
+    margin-left: 1616px;
+    margin-top: 8px;
+}
+
+.editProfile:hover{
+    background-color:black; /* Green */
+    color: white;
+}
+
 .userView__Page{
     height:100vh;
    

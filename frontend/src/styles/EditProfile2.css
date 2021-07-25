@@ -7,24 +7,24 @@
   }
   .OuserView__basicInfoText__name{
     letter-spacing: 0.18px;
-    font-family: "Lato";
-    font-size: 100%;
+    font-family: sans-serif;
+    font-size: 36px;
     font-weight: bold;
-    margin-bottom: 5%;
+    margin-bottom: 15%
 }
   .OrelativeWrapperTwo {
     margin-bottom: 42px;
     position: relative;
   }
   .Orectangle61 {
-    width: 1440px;
+    /* width: 1440px; */
     height: 170px;
     background-color: rgba(247, 247, 247, 1);
     position: relative;
   }
   .Orectangle2 {
-    width: 196px;
-    height: 172.43px;
+    width: 217px;
+    height: 191.43px;
     position: absolute;
     left: 110px;
     bottom: -149.43px;
@@ -32,12 +32,27 @@
     border-radius: 10px;
   }
   .Ogroup188 {
-      /* padding:10px; */
-    margin-bottom: 102.42px;
-    margin-left: 930px;
+      padding:10px;
+      margin-bottom: 16.42px;
+    margin-left: 1398px;
     display: flex;
     align-items: flex-start;
   }
+  input[type=text], select {
+    /* width: 100%; */
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 17px;
+  }
+
+  .Otimer{
+    margin-top: -18px;
+  }
+
   .OflexWrapperTwo {
     background-size: 100% 100%;
     background-position: center;
@@ -51,8 +66,8 @@
   }
   
   .OflexWrapperFourteen {
-    margin-bottom: 42px;
-    padding: 0 0 0 111px;
+    /* margin-bottom: 42px; */
+    padding: 0 0 0 82px;
     display: flex;
     align-items: flex-start;
   }
@@ -61,21 +76,32 @@
     flex-direction: column;
     align-items: flex-start;
     /* padding-top: 0; */
+    
     padding: 30px;
   }
 
+  .OflexWrapperTwentyOne{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* padding-top: 0; */
+    margin-top: 114px;
+    padding: 30px;
+  }
+
+
   .OflexWrapperTwenty:not(:last-of-type) {
-    margin-right: 118px;
+    margin-right: 203px;
   }
   
   .Oexperience {
-    font-family: "Lato";
-    font-size: 18px;
+    font-family: sans-serif;
     font-weight: 700;
+    font-size: 23px;
     line-height: normal;
     color: rgba(34, 34, 35, 1);
     margin-bottom: 24px;
-  }
+}
   .OflexWrapperThree {
     background-color: rgba(247, 247, 247, 0.5);
     border-radius: 5px;
@@ -94,16 +120,16 @@
   }
   .OflexWrapperFour {
     background-color: rgba(247, 247, 247, 0.5);
-    margin-bottom: 100px;
-    margin-left: 510px;
+    margin-bottom: 82px;
+    margin-left: 776px;
     border-radius: 25px;
-    padding: 13px 20px 96px 23px;
+    padding: 11px 20px 94px 32px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     position: relative;
     border: 1px solid rgba(34, 34, 35, 1);
-    margin-right: 944px;
+    margin-right: 573px;
   }
   .OflexWrapperFifteen {
     margin-bottom: 31px;
@@ -128,7 +154,7 @@
     border: 1px solid rgba(0, 0, 0, 1);
   }
   .OflexWrapperThirteen {
-    margin-left: 493px;
+    margin-left: 896px;
     border-radius: 10px;
     /* padding: 15px 60px 15px 84px; */
     display: flex;

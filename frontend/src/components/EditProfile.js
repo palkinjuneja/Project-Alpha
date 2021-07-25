@@ -20,6 +20,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import LinkIcon from '@material-ui/icons/Link';
 import DataService from "../services/backendRoutes"
 import { UserContext } from '../userContext';
+import FooterModule from './footer';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -34,28 +35,21 @@ const useStyles = makeStyles((theme) => ({
   
 const EditProfile = () => {
     const {user,setUser} = useContext(UserContext)
-    // console.log(value)
     const {userId} = useParams();
     const [userData,setUserData]= useState({});
-    console.log(userId);
     const [profess,setprofess]=useState("");  // role
     const [experience,setexperience]=useState("");  //overview
     const [time,settime]=useState("");  //time
     const [linkedin,setlinkedin]=useState(""); //linkedin
     const [github,setgithub]=useState("");   //github
     const [profile,setprofile]=useState("");  //portfolio
-    const [skill,setSkill]=useState([]) //skill
+    const [skill,setSkill]=useState("") //skill
+    const [error,setError]=useState(false)
 
     const [details,setDetails]= useState("") // data from linkedin
-    const [data,setData] = useState("")
 
+    const data=JSON.parse(localStorage.getItem('userDetails'))
 
-    const [userError, setError] = useState({
-      profess: "",
-      time: "",
-      experience: "",
-      linkedin: "",
-  })
     
 
     const handletime=(event)=>{
@@ -92,63 +86,35 @@ const EditProfile = () => {
 const submitHandler = (event)=>{
    console.log("function called")
     event.preventDefault();
-    if(experience === "")
-    {
-        setError((prevErr)=>{
-            return {...prevErr, project_name:"Experience can't be empty."}
-        })
-    }
-    // if(Skill == "")
-    // {
-    //     setError((prevErr)=>{
-    //         return {...prevErr, description:"Skill can't be empty."}
-    //     })
-    // }
-    if(profess === "")
-    {
-        setError((prevErr)=>{
-            return {...prevErr, domain:"Profession can't be empty."}
-        })
-    }
-    if(linkedin === "")
-    {
-      setError((prevErr)=>{
-        return {...prevErr, domain:"Linkedin can't be empty."}
-    })
-    }
 
-    if(time === "")
-    {
-        setError((prevErr)=>{
-            return {...prevErr, domain:"Time can't be empty."}
-        })
-    }
+    
 
-
-    if(true)
+    if(experience&&time&&profess&&linkedin)  //add skill
     {
         const userData = {
-            name: details.displayName,
-            email: details.emails[0].value,
-            photo : details.photos[3].value,
+            name: data.name,
+            email: data.email,
+            photo : data.photo,
             skill : ['java','python'],
             overview : experience,
             role : profess,
             linkedin: linkedin,
             github : github,
             portfolio : profile,
-            login_token : details.id,
+            login_token : data.login_token,
             time : time
         }
         
         DataService.setProfile(userData)
         .then(res=>{
            console.log(res.data);
-           //set user here
-            window.location="http://localhost:3000/procomp";
+           localStorage.setItem('userDetails',JSON.stringify(userData))
+            window.location="http://localhost:3000/profile";
         }
         )
         .catch(err=>console.log("Error: "+err));
+    }else{
+      alert("Please fill in all the required fields !")
     }
 }
 
@@ -185,30 +151,24 @@ const submitHandler = (event)=>{
   }
 
   const retrieveData = () => {
-    DataService.getData()
-      .then(response => {
-        console.log(response.data);
-        setData(response.data)
+    
+        // console.log(response.data);
+        // setData(response.data)
         setexperience(data.overview)    //exp
         setprofess(data.role) //role
         settime(data.time) //time
         setlinkedin(data.linkedin) //linkedin
         setgithub(data.github)  //github
         setprofile(data.portfolio) //portfolio
-      })
-      .catch(e => {
-        console.log(e);
-      })
   }
 
     useEffect(()=>{
-        retrieveProfile()
         retrieveData()
     },[])
 
   return (
     <div> 
-      { details ? (
+      { data ? (
       <div>
         <div className='OeditProfile'>
           <div className='OrelativeWrapperTwo'>
@@ -218,14 +178,15 @@ const submitHandler = (event)=>{
             <img
               alt=""
               className='Orectangle2'
-              src={details.photos[3].value}
+              src={data.photo}
             />
           </div>
           <div className='Ogroup188'>
-          <TimerIcon />
             <form>
-                    <div>
-                        <input
+                    <div className='Otimer'>
+                    <TimerIcon />
+                    <label for="time">Availability* <br/> </label>
+                        <input id="time"
                         type="text"
                         value={time}
                         onChange={handletime}
@@ -237,12 +198,14 @@ const submitHandler = (event)=>{
           </div>
           <div className='OflexWrapperFourteen'>
             <div className='OflexWrapperTwenty'>
-              <div className='OuserView__basicInfoText__name'>{user.displayName}</div>
-                <div style={{display:"flex"}}>
+              <div className='OuserView__basicInfoText__name'>{data.name}</div>
+                <div >
                 <WorkIcon />
                 <form>
                     <div>
+                    <label for="role">Current Role* <br/></label>
                         <input
+                        id="role"
                         type="text"
                         value={profess}
                         onChange={handleprofess}
@@ -251,21 +214,23 @@ const submitHandler = (event)=>{
                     </div>
                 </form>
                 </div>
-                <div style={{display:"flex",
-                        flexDirection:"row"}}>
-                {/* <MailIcon /> */}
-                <div style={{fontFamily:"Open Sans",
+                <div style={{
+                        flexDirection:"row",marginTop:"27px",marginLeft:"22px"}}>
+                <MailIcon />
+                <div style={{fontFamily:"sans-serif",
                              fontWeight:"bold",
                              paddingTop:0}
-                    }><p>{user.email}</p> </div>
+                    }><p>{data.email}</p> </div>
                     </div>
         
-              <div style={{display:"flex"}}>
+              <div style={{marginTop:"26px"}}>
                 {/* <WorkIcon /> */}
                 <LinkedInIcon />
                 <form>
                     <div>
+                        <label for="linkedin">Linkedin* <br/></label>
                         <input
+                        id="linkedin"
                         type="text"
                         value={linkedin}
                         onChange={handlelinkedin}
@@ -274,11 +239,13 @@ const submitHandler = (event)=>{
                     </div>
                 </form>
                 </div>
-                <div style={{display:"flex"}}>
+                <div style={{marginTop:"26px"}}>
                 <GitHubIcon />
                 <form>
                     <div>
+                    <label for="github">Github <br/></label>
                         <input
+                        id="github"
                         type="text"
                         value={github}
                         onChange={handlegithub}
@@ -287,11 +254,13 @@ const submitHandler = (event)=>{
                     </div>
                 </form>
                 </div>
-                <div style={{display:"flex"}}>
+                <div style={{marginTop:"26px"}}>
                 <LinkIcon/>
                 <form>
                     <div>
+                    <label for="portfolio">Portfolio <br/></label>
                         <input
+                        id="portfolio"
                         type="text"
                         value={profile}
                         onChange={handleprofile}
@@ -301,12 +270,12 @@ const submitHandler = (event)=>{
                 </form>
                 </div>
                 </div>
-            <div className='OflexWrapperTwenty'>
-              <p className='Oexperience'>Experience</p>
+            <div className='OflexWrapperTwentyOne'>
+              <p className='Oexperience'>Experience*</p>
               <form>
                     <div>
-                        <textarea style={{height:200,
-                        width:600,
+                        <textarea style={{height:393,
+                        width:717,
                         fontSize:20}}
                         type="text"
                         value={experience}
@@ -319,7 +288,7 @@ const submitHandler = (event)=>{
           </div>
           <div className='OflexWrapperFour'>
           <Container>
-          <p className='Oexperience'>Skills</p>
+          <p className='Oexperience'>Skills*</p>
           <form className={classes.root}>
             { inputFields.map(inputField => (
               <div key={inputField.id}>
@@ -357,12 +326,12 @@ const submitHandler = (event)=>{
               variant="contained"
               color="primary"
               type="submit"
-            //   endIcon={<Icon>send</Icon>}
-            //   onClick={handleSubmit}
+              style={{width:"213px",height:"46px"}}
             >Submit</Button>
             {/* <p className='Osubmit}>Submit</p> */}
           </div>
         </div>
+        <FooterModule/>
       </div>
       ): (
         <div className="noItem">
