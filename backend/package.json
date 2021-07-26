@@ -1,0 +1,30 @@
+{
+  "name": "linkedin-login-node",
+  "version": "1.0.0",
+  "description": "Basic application for setting up Linkedin login using node and passport",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "LoginRadius",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.2",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "mongoose": "^5.13.3",
+    "passport": "^0.4.1",
+    "passport-linkedin-oauth2": "^2.0.0",
+    "querystring": "^0.2.0",
+    "url": "^0.11.0",
+    "nodemon": "^2.0.12",
+    "web-vitals": "^1.1.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3"
+  }
+}
