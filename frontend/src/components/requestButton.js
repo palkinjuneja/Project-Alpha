@@ -2,7 +2,10 @@ import axios from 'axios';
 import React from 'react'
 import {useState,useEffect} from 'react'
 import '../stylesheet/requestButton.css'
-function RequestButton({project_id}) {
+
+function RequestButton({project}) {
+
+    let project_id = project._id;
 
     const senderId="60fc2729706aea482be968e0";
     const recieverId="60fc2740ac407653808b9250";
@@ -20,11 +23,18 @@ function RequestButton({project_id}) {
         }
     }
 
+    const ownershipRequestCheck=()=>{
+        if(senderId==project.owner_id)
+        {
+            document.getElementById("request-button").innerHTML="Request Ownership";
+        }
+    }
+
     const sendRequest=()=>{
         document.getElementById("request-button").innerHTML="Sending...";
         axios
         .post(url+'create',{
-            project_id:project_id,
+            project_id: project_id,
             sender:senderId,
             receiver:recieverId,
             status_of_request:"pending"
@@ -37,11 +47,13 @@ function RequestButton({project_id}) {
             }
             else{
                 document.getElementById("request-button").innerHTML="Request +";
+                ownershipRequestCheck();
                 console.log('request failed sendrequest');
             }
         })
         .catch((error)=>{
             document.getElementById("request-button").innerHTML="Request +";
+            ownershipRequestCheck();
             console.log('error');
         })
     }
@@ -56,6 +68,7 @@ function RequestButton({project_id}) {
                 setIsRequestSent(false);
                 setRequestId(null);
                 document.getElementById("request-button").innerHTML="Request +";
+                ownershipRequestCheck();
             }
             else{
                 document.getElementById("request-button").innerHTML="Cancel";
@@ -81,6 +94,7 @@ function RequestButton({project_id}) {
                 setIsRequestSent(false);
                 setRequestId(null);
                 document.getElementById("request-button").innerHTML="Request +";
+                ownershipRequestCheck();
             }
         })
         .catch((err)=>{

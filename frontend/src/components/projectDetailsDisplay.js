@@ -33,7 +33,7 @@ function ProjectDetailsDisplay({project}) {
                 <div className="row top-row">
                     <div className="col-md-8 col-sm-8 com-lg-4 main-heading">{project.project_name}</div>
                     <div className="col-md-4 col-sm-12 com-lg-6 ">
-                      <RequestButton project_id={project_id} /> 
+                      <RequestButton project={project} /> 
                     </div>
                 </div>
                 <div className="row category-div">

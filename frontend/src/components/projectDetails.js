@@ -16,7 +16,7 @@ function ProjectDetails() {
         axios.get(url)
         .then((result)=>{
             
-            if(result==null || result==undefined)
+            if(result === null || result===undefined)
             {   
                 console.log("project is null");
             }
