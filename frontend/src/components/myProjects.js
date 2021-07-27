@@ -8,12 +8,12 @@ function MyProject(props) {
   const [projects, setProjects] = useState([]);
 
     const getData = async()=>{
-      const res = await axios.get("http://localhost:5000/user/"+props.match.params.id);
+      const res = await axios.get("http://localhost:9000/user/"+props.match.params.id);
       if(res !== "")
       {
         let tmp = [];
         res.data.project_id.map(async(id)=>{
-          let res1 = await axios.get("http://localhost:5000/project/"+id);
+          let res1 = await axios.get("http://localhost:9000/project/"+id);
           if(res1 !== "")
           {
             let tmp1 = [...tmp, res1.data];

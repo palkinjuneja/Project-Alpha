@@ -1,47 +1,77 @@
 import React from "react";
 import styles from "../styles/RequestCard.module.css";
 import InviteAction from "./InviteAction";
+import InviteAccepted from "./InviteAccepted";
+import InviteDeclined from "./InviteDeclined";
 
-const RequestCard = ({projName, ownerName, role, profileImg}) => {
+const RequestCard = ({data}) => {
+  // const RequestCard = ({ projName, ownerName, role, profileImg }) => {
+
   const [open, setOpen] = React.useState(false);
-  const skill =["Java","Python"]
+  const skill = ["Java", "Python"]
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const getModal=()=>{
+   if(data.collab.status_of_request=="pending"){
+     if(open){
+      return(
+        <InviteAction modalAction={open} data={data}/> 
+       )
+     }
     
-    const handleOpen = () => {
-        setOpen(true);
-      };
    
+
+   }else if(data.collab.status_of_request=="accepted"){
+     console.log("Entering")
+    if(open){
+      return(
+        <InviteAccepted modalAction={open} data={data}/>
+      )
+      
+    }
+
+   }else if(data.collab.status_of_request=="rejected"){
+     if (open){
+       return(
+        <InviteDeclined modalAction={open} data={data}/> 
+       )
+      
+     }
+    
+
+   }
+}
   return (
-    <div className={styles.requestCard}>
+    <div className={styles.requestCard} onClick={handleOpen} >
+
       <p className={styles.projectECommerce}>
-        Project: {projName}
+        Project: {data.project.project_name}
       </p>
       <div className={styles.group192}>
-        <div className={styles.flexWrapperOne}> 
+        <div className={styles.flexWrapperOne}>
           <img
             alt=""
             className={styles.ellipse43}
-            src={profileImg}
+            src={data.user.photo}
           />
           <div className={styles.flexWrapperThree}>
-            <p className={styles.rajeshK}>{ownerName}</p>
+            <p className={styles.rajeshK}>{data.project.owner_name}</p>
             <p className={styles.backendEndDev}>
-              {role}
+              {data.user.role}
             </p>
           </div>
         </div>
         <div className={styles.line24} />
         <div className={styles.flexWrapperTwo}>
-          <p className={styles.viewProfile}>View Profile</p>
-          <div
-          onClick={handleOpen}>
-            {open ? <InviteAction modalAction={open} userName="1" userRole="Software Developer" 
-                skills={skill} userImage="Image" projectId="1234" collaborationId="1234" userId= "3345" ownerName="currentUser"ownerId="currentUserId" userLinkedIn="http://linkedin.com" userEmail="palkinjuneja1234@gmail.com"/>: null}
-                
-          <img
-            alt=""
-            className={styles.vector}
-            src="https://static.overlay-tech.com/assets/9a164b06-51b6-4939-932e-dd3a0e815c09.svg"
-          />
+          <p className={styles.viewProfile}>View More</p>
+          <div>
+
+            {
+              getModal()
+            }
           </div>
         </div>
       </div>

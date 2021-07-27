@@ -6,30 +6,35 @@ import Emptycard from './Emptycard';
 import axios from 'axios';
 import { useState,useEffect } from "react";
 import InviteAction from "./InviteAction";
+import FooterModule from "./footer";
 const  Collab= () => {
     const [collabList,setCollabList] = useState([]);
     const [userList, setuserList] = useState([]);
     const [projectList, setProjectList]= useState([]);
     const [userList1, setuserList1]=useState([]);
     const [userList2, setuserList2]=useState([]);
+    const currentUserData = JSON.parse(localStorage.getItem('userDetails'))
+   
     const getData = async()=>{
-        const res = await axios.get("http://localhost:5000/getCollabRequest?status=pending&user=60f597a6d5ede84005e51708&key=receiver");
+        const res = await axios.get("http://localhost:9000/getCollabRequest?status=pending&user="+currentUserData.userId+"&key=receiver");
         // collab req -> status : pending and receiever : current user
         // colab req -> status : pending and sender : current user
-        // collab req : sender : me and status !=pending
+        // collab req : sender : me and status !=pending4
+        console.log("result is ",res);
     
         if(res !== "")
         {
           let tmp = [];
           res.data.map(async(element)=>{
+            console.log(process.env.REACT_APP_USER_ID+element.sender)
             let res1 = await axios.get(process.env.REACT_APP_USER_ID+element.sender);
-            let res2 = await axios.get(process.env.REACT_APP_USER_ID+element.receiver);
+            let res2 = await axios.get("http://localhost:9000/project/"+element.project_id);
             console.log("res1 is", res1.data )
             console.log("res2 is", res2.data )
             if(res1 !== "")
             {
               let combine ={};
-              combine ={"user": res1.data, "project":res2.data}
+              combine ={"collab":element,"user": res1.data, "project":res2.data}
               let tmp1 = [...tmp, combine];
                setuserList(tmp1);
               tmp = tmp1;
@@ -38,7 +43,7 @@ const  Collab= () => {
         }
       }
       const getData1 = async()=>{
-        const res = await axios.get("http://localhost:5000/getCollabRequest?status=rejected&user=60f597a6d5ede84005e51708&key=sender");
+        const res = await axios.get("http://localhost:9000/getCollabRequest?status=rejected&user="+currentUserData.userId+"&key=sender");
         // collab req -> status : pending and receiever : current user
         // colab req -> status : pending and sender : current user
         // collab req : sender : me and status !=pending
@@ -47,14 +52,14 @@ const  Collab= () => {
         {
           let tmp = [];
           res.data.map(async(element)=>{
-            let res1 = await axios.get(process.env.REACT_APP_USER_ID+element.sender);
-            let res2 = await axios.get(process.env.REACT_APP_USER_ID+element.receiver);
+            let res1 = await axios.get(process.env.REACT_APP_USER_ID+element.receiver);
+            let res2 = await axios.get("http://localhost:9000/project/"+element.project_id);
             console.log("res1 is", res1.data )
             console.log("res2 is", res2.data )
             if(res1 !== "")
             {
               let combine ={};
-              combine ={"user": res1.data, "project":res2.data}
+              combine ={"collab":element,"user": res1.data, "project":res2.data}
               let tmp1 = [...tmp, combine];
                setuserList1(tmp1);
               tmp = tmp1;
@@ -63,7 +68,7 @@ const  Collab= () => {
         }
       }
       const getData2 = async()=>{
-        const res = await axios.get("http://localhost:5000/getCollabRequest?status=accepted&user=60f597a6d5ede84005e51708&key=sender");
+        const res = await axios.get("http://localhost:9000/getCollabRequest?status=accepted&user="+currentUserData.userId+"&key=sender");
         // collab req -> status : pending and receiever : current user
         // colab req -> status : pending and sender : current user
         // collab req : sender : me and status !=pending
@@ -72,14 +77,14 @@ const  Collab= () => {
         {
           let tmp = [];
           res.data.map(async(element)=>{
-            let res1 = await axios.get(process.env.REACT_APP_USER_ID+element.sender);
-            let res2 = await axios.get(process.env.REACT_APP_USER_ID+element.receiver);
+            let res1 = await axios.get(process.env.REACT_APP_USER_ID+element.receiver);
+            let res2 = await axios.get("http://localhost:9000/project/"+element.project_id);
             console.log("res1 is", res1.data )
             console.log("res2 is", res2.data )
             if(res1 !== "")
             {
               let combine ={};
-              combine ={"user": res1.data, "project":res2.data}
+              combine ={"collab":element,"user": res1.data, "project":res2.data}
               let tmp1 = [...tmp, combine];
                setuserList2(tmp1);
               tmp = tmp1;
@@ -91,6 +96,8 @@ console.log(userList);
 
     useEffect(() => {
     getData();
+    getData1();
+    getData2();
     console.log(userList)
 
 
@@ -101,14 +108,9 @@ console.log(userList);
                 userList.map((element)=>{
                     return(   
                         
-                           <div>
-                           <RequestCard className={styles.requestCard} projName={element.project.name} ownerName={element.user.name} role="Backend-end Dev"
-             profileImg="https://static.overlay-tech.com/assets/43003299-39fe-42e2-a0ed-f28b91f45402.png"
-           />
-                       <RequestCard className={styles.requestCard} projName={element.project.name} ownerName="Palkin" role="Backend-end Dev"
-             profileImg="https://static.overlay-tech.com/assets/43003299-39fe-42e2-a0ed-f28b91f45402.png"
-           />
-                   
+                           <div >
+                             <RequestCard className={styles.requestCard} data={element}/>  
+
                        </div>)})
             )
         }
@@ -118,38 +120,28 @@ console.log(userList);
         }
     }
     const getupdatedCard=()=>{
-        if(userList1.length ){
-            return(
-            
-                userList1.map((element)=>{
-                    return(   
-                        
-                           <div>
-                           <RequestCard className={styles.requestCard} projName={element.project.name} ownerName={element.user.name} role="Backend-end Dev"
-             profileImg="https://static.overlay-tech.com/assets/43003299-39fe-42e2-a0ed-f28b91f45402.png"
-           />
-                       
-                   
-                       </div>)})
-                             
-                       
-            )
-            
-        }
-        else if(userList2.length){
-            return(
-                userList.map((element)=>{
-                    return(   
-                        
-                           <div>
-                           <RequestCard className={styles.requestCard} projName={element.project.name} ownerName={element.user.name} role="Backend-end Dev"
-             profileImg="https://static.overlay-tech.com/assets/43003299-39fe-42e2-a0ed-f28b91f45402.png"
-           />
-                       
-                   
-                       </div>)})
-            )
-        }
+      console.log("Lists are "+userList1+" second"+userList2)
+      if(userList1.length){
+        return(
+            userList1.map((element)=>{
+                return(   
+                    
+                       <div >
+                         <RequestCard className={styles.requestCard} data={element}/>  
+
+                   </div>)})
+        )
+    }else if(userList2.length){
+      return(
+          userList2.slice(0,4).map((element)=>{
+              return(   
+                  
+                     <div >
+                       <RequestCard className={styles.requestCard} data={element}/>  
+
+                 </div>)})
+      )
+  }
         else {
             return(
                 <Emptycard/>
@@ -192,7 +184,7 @@ console.log(userList);
       }
         
       </div>
-      
+      <FooterModule/>
     </div>
   );
 };

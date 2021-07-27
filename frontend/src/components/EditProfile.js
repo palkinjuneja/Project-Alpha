@@ -21,6 +21,7 @@ import LinkIcon from '@material-ui/icons/Link';
 import DataService from "../services/backendRoutes"
 import { UserContext } from '../userContext';
 import FooterModule from './footer';
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -102,14 +103,21 @@ const submitHandler = (event)=>{
             github : github,
             portfolio : profile,
             login_token : data.login_token,
-            time : time
+            time : time,
+            userId :""
+
+
         }
         
         DataService.setProfile(userData)
         .then(res=>{
            console.log(res.data);
-           localStorage.setItem('userDetails',JSON.stringify(userData))
-            window.location="http://localhost:3000/profile";
+           axios.get("http://localhost:9000/getUserId?loginToken="+data.login_token).then((res)=>{
+             userData.userId=res.data
+             localStorage.setItem('userDetails',JSON.stringify(userData))
+           })
+           
+            window.location="/project";
         }
         )
         .catch(err=>console.log("Error: "+err));

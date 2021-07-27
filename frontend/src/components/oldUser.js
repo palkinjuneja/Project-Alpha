@@ -8,19 +8,12 @@ import {
     useLocation
   } from "react-router-dom";
 
-   
-//   <CurrentUserContext.Provider value={{ currentUser}}>
-//   {children}
-// </CurrentUserContext.Provider>
+  import axios from 'axios';
 
-//   export const CurrentUserProvider = ({ children }) => {
-//     const [currentUser, setCurrentUser] = React.useState(null)
-//   }
-
-
-const OldUser=()=> {    
+  const OldUser=()=> {    
     const {search} = useLocation()
-    const{name,email,login_token,skill,overview,portfolio,role,photo, github, linkedin,time}=queryString.parse(search)
+    console.log(search)
+    const{name,email,login_token,skill,overview,portfolio,role,photo, github, linkedin,time,id}=queryString.parse(search)
     const obj ={
       name: name,
       email:email,
@@ -32,15 +25,15 @@ const OldUser=()=> {
       photo:photo,
       linkedin:linkedin,
       github:github,
-      time:time
+      time:time,
+      userId:id
     }
     const [user,setUser]  = useContext(UserContext)
  
     useEffect(()=>{
      
-      localStorage.setItem('userDetails',JSON.stringify(obj))
-
-      if(obj.overview) window.location="http://localhost:3000/profile"
+           localStorage.setItem('userDetails',JSON.stringify(obj))
+      if(obj.overview) window.location="http://localhost:3000/project"
       else window.location="http://localhost:3000/edit"
     },[])   //put user
 
@@ -48,10 +41,7 @@ const OldUser=()=> {
 
     return (
         <div> 
-            <h1>Redirecting... {search} </h1>
-            {/* <h2>User: {JSON.stringify(user)}</h2>
-            <h2>Object : {JSON.stringify(obj)}</h2> */}
-          
+            <h1>Redirecting... </h1>
         </div>
     )
 }

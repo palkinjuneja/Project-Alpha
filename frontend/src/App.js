@@ -44,7 +44,7 @@ function App() {
               <Route path="/User/:userId" component={UserView} />
               <Route path="/User" component={UserMain} />
               <Route path="/findPeople" component={FindPeople}/>
-              <Route path ="/inviteClick" component={Collab}/>  
+              <Route path ="/Invites" component={Collab}/>  
               <Route path="/project" component={Project} />
         <Route path="/projectDetails/:id" component={ProjectDetails} />
         <Route path="/user/:id" component={MyProject} />

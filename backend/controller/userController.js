@@ -25,6 +25,15 @@ export const userGetterBySkill = async (request,response)=>{
             response.send(userList);
         }).catch(err=>{response.send("Exception Occurred");})  
 }
+export const getUserIdByToken = async (request,response)=>{
+    const loginToken = request.query.loginToken;
+    let user1 = await User.find({
+        "login_token":loginToken
+    }).then(result=>{
+
+        response.send(result[0]._id);
+    }).catch(err=>{response.send("Exception Occurred");})  
+}
 
 export const userGetterByRole = async (request,response)=>{
     const roleName = request.query.role;
@@ -100,6 +109,7 @@ export const collaborationRequestGetterFull =  async (request,response)=>{
 
 
 export const collaborationUpdateById = async (request,response)=>{
+    console.log("request is ", request);
     var id = request.query.id;
     var status = request.query.status;
     var owner = request.query.owner;
@@ -126,9 +136,9 @@ export const collaborationUpdateById = async (request,response)=>{
                     console.log("User Updated");
                 })
                 
-                if (owner == "admin"){
-                    let projectUpdate = Project.updateOne({"_id":projectId},{$addToSet:{"collaborators":{"user_id":userId,"user_name":userName}},$set:{"owner_id":userId},$set:{"owner":ownerName}}).then((res3)=>{
-                        console.log("Project Updated");
+                if (ownerName == "Admin"){
+                    let projectUpdate = Project.updateOne({"_id":projectId},{$addToSet:{"collaborators":{"user_id":userId,"user_name":userName}},$set:{"owner_id":userId},$set:{"owner":userName}}).then((res3)=>{
+                        console.log("Project Updated with Owner");
                     })
                 }else{
                     let projectUpdate = Project.updateOne({"_id":projectId},{$addToSet:{"collaborators":{"user_id":userId,"user_name":userName}}}).then((res3)=>{

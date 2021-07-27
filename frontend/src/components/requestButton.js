@@ -8,10 +8,10 @@ function RequestButton({project}) {
     const data = JSON.parse(localStorage.getItem('userDetails'))
     let project_id = project._id;
 
-    const senderId="60fc2729706aea482be968e0";
+    const senderId=data.userId;
     const recieverId=project.owner_id;
 
-    const url="http://localhost:5000/request/";
+    const url="http://localhost:9000/request/";
     const [isRequestSent,setIsRequestSent]=useState(false);
     const [requestId,setRequestId]=useState(null);
 
@@ -25,7 +25,7 @@ function RequestButton({project}) {
     }
 
     const ownershipRequestCheck=()=>{
-        if(senderId==project.owner_id)
+        if("60ff0a4a8ea19cab22108d18"==project.owner_id)
         {
             document.getElementById("request-button").innerHTML="Request Ownership";
         }
@@ -84,7 +84,7 @@ function RequestButton({project}) {
 
     useEffect(()=>{
         axios
-        .get("http://localhost:5000/request/"+senderId+'/'+project_id)
+        .get("http://localhost:9000/request/"+senderId+'/'+project_id)
         .then((response)=>{
             if(response.data.isExist){
                 setIsRequestSent(true);

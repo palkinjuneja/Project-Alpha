@@ -17,6 +17,7 @@ const styles = (theme) => ({
   root: {
     margin: 0,
     padding: theme.spacing(2),
+    height:'450px'
   },
   closeButton: {
     position: 'absolute',
@@ -32,6 +33,7 @@ const stylesTitle = (theme) => ({
     padding: theme.spacing(2),
     backgroundColor: 'black',
     color:'white',
+    
    
   },
   closeButton: {
@@ -59,7 +61,7 @@ const DialogTitle = withStyles(stylesTitle)((props) => {
 const DialogContent = withStyles((theme) => ({
   root: {
     padding: theme.spacing(2),
-    height:'150px'
+    height:'200px'
   },
 }))(MuiDialogContent);
 
@@ -71,7 +73,7 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
- function InviteAccepted({modalAction,projectId,projectName,userId,ownerName,ownerId,ownerLinkedIn,ownerEmail,ownerRole}) {
+ function InviteAccepted({modalAction,data}) {
   const [open, setOpen] = React.useState(modalAction);
  
   const handleClose = () => {
@@ -82,6 +84,7 @@ const DialogActions = withStyles((theme) => ({
   const handleAccept=((event)=>{
       console.log("Request Accepted");
       // Send to Project Url
+      window.location.href="/projectDetails/"+data.project._id
   })
 
 
@@ -97,17 +100,17 @@ const DialogActions = withStyles((theme) => ({
          
           <div style={{display:'flex', justifyContent:'space-between',}}>
            
-           <img className={style.ImageBox}src ="https://static.overlay-tech.com/assets/2ec1cdf0-ee25-4b06-a775-86ba85ff4196.png"/>
+           <img className={style.ImageBox}src ={data.user.photo}/>
            
            <span style={{display:'flex' , flexDirection:'column', justifyContent:'center',alignItems:'center', justifyContent:'center'}}>
-              <p><b>{ownerName}</b> <br></br> 
-              {ownerRole} </p></span>
-              <span style={{display:'flex' , flexDirection:'column', justifyContent:'center'}}> <a href={ownerLinkedIn}><LinkedInIcon/></a> <a href={ownerEmail}><MailIcon/></a></span>
+              <p><b>{data.user.name}</b> <br></br> 
+              {data.user.role} </p><br></br> <p><MailIcon/> {data.user.email}</p></span>
+              <span style={{display:'flex' , flexDirection:'column', justifyContent:'center'}}> <a href={data.user.linkedin}><LinkedInIcon/></a></span>
            </div>
           <hr></hr>
           </Typography>
          <Typography gutterBottom>
-         {ownerName} has accepted your request for collaboration on {projectName}
+         {data.user.name} has accepted your request for collaboration on {data.project.project_name}
           </Typography>  
         </DialogContent>
         <DialogActions>

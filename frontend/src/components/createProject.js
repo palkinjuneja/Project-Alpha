@@ -5,6 +5,7 @@ import '../styles/app.css'
 
 
 function CreateProject(props) {
+    const data = JSON.parse(localStorage.getItem('userDetails'))
 
     let [project, setData] = useState({
         project_name: "",
@@ -63,15 +64,15 @@ function CreateProject(props) {
 
             const projectData = {
                 project_name: project.project_name,
-                owner: "Nayan",
+                owner: data.name,
                 description: project.description,
                 domain: project.domain,
-                owner_id: "60d77445f6098441c5c3d439",
+                owner_id: data.userId,
                 requirement: reqArray,
                 status: project.status
             }
             
-            axios.post("http://localhost:5000/project/create", projectData)
+            axios.post("http://localhost:9000/project/create", projectData)
             .then(res=>{
                 window.location="http://localhost:3000/project";
             }

@@ -72,7 +72,7 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
- function InviteDeclined({modalAction,projectId,projectName,userId,ownerName,ownerId,ownerLinkedIn,ownerEmail,ownerRole}) {
+ function InviteDeclined({modalAction,data}) {
   const [open, setOpen] = React.useState(modalAction);
  
   const handleClose = () => {
@@ -83,6 +83,7 @@ const DialogActions = withStyles((theme) => ({
   const handleAccept=((event)=>{
       console.log("Request Accepted");
       // Send to Project Url
+      window.location.href="/Project"
   })
 
 
@@ -98,12 +99,13 @@ const DialogActions = withStyles((theme) => ({
           
           <div style={{display:'flex', justifyContent:'space-between',}}>
            
-           <img className={style.ImageBox}src ="https://static.overlay-tech.com/assets/2ec1cdf0-ee25-4b06-a775-86ba85ff4196.png"/>
+           <img className={style.ImageBox}src ={data.user.photo}/>
            
            <span style={{display:'flex' , flexDirection:'column', justifyContent:'center',alignItems:'center', justifyContent:'center'}}>
-              <p><b>{ownerName}</b> <br></br> 
-              {ownerRole} </p></span>
-              <span style={{display:'flex' , flexDirection:'column', justifyContent:'center'}}> <a href={ownerLinkedIn}><LinkedInIcon/></a> <a href={ownerEmail}><MailIcon/></a></span>
+              <p><b>{data.user.name}</b> <br></br> 
+              {data.user.role}
+              <br></br> <p><MailIcon/> {data.user.email}</p> </p></span>
+              <span style={{display:'flex' , flexDirection:'column', justifyContent:'center'}}> <a href={data.user.linkedin}><LinkedInIcon/></a> </span>
            </div>
           <hr></hr>
           </Typography>
@@ -111,7 +113,7 @@ const DialogActions = withStyles((theme) => ({
          <Typography gutterBottom>
            
            <p>Better Luck Next Time !! </p>
-           <p>Unfortunately <b>{ownerName}</b> has declined your request for collaboration on project <b>{projectName}</b></p>
+           <p>Unfortunately <b>{data.user.name}</b> has declined your request for collaboration on project <b>{data.project.project_name}</b></p>
          
           </Typography>  
         </DialogContent>

@@ -71,29 +71,28 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
- function InviteAction({modalAction,userName,userRole,userLinkedIn, userEmail, skills,userImage,projectId,collaborationId,userId,ownerName,ownerId}) {
-  const [open, setOpen] = React.useState(modalAction);
+ //function InviteAction({modalAction,userName,userRole,userLinkedIn, userEmail, skills,userImage,projectId,collaborationId,userId,ownerName,ownerId}) {
+ function InviteAction({modalAction,data}){
+  const currentUserData = JSON.parse(localStorage.getItem('userDetails'))
+
+ const [open, setOpen] = React.useState(modalAction);
   const [request,setRequest] = React.useState("");
-  var skillList = [];
+ 
   const handleClose = () => {
     setOpen(false);
   };
 
-  const updateList=(()=>{
-    skills.map((eachSkill)=>{
-      skillList.push("*"+eachSkill+"  ")
-    })
-    console.log("SkillList is "+skillList)
-  })
+  
   
   React.useEffect(() => {
-    updateList()
+  
     if(request=="accepted" || request=="rejected"){
       //update collaborationsTable
      // localhost:9000/getUsers/requestAction?id=60f838e41a7c48e0af361046&status=accepted&owner=palkin&userId=60f4062ab5c617448a43f76a&projectId=60ef23d37786d409b98d5c39
-      const getRequest = process.env.REACT_APP_REQUEST_ACTION+"id="+collaborationId+
-      "&status="+request+"&owner="+ownerId+
-      "&projectId="+projectId+"&userId="+userId+"&user_name="+userName+"&ownerName="+ownerName;
+      const getRequest = process.env.REACT_APP_REQUEST_ACTION+"id="+data.collab._id+
+      "&status="+request+"&owner="+data.project.owner_id+
+      "&projectId="+data.project._id+"&userId="+data.user._id+"&user_name="+data.user.name+"&ownerName="+data.project.owner;
+      console.log(getRequest)
       
       axios.put(getRequest).then(res=>{
             console.log("Request Handled Successfully");
@@ -120,7 +119,7 @@ const DialogActions = withStyles((theme) => ({
     handleClose()
 })
 
-console.log("EachSkill ",skills)
+
   return (
     <div>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
@@ -132,12 +131,14 @@ console.log("EachSkill ",skills)
           <Typography gutterBottom>
           <div style={{display:'flex', justifyContent:'space-between',}}>
            
-           <img className={style.ImageBox}src ="https://static.overlay-tech.com/assets/2ec1cdf0-ee25-4b06-a775-86ba85ff4196.png"/>
+           <img className={style.ImageBox}src ={data.user.photo}/>
            
-           <span style={{display:'flex' , flexDirection:'column', justifyContent:'center',alignItems:'center', justifyContent:'center'}}>
-              <p><b>{userName}</b> <br></br> 
-              {userRole} </p></span>
-              <span style={{display:'flex' , flexDirection:'column', justifyContent:'center'}}> <a href={userLinkedIn}><LinkedInIcon/></a> <a href={userEmail}><MailIcon/></a></span>
+           <span style={{display:'flex' , flexDirection:'column', justifyContent:'center',alignItems:'flex-start'}}>
+              <p><b>{data.user.name}</b> <br></br> 
+              {data.user.role} </p>
+              <br></br><p><MailIcon/>  {data.user.email}</p>
+              </span>
+              <span style={{display:'flex' , flexDirection:'column', justifyContent:'center', alignItems:'flex-start'}}> <a href={data.user.linkedin}><LinkedInIcon/></a> </span>
            </div>
           <hr></hr>
           </Typography>
@@ -145,7 +146,7 @@ console.log("EachSkill ",skills)
            <div style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
            <p style={{padding:'0px', margin:'0px'}}> <b>Skills</b></p>
           <ul>           
-            {skills.map((eachSkill) => {
+            {data.user.skill.map((eachSkill) => {
                 return (
                   <li>{eachSkill}</li>
                 )

@@ -11,6 +11,7 @@ import FindPeople from './FindPeople';
 import FooterModule from './footer';
 import SearchIcon from '@material-ui/icons/Search';
 import { Button } from '@material-ui/core';
+import Nav from './Nav';
 
 function UserMain() {
     const [userCall,setuserCall] = useState(true);
@@ -95,7 +96,8 @@ function UserMain() {
 
     return (
         < div className={styles.main}>
-        <NavBar middleText="Users"/>
+         <NavBar middleText="Users"/> 
+        
         <div className = {styles.userInput}>
           <div  className = {styles.searchBar}>
             <input className={styles.searchInput} placeholder="Type a Role or Skill" type="text" onChange={(event)=>onTextInput(event)}></input>

@@ -10,7 +10,7 @@ function ProjectDetails() {
      //console.log(id);
     // console.log(query);
     const [project,setProject]=useState(null);
-    const url="http://localhost:5000/project/"+id;
+    const url="http://localhost:9000/project/"+id;
     //console.log("url="+url);
     const getprojectById=()=>{
         axios.get(url)

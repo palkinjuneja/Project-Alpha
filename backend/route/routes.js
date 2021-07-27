@@ -2,7 +2,7 @@ import passport from 'passport';
 import express from 'express';
 import querystring from 'querystring';
 import User from '../models/user.js'
-import {userGetter,userGetterBySkill,userGetterByRole,userGetterById,collaborationUpdateById,collaborationRequestGetter} from '../controller/userController.js'
+import {userGetter,userGetterBySkill,userGetterByRole,userGetterById,collaborationUpdateById,collaborationRequestGetter,getUserIdByToken} from '../controller/userController.js'
 
 var router = express.Router();
 
@@ -17,6 +17,7 @@ router.get('/userByRole',userGetterByRole);
 router.get('/userById',userGetterById);
 router.get('/getCollabRequest',collaborationRequestGetter);
 router.put('/requestAction',collaborationUpdateById);
+router.get('/getUserId',getUserIdByToken)
 
 
 router.get('/profile', isLoggedIn, async function (req, res) {   //ask the team
@@ -48,13 +49,14 @@ router.get('/profile', isLoggedIn, async function (req, res) {   //ask the team
         "portfolio":"",
         "role":"",
         "time":"",
+        "userId":""
       });
    
       res.redirect('http://localhost:3000/oldUser/?'+obj)
       // res.redirect("http://localhost:3000/edit") 
     }else {
 
- 
+      
     const query = querystring.stringify({
       "login_token":response.login_token,
       "name":response.name,
@@ -66,10 +68,12 @@ router.get('/profile', isLoggedIn, async function (req, res) {   //ask the team
       "role":response.role,
       "time":response.time,
       "photo":response.photo,
-      "email":response.email
+      "email":response.email,
     });
     console.log(query)
-    res.redirect('http://localhost:3000/oldUser/?'+query)
+    console.log("Id is "+response._id)
+    console.log(response)
+    res.redirect('http://localhost:3000/oldUser/?'+query+"&id="+response._id)
   }
     // res.redirect("http://localhost:3000/procomp")  //might have to change to router.redirect
   })
@@ -96,10 +100,8 @@ router.post("/profile",(req,res)=>{
         }
         console.log("document updated")
         // console.log(data)
-        router.get('/data',(req,res)=>{
-          console.log(data)
-          res.json(data)
-        })
+       console.log(response)
+        
         res.json({status:"success"})
       })
     }
@@ -109,7 +111,8 @@ router.post("/profile",(req,res)=>{
       user.save()
       .then((result)=>{
          router.get('/data',(req,res)=>{
-          res.json(data)
+          res.json(result)
+          console.log(result)
         })
           res.json({status:"success"})
       })

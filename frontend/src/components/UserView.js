@@ -14,7 +14,8 @@ function UserView() {
     const {userId} = useParams();
     const [userData,setUserData]= useState({});
     const [userSkill,setuserSkill]=useState("");
-    console.log(userId);
+   
+    const data = JSON.parse(localStorage.getItem('userDetails'))
 
     useEffect(()=>{
         
@@ -38,7 +39,7 @@ function UserView() {
            <div className={styles.userView__mainDiv}>
                <div className={styles.userView__basicInfo}>
                    <div className={styles.userView__basicInfoImage}>
-                   <img alt="" className={styles.userView__imageRectabgle} src="https://static.overlay-tech.com/assets/2ec1cdf0-ee25-4b06-a775-86ba85ff4196.png"/>
+                   <img alt="" className={styles.userView__imageRectabgle} src={userData.photo}/>
                    </div>
                    <div className={styles.userView__basicInfoText}>
                    <div className={styles.userView__basicInfoText__name}>{userData.name}</div>

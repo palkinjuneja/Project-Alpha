@@ -7,9 +7,10 @@ function Collaborations() {
     const [collabList,setCollabList] = useState([]);
     const [userList, setuserList] = useState([]);
     const [projectList, setProjectList]= useState([]);
+    const data = JSON.parse(localStorage.getItem('userDetails'))
 
     const getData = async()=>{
-        const res = await axios.get("http://localhost:9000/getCollabRequest?status=pending&user=60f597a6d5ede84005e51708&key=sender");
+        const res = await axios.get(REACT_APP_COLLABORATION,"status=pending&user=",data.id,"&key=sender");
         // collab req -> status : pending and receiever : current user
         // colab req -> status : pending and sender : current user
         // collab req : sender : me and status !=pending
@@ -17,6 +18,7 @@ function Collaborations() {
         {
           let tmp = [];
           res.data.map(async(element)=>{
+            console.log(process.env.REACT_APP_USER_ID+element.sender)
             let res1 = await axios.get(process.env.REACT_APP_USER_ID+element.sender);
             let res2 = await axios.get(process.env.REACT_APP_USER_ID+element.receiver);
             console.log("res1 is", res1.data )
@@ -24,7 +26,7 @@ function Collaborations() {
             if(res1 !== "")
             {
               let combine ={};
-              combine ={"user": res1.data, "project":res2.data}
+              combine ={"collab":element._id,"user": res1.data, "project":res2.data}
               let tmp1 = [...tmp, combine];
                setuserList(tmp1);
               tmp = tmp1;

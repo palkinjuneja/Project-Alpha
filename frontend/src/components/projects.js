@@ -3,16 +3,18 @@ import axios from 'axios';
 import Pagination from './pagination';
 import Footer from './footer';
 import '../styles/app.css'
+import FindPeople from './FindPeople';
 
 
 function Projects(props) {
+  const data = JSON.parse(localStorage.getItem('userDetails'))
 
     const [projects, setState] = useState([]);
 
     const getData = async ()=>{
        try{
           //Fetch Projects
-          const res = await axios.get("http://localhost:5000/project/");
+          const res = await axios.get("http://localhost:9000/project/");
           setState(res.data);
        }
        catch(err){
@@ -85,14 +87,16 @@ function Projects(props) {
     <div style={{paddingLeft: 50, paddingRight: 50}}>
   <div className = "container-fluid">
       <h2>Find Ideas, Collaborate together and Build the Portfolio for your Career</h2>
+     
   </div>
-
+  <FindPeople style={{display:"flex",justifyContent:"flex-end"}}/>
   <pre style = {{background: "white", border: "none"}}>
 
   </pre>
   <h3 className="container-fluid">Project Lists</h3>
   <pre style = {{background: "white", border: "none"}}>
     <button type="button" class="btn btn-primary" style = {{float: "right", marginRight: 20}} onClick={event =>  window.location.href='http://localhost:3000/createProject'}>Create Project</button>
+    
   </pre>
     <div className="container-fluid">
       {
@@ -105,7 +109,8 @@ function Projects(props) {
                         <h5 className="card-text">Satus: {project.status}</h5>
                         <p className="card-text">{project.description}</p>
                         <a href={"/projectDetails/"+project._id}>More</a>
-                        <button type="button" class="btn btn-primary" style = {{float: 'right'}} onClick={event =>  window.location.href='http://localhost:3000/editProject/'+project._id}>Edit</button>
+                        {(project.owner_id==data.userId)?
+                        <button type="button" class="btn btn-primary" style = {{float: 'right'}} onClick={event =>  window.location.href='http://localhost:3000/editProject/'+project._id}>Edit</button>:null}
                       </div>
                     </div>
                     <br/><br/>
@@ -116,6 +121,7 @@ function Projects(props) {
     </div>
     </div>
     {getSpace()}
+    
     <div className="container-fluid">
       <Pagination showPerPage={showPerPage} pageNoChange={pageNoChange} projectCount={projects.length}/>
     </div>
