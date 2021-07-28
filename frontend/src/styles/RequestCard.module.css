@@ -1,0 +1,91 @@
+.requestCard {
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 10px;
+    padding: 10px 11px 23px 23px;
+    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    margin:10px;
+  }
+  .projectECommerce {
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+    color: rgba(0, 0, 0, 1);
+    margin-bottom: 8px;
+    margin-left: 95px;
+  }
+  .group192 {
+    padding: 0 3px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .flexWrapperOne {
+    margin-bottom: 11px;
+    padding: 0 0 5px;
+    display: flex;
+    align-items: flex-start;
+  }
+  .ellipse43 {
+    width: 30.53%;
+    height: 97.18%;
+    margin-right: 24px;
+    border: 1px solid rgba(0, 0, 0, 1);
+    border-radius: 50%;
+  }
+  .flexWrapperThree {
+    padding: 24px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .rajeshK {
+    /* width: 53.44%; */
+    height: 78.57%;
+    font-family: "Lato";
+    font-size: 18px;
+    font-weight: 700;
+    line-height: normal;
+    color: rgba(0, 0, 0, 1);
+    margin-bottom: 8px;
+  }
+  .backendEndDev {
+    height: 78.57%;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+    color: rgba(0, 0, 0, 1);
+    align-self: stretch;
+  }
+  .line24 {
+    width: 62.75%;
+    height: 0.25%;
+    background-color: rgba(0, 0, 0, 0.7);
+    margin-bottom: 3px;
+    margin-left: 85px;
+    border: 1px solid rgba(0, 0, 0, 0.7);
+  }
+  .flexWrapperTwo {
+    padding: 0 0 0 95px;
+    display: flex;
+    align-items: center;
+  }
+  .viewProfile {
+    width: 135.29%;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    color: rgba(0, 0, 0, 0.7);
+    align-self: stretch;
+    margin-right: 65px;
+  }
+  .vector {
+    width: 8.82%;
+    height: 54.55%;
+  }

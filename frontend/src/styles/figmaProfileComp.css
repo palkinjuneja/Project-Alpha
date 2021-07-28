@@ -1,0 +1,440 @@
+.YcompletedProfile1 {
+    background-color: white;
+    padding: 66px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .YrelativeWrapperThree {
+    position: relative;
+    /* &:not(:last-of-type) {
+      margin-bottom: 42px;
+    } */
+  }
+  .Yrectangle61 {
+    width: 1440px;
+    height: 170px;
+    background-color: rgba(247, 247, 247, 1);
+    position: relative;
+  }
+  .Ynavbar {
+    background-color: black;
+    padding: 24px 666px 21px 667px;
+    display: flex;
+    align-items: flex-start;
+    position: absolute;
+    left: 0;
+    top: -69px;
+    width:100%;
+  }
+  .YyourProfile {
+    color: white;
+  }
+  .Yrectangle2 {
+    width: 196px;
+    height: 172.43px;
+    position: absolute;
+    left: 110px;
+    bottom: -149.43px;
+    border: 2px solid black;
+    border-radius: 10px;
+  }
+  .Yrectangle74 {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 109px;
+    top: -61px;
+    border: 2px solid white;
+    border-radius: 10px;
+  }
+  .YflexWrapperFive {
+    background-color: rgba(196, 196, 196, 0);
+    padding: 9px 8px 9px 6px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 215px;
+    top: -54px;
+  }
+  .YmyProjects {
+    font-family: "Montserrat";
+    font-size: 18px;
+    font-weight: 700;
+    line-height: normal;
+    color: white;
+  }
+  .YflexWrapperSix {
+    background-color: rgba(196, 196, 196, 0);
+    padding: 8px 8px 9px 22px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 350px;
+    top: -53px;
+  }
+  .YionarrowBackOutline {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 101px;
+    top: -54px;
+  }
+  .Ygroup188 {
+    margin-bottom: 102.42px;
+    margin-left: 1016px;
+    display: flex;
+    align-items: flex-start;
+  }
+  .Ygroup {
+    margin-right: 18px;
+    padding: 3.16px 4.74px 3.16px 0;
+    position: relative;
+  }
+  .Yvector {
+    width: 5.27%;
+    height: 20.01%;
+    position: absolute;
+    left: 5.53px;
+    top: 0;
+  }
+  .YvectorTwo {
+    width: 5.27%;
+    height: 20.01%;
+    position: absolute;
+    right: 10.26px;
+    top: 0;
+  }
+  .YflexWrapperOne {
+    background-size: 100% 100%;
+    background-position: center;
+    background-image: url("https://static.overlay-tech.com/assets/0a583831-9ff6-4212-ab78-ef4c39e73268.svg");
+    padding: 7.1px 0.79px 3.94px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+  }
+  .YvectorThree {
+    width: 100%;
+    height: 11.11%;
+    background-color: rgba(34, 34, 35, 0.7);
+    margin-bottom: 1.58px;
+  }
+  .YflexWrapperEleven {
+    padding: 0 0 0 3.16px;
+    display: flex;
+    align-items: flex-start;
+    /* &:not(:last-of-type) {
+      margin-bottom: 1.58px;
+    } */
+  }
+  .YvectorFour {
+    width: 33.36%;
+    align-self: stretch;
+    object-fit: cover;
+    /* &:not(:last-of-type) {
+      margin-right: 1.57px;
+    } */
+  }
+  .YvectorFive {
+    width: 33.36%;
+    align-self: stretch;
+    margin-right: 1.58px;
+    object-fit: cover;
+  }
+  .YvectorSix {
+    width: 60.08%;
+    align-self: stretch;
+    object-fit: cover;
+    /* &:not(:last-of-type) {
+      margin-right: 1.57px;
+    } */
+  }
+  .YflexWrapperTwo {
+    background-size: 100% 100%;
+    background-position: center;
+    background-image: url("https://static.overlay-tech.com/assets/06213db0-bd52-4fd1-8569-71f1b8f000e4.svg");
+    padding: 2.51px 3.24px 3.15px 5.52px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  .YvectorSeven {
+    width: 100%;
+    height: 100%;
+  }
+  .Ynum3HrsPerWeek {
+    font-family: "Lato";
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    color: rgba(0, 0, 0, 0.7);
+    margin-top: 6px;
+  }
+  .YflexWrapperSeven {
+    padding: 0 0 0 111px;
+    display: flex;
+    align-items: flex-start;
+  }
+  .Yname {
+    margin-right: 132px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .YtonyStark {
+    font-family: "Lato";
+    font-size: 18px;
+    font-weight: 700;
+    line-height: normal;
+    color: black-2;
+    margin-bottom: 22px;
+    letter-spacing: 0.18px;
+  }
+  .YflexWrapperThirteen {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: flex-start;
+  }
+  .Ygroup187 {
+    width: 16px;
+    height: 14px;
+    margin-top: 2px;
+    margin-right: 12px;
+  }
+  .YdeveloperIndustries {
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 700;
+    line-height: normal;
+    color: black-2;
+  }
+  .YdeveloperIndustriesEmphasis0 {
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+    color: black-2;
+  }
+  .YflexWrapperFourteen {
+    display: flex;
+    align-items: center;
+  }
+  .Ygroup186 {
+    width: 15px;
+    height: 12px;
+    margin-right: 13px;
+  }
+  .Yexperience {
+    font-family: "Lato";
+    font-size: 18px;
+    font-weight: 700;
+    line-height: normal;
+    color: black;
+    margin-top: 50px;
+  }
+  .YflexWrapperEight {
+    margin-bottom: 29px;
+    padding: 0 0 0 111px;
+    display: flex;
+    align-items: flex-start;
+  }
+  .YvectorEight {
+    width: 4%;
+    height: 39.47%;
+    margin-top: 46px;
+    margin-right: 16px;
+  }
+  .YvectorNine {
+    width: 4%;
+    height: 38.5%;
+    margin-top: 46px;
+    margin-right: 16px;
+  }
+  .YvectorTen {
+    width: 4%;
+    height: 39.47%;
+    margin-top: 46px;
+    margin-right: 262px;
+  }
+  .YsrDesignerOnGoogleWorkingOnFuchsi {
+    max-width: 477px;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+    color: black-2;
+  }
+  .Yskills {
+    font-family: "Lato";
+    font-size: 18px;
+    font-weight: 700;
+    line-height: normal;
+    color: black;
+    margin-bottom: 24px;
+    margin-left: 493px;
+  }
+  .Yfigma {
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+    color: black-2;
+    margin-bottom: 8px;
+    margin-left: 493px;
+  }
+  .Ynum2Zeplin {
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+    color: black-2;
+    margin-bottom: 8px;
+    margin-left: 500px;
+  }
+  .Ynum3Marvel {
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+    color: black-2;
+    margin-bottom: 177px;
+    margin-left: 500px;
+  }
+  .Yfooter {
+    background-color: rgba(247, 247, 247, 1);
+    padding: 53px 111px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+  }
+  .YflexWrapperNine {
+    margin-bottom: 6.61px;
+    display: flex;
+    align-items: flex-start;
+  }
+  .Ylogo {
+    margin-right: 1016px;
+    padding: 19px 0 0;
+    display: flex;
+    align-items: flex-start;
+  }
+  .YrelativeWrapperOne {
+    margin-right: 2px;
+    position: relative;
+  }
+  .Yu {
+    font-family: "Lato";
+    font-size: 36px;
+    font-weight: 900;
+    line-height: normal;
+    color: tomato;
+    position: relative;
+  }
+  .YuTwo {
+    font-family: "Lato";
+    font-size: 36px;
+    font-weight: 900;
+    line-height: normal;
+    color: tomato;
+    position: absolute;
+    left: 0;
+    top: -19px;
+  }
+  .Yunion {
+    font-family: "Lato";
+    font-size: 24px;
+    font-weight: 900;
+    line-height: normal;
+    color: black;
+    margin-top: 10px;
+  }
+  .YvectorEleven {
+    width: 2.51%;
+    height: 42.02%;
+    margin-top: 41px;
+    margin-right: 24px;
+  }
+  .YvectorTwelve {
+    width: 2.51%;
+    height: 34.16%;
+    margin-top: 47px;
+  }
+  .YcollaboartionMadeEasy {
+    font-family: "Lato";
+    font-size: 24px;
+    font-weight: 400;
+    line-height: normal;
+    color: black-2;
+    margin-bottom: 24px;
+    margin-left: 24px;
+  }
+  .Yline4 {
+    width: 1218px;
+    height: 1px;
+    background-color: transparent-black;
+    margin-bottom: 41px;
+  }
+  .YflexWrapperTen {
+    padding: 0 0 0 24px;
+    display: flex;
+    align-items: flex-start;
+  }
+  .YvectorThirteen {
+    width: 2.09%;
+    align-self: stretch;
+    margin-right: 14px;
+    object-fit: cover;
+  }
+  .YallRightsAreRegistered {
+    font-family: "Karla";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: normal;
+    color: black;
+    margin-top: 3px;
+    margin-right: 690px;
+  }
+  .YfooterList {
+    margin-top: 5px;
+    display: flex;
+    align-items: flex-start;
+  }
+  .YjoinUnion {
+    font-family: "Montserrat";
+    font-size: 14px;
+    font-weight: 700;
+    line-height: normal;
+    color: black-2;
+    /* &:not(:last-of-type) {
+      margin-right: 24px;
+    } */
+  }
+  .Yinvites {
+    padding: 16px 0 0;
+    display: flex;
+    align-items: flex-start;
+    position: absolute;
+    right: 111px;
+    bottom: 60px;
+  }
+  .YflexWrapperThree {
+    background-color: black;
+    border-radius: 20px;
+    padding: 19px 11px;
+    position: relative;
+  }
+  .YflexWrapperFour {
+    background-color: red-2;
+    border-radius: 50%;
+    padding: 3px 9px 1px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 154px;
+    top: 0;
+  }
