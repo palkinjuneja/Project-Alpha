@@ -21,25 +21,18 @@ import ProjectDetails from './components/projectDetails';
 
 
 function App() {
-  const [user, setUser] = useState("context message")
+ 
+  const isLoggedIn = () => {
+    const data = JSON.parse(localStorage.getItem('userDetails'))
 
-  return (
-    <UserContext.Provider value={[user, setUser]}>
-      <Router>
-        <div className="App">
-          <div className="content">
-            <Switch>
-              <Route path='/first'>
-                <SigninOnboard />
-              </Route>
-              <Route path='/profile'>
+    if (data) {
+      return (
+        <Switch>
+            <Route path='/profile'>
                 <NewProfile />
               </Route>
               <Route path='/edit'>
                 <EditProfile />
-              </Route>
-              <Route path='/oldUser/*'>
-                <OldUser />
               </Route>
               <Route path="/User/:userId" component={UserView} />
               <Route path="/User" component={UserMain} />
@@ -50,12 +43,37 @@ function App() {
         <Route path="/user/:id" component={MyProject} />
         <Route path="/createProject" component={CreateProject} />
         <Route path="/editProject/:id" component={EditProject} />
+        </Switch>)
+    } else {
+      return (
+        <div>
+          <h5>
+            You are not logged in !!
+          </h5>
+          <a href="/first">Click here to login</a>
+        </div>
+      )
+    }
+  }
 
+  return (
+    
+      <Router>
+        <div className="App">
+          <div className="content">
+            <Switch>
+              <Route path='/first'>
+                <SigninOnboard />
+              </Route>
+              <Route path='/oldUser/*'>
+                <OldUser />
+              </Route>
+              {isLoggedIn()}
             </Switch>
           </div>
         </div>
       </Router>
-    </UserContext.Provider>
+
   );
 }
 

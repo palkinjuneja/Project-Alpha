@@ -28,7 +28,7 @@ import {
       time:time,
       userId:id
     }
-    const [user,setUser]  = useContext(UserContext)
+   // const [user,setUser]  = useContext(UserContext)
  
     useEffect(()=>{
      

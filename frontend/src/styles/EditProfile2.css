@@ -1,3 +1,7 @@
+.textClass{
+  margin-top: 15px;
+}
+
 .editProfile {
     background-color: rgba(255, 255, 255, 1);
     /* padding: 69px 0 168px; */
@@ -13,12 +17,12 @@
     margin-bottom: 15%
 }
   .OrelativeWrapperTwo {
-    margin-bottom: 42px;
+    margin-bottom: 1%;
     position: relative;
   }
   .Orectangle61 {
     /* width: 1440px; */
-    height: 170px;
+    height: 5%;
     background-color: rgba(247, 247, 247, 1);
     position: relative;
   }
@@ -39,8 +43,7 @@
     align-items: flex-start;
   }
   input[type=text], select {
-    /* width: 100%; */
-    padding: 12px 20px;
+    
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
@@ -118,10 +121,10 @@
     line-height: normal;
     color: rgba(0, 0, 0, 1);
   }
-  .OflexWrapperFour {
+  .OXflexWrapperFour {
     background-color: rgba(247, 247, 247, 0.5);
     margin-bottom: 82px;
-    margin-left: 776px;
+    margin-left: 42%;
     border-radius: 25px;
     padding: 11px 20px 94px 32px;
     display: flex;
@@ -129,7 +132,7 @@
     align-items: flex-start;
     position: relative;
     border: 1px solid rgba(34, 34, 35, 1);
-    margin-right: 573px;
+    margin-right: 32%;
   }
   .OflexWrapperFifteen {
     margin-bottom: 31px;

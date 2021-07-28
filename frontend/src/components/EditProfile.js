@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   }))
   
 const EditProfile = () => {
-    const {user,setUser} = useContext(UserContext)
+    
     const {userId} = useParams();
     const [userData,setUserData]= useState({});
     const [profess,setprofess]=useState("");  // role
@@ -44,14 +44,12 @@ const EditProfile = () => {
     const [linkedin,setlinkedin]=useState(""); //linkedin
     const [github,setgithub]=useState("");   //github
     const [profile,setprofile]=useState("");  //portfolio
-    const [skill,setSkill]=useState("") //skill
-    const [error,setError]=useState(false)
-
-    const [details,setDetails]= useState("") // data from linkedin
+   
 
     const data=JSON.parse(localStorage.getItem('userDetails'))
-
+    const [inputFields, setInputFields] = useState("");
     
+   
 
     const handletime=(event)=>{
         settime(event.target.value)
@@ -79,84 +77,52 @@ const EditProfile = () => {
         setgithub(event.target.value)
         console.log(event.target.value);
     }
+
+    const handleChangeInput = (event) => {
+      setInputFields(event.target.value);
+      console.log(inputFields)
+    }
     const classes = useStyles()
-  const [inputFields, setInputFields] = useState([
-    { id: uuidv4(), skill1: '' },
-  ]);
 
-const submitHandler = (event)=>{
-   console.log("function called")
+  
+
+  const submitHandler = (event) => {
     event.preventDefault();
+    console.log(inputFields)
+    let skills = inputFields.toString().split(",")
+    console.log(skills)
 
-    
 
-    if(experience&&time&&profess&&linkedin)  //add skill
+    if (experience && time && profess && linkedin)  //add skill
     {
-        const userData = {
-            name: data.name,
-            email: data.email,
-            photo : data.photo,
-            skill : ['java','python'],
-            overview : experience,
-            role : profess,
-            linkedin: linkedin,
-            github : github,
-            portfolio : profile,
-            login_token : data.login_token,
-            time : time,
-            userId :""
+      const userData = {
+        name: data.name,
+        email: data.email,
+        photo: data.photo,
+        skill: skills,
+        overview: experience,
+        role: profess,
+        linkedin: linkedin,
+        github: github,
+        portfolio: profile,
+        login_token: data.login_token,
+        time: time
+      }
 
-
-        }
-        
-        DataService.setProfile(userData)
-        .then(res=>{
-           console.log(res.data);
-           axios.get("http://localhost:9000/getUserId?loginToken="+data.login_token).then((res)=>{
-             userData.userId=res.data
-             localStorage.setItem('userDetails',JSON.stringify(userData))
-           })
-           
-            window.location="/project";
+      DataService.setProfile(userData)
+        .then(res => {
+          console.log(res.data);
+          localStorage.setItem('userDetails', JSON.stringify(userData))
+          
+           window.location.href = "/profile";
         }
         )
-        .catch(err=>console.log("Error: "+err));
-    }else{
+        .catch(err => console.log("Error: " + err));
+    } else {
       alert("Please fill in all the required fields !")
     }
-}
-
-  const handleChangeInput = (id, event) => {
-    const newInputFields = inputFields.map(i => {
-      if(id === i.id) {
-        i[event.target.name] = event.target.value
-      }
-      return i;
-    })
-    
-    setInputFields(newInputFields);
   }
 
-  const handleAddFields = () => {
-    setInputFields([...inputFields, { id: uuidv4(),  firstName: '', lastName: '' }])
-  }
-
-  const handleRemoveFields = id => {
-    const values  = [...inputFields];
-    values.splice(values.findIndex(value => value.id === id), 1);
-    setInputFields(values);
-  }
-
-  const retrieveProfile = () => {
-    DataService.getProfile()
-      .then(response => {
-        console.log(response.data);
-        setDetails(response.data)
-      })
-      .catch(e => {
-        console.log(e);
-      })
-  }
 
   const retrieveData = () => {
     
@@ -168,6 +134,7 @@ const submitHandler = (event)=>{
         setlinkedin(data.linkedin) //linkedin
         setgithub(data.github)  //github
         setprofile(data.portfolio) //portfolio
+        setInputFields(data.skill)
   }
 
     useEffect(()=>{
@@ -298,36 +265,20 @@ const submitHandler = (event)=>{
           </div>
           <div className='OflexWrapperFour'>
           <Container>
-          <p className='Oexperience'>Skills*</p>
-          <form className={classes.root}>
-            { inputFields.map(inputField => (
-              <div key={inputField.id}>
-                <TextField
-                  name="firstName"
-                  label="Skill"
-                  variant="filled"
-                  value={inputField.firstName}
-                  onChange={event => handleChangeInput(inputField.id, event)}
-                />
-                {/* <TextField
-                  name="lastName"
-                  label="Skill"
-                  variant="filled"
-                  value={inputField.lastName}
-                  onChange={event => handleChangeInput(inputField.id, event)}
-                /> */}
-                <IconButton disabled={inputFields.length === 1} onClick={() => handleRemoveFields(inputField.id)}>
-                  <RemoveIcon />
-                </IconButton>
-                <IconButton
-                  onClick={handleAddFields}
-                >
-                  <AddIcon />
-                </IconButton>
-              </div>
-            )) }
-          </form>
-        </Container>
+                <p className='Oexperience'>Skills* </p>
+                <form className={classes.root}>
+                 
+                    <div >
+                      <TextField style={{textTransform:"lowercase"}}
+                        name="skill"
+                        label="Skills"
+                        placeholder="Eg: Html,Css.."
+                        value={inputFields}
+                        onChange={handleChangeInput}
+                      />
+                    </div>
+                </form>
+              </Container>
         </div>
         
           <div className='OflexWrapperThirteen'>

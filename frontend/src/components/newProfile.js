@@ -34,19 +34,18 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const NewProfile = () => {
-  const { user, setUser } = useContext(UserContext)
-  const { userId } = useParams();
-  const [userData, setUserData] = useState({});
+  
+  
   const [profess, setprofess] = useState("");  // role
   const [experience, setexperience] = useState("");  //overview
   const [time, settime] = useState("");  //time
   const [linkedin, setlinkedin] = useState(""); //linkedin
   const [github, setgithub] = useState("");   //github
   const [profile, setprofile] = useState("");  //portfolio
-  const [skill, setSkill] = useState("") //skill
-  const [error, setError] = useState(false)
+  const [skills, setSkill] = useState([]) //skill
+ 
 
-  const [details, setDetails] = useState("") // data from linkedin
+
 
   const data = JSON.parse(localStorage.getItem('userDetails'))
  
@@ -64,49 +63,9 @@ const NewProfile = () => {
     setprofess(event.target.value)
     console.log(event.target.value);
   }
-  const handleexperience = (event) => {
-    setexperience(event.target.value)
-    console.log(event.target.value);
-  }
-
-  const handleprofile = (event) => {
-    setprofile(event.target.value)
-    console.log(event.target.value);
-  }
-  const handlelinkedin = (event) => {
-    setlinkedin(event.target.value)
-    console.log(event.target.value);
-  }
-  const handlegithub = (event) => {
-    setgithub(event.target.value)
-    console.log(event.target.value);
-  }
+ 
   const classes = useStyles()
-  const [inputFields, setInputFields] = useState([
-    { id: uuidv4(), skill1: '' },
-  ]);
-
-
-  const handleChangeInput = (id, event) => {
-    const newInputFields = inputFields.map(i => {
-      if (id === i.id) {
-        i[event.target.name] = event.target.value
-      }
-      return i;
-    })
-
-    setInputFields(newInputFields);
-  }
-
-  const handleAddFields = () => {
-    setInputFields([...inputFields, { id: uuidv4(), firstName: '', lastName: '' }])
-  }
-
-  const handleRemoveFields = id => {
-    const values = [...inputFields];
-    values.splice(values.findIndex(value => value.id === id), 1);
-    setInputFields(values);
-  }
+ 
 
 
 
@@ -114,6 +73,7 @@ const NewProfile = () => {
 
     // console.log(response.data);
     // setData(response.data)
+    setSkill(data.skill)
     setexperience(data.overview)    //exp
     setprofess(data.role) //role
     settime(data.time) //time
@@ -264,48 +224,27 @@ const NewProfile = () => {
               </div>
             </div>
             <div className='OflexWrapperFour'>
-              <Container>
-                <p className='Oexperience'>Skills</p>
-                <form className={classes.root}>
-                  {inputFields.map(inputField => (
-                    <div key={inputField.id}>
-                      <TextField
-                        name="firstName"
-                        label="Skill"
-                        variant="filled"
-                        value={inputField.firstName}
-                        onChange={event => handleChangeInput(inputField.id, event)}
-                      />
-                      {/* <TextField
-                  name="lastName"
-                  label="Skill"
-                  variant="filled"
-                  value={inputField.lastName}
-                  onChange={event => handleChangeInput(inputField.id, event)}
-                /> */}
-                      <IconButton disabled={inputFields.length === 1} onClick={() => handleRemoveFields(inputField.id)}>
-                        <RemoveIcon />
-                      </IconButton>
-                      <IconButton
-                        onClick={handleAddFields}
-                      >
-                        <AddIcon />
-                      </IconButton>
-                    </div>
-                  ))}
-                </form>
+            <Container>
+                <p className='Oexperience'>Current Skills</p>
+                   <div style={{marginLeft:"35%"}}>
+                     <ul>
+                       {skills.map((skill)=>{
+                         return(
+                           <div style={{display:"inline-block" }} className="col-lg-4 pb-1">
+                           <div className="card" style={{backgroundColor:"antiquewhite" }}>
+                             <div className="card-body">
+                               <h5 className="card-title">{skill}</h5>
+                             </div>
+                           </div>
+                          </div>
+                         )
+                       })}
+                     </ul>
+                   </div>
               </Container>
             </div>
 
             <div className='OflexWrapperThirteen'>
-              {/* <Button onClick={submitHandler}
-              className={classes.button}
-              variant="contained"
-              color="primary"
-              type="submit"
-              style={{width:"213px",height:"46px"}}
-            >Submit</Button> */}
-              {/* <p className='Osubmit}>Submit</p> */}
             </div>
           </div>
           <FooterModule/>
