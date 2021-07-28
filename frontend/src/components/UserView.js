@@ -36,8 +36,11 @@ function UserView() {
            <NavBar middleText="User Profile"/>
            <div className={styles.userView__Banner}>
            </div>
-           <div className={styles.userView__mainDiv}>
-               <div className={styles.userView__basicInfo}>
+           {/* <div className={styles.userView__mainDiv}> */}
+           <div class="container " style={{marginTop:'-1%' ,minHeight:'70vh'} }>
+           <div class="row justify-content-center">
+               {/* <div className={styles.userView__basicInfo}> */}
+               <div class="col-sm-12 col-md-12 col-lg-4 ">
                    <div className={styles.userView__basicInfoImage}>
                    <img alt="" className={styles.userView__imageRectabgle} src={userData.photo}/>
                    </div>
@@ -54,14 +57,18 @@ function UserView() {
                    </div>
                    </div>
                 </div>
-               <div className={styles.userView__experience}>
+               {/* <div className={styles.userView__experience}> */}
+               <div class="col-sm-12 col-md-12 col-lg-6  ">
                    <p className={styles.userView__experience__headings}>Experience</p>
                    <p className={styles.userView__experience__text}>{userData.overview}</p>
                    <p className={styles.userView__experience__headings}>Skills</p>
                    {userSkill ? <div>{userSkill.map((eachSkill)=>(<p className={styles.userView__experience__text}>{userSkill.indexOf(eachSkill)+1}.{eachSkill}</p>))}
                    </div>:<p></p>}
                </div>
-               <div className={styles.userView__availability}><EventAvailableIcon/> <p className={styles.userView__availability__text}> &nbsp;&nbsp;{userData.availability} Hrs per week</p></div>
+               <div class="col-sm-12 col-md-12 col-lg-2 ">
+               {/* <div className={styles.userView__availability}> */}
+                   <EventAvailableIcon/> <p className={styles.userView__availability__text}> &nbsp;&nbsp;{userData.availability} Hrs per week</p></div>
+           </div>
            </div>
            <FooterModule/>
         </div>

@@ -38,9 +38,7 @@ const SigninOnboard = () => {
             {/* Why Linked in? */}
           </p>
           <p
-            className='XcollaborationOnProjectsMadeEasyWith
-            '
-          >
+            className='XcollaborationOnProjectsMadeEasyWith'>
             Collaboration on projects made easy with Union.
           </p>
           <p

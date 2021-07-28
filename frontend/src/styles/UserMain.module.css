@@ -1,6 +1,7 @@
 .main{
   margin:0px;
 }
+
 .UserDisplay{
     display: flex;
     flex-direction: column;

@@ -5,11 +5,7 @@
     justify-content: center;
    
 }
-.userView__Page{
-    height:100vh;
-   
-    
-}
+
 .userView__navBar{
     background-color:black;
     height:7%;
@@ -34,7 +30,6 @@
     margin-bottom:1%;
     padding-left:1%;
     padding-right:1%;
-    max-height: 100%;
     overflow:  hidden;
    
 }
@@ -47,8 +42,8 @@
 }
 .userView__basicInfoImage{
     margin:1%;
-    width: 37%;
-    height:30%
+    width: 60%;
+    height:50%
    
 }
 .userView__imageRectabgle{
@@ -64,21 +59,21 @@
 .userView__basicInfoText__name{
     letter-spacing: 0.18px;
     font-family: "Lato";
-    font-size: 100%;
+    font-size: 125%;
     font-weight: bold;
     margin-bottom: 5%;
 }
 
 .userView___basicInfoText__role{
     font-family: "Open Sans";
-    font-size: 80%;
+    font-size: 100%;
     font-weight: 400;
     line-height: normal;
     color: black-2;
 }
 .userView___basicInfoText__email{
     font-family: "Open Sans";
-    font-size: 80%;
+    font-size: 100%;
     font-weight: bold;
     line-height: normal;
     color: black-2;
@@ -101,11 +96,12 @@
 }
 .userView__availability__text{
     font-family:"Open-sans";
-    font-size:80%;
+    font-size:100%;
     margin:0px;
     font-weight: 0;
     color:black;
     padding:0.5%;
+    margin-top: 15%;
 }
 .userView__socialLinks{
     display: flex;
@@ -137,16 +133,18 @@
     font-weight: bold;
     color:black;
     font-family: "Lato";
-    font-size:100%;
-    padding:0px 0px 0px 0px
+    font-size:125%;
+    padding:0px 0px 0px 0px;
+    margin-top:15%
 }
 .userView__experience__text{
     color:black;
     font-family: "Open Sans";
-    font-size:90%;
+    font-size:100%;
     padding:0px;
     font-weight: unset;
     margin:0px;
-    padding:0px 30px 0px 0px
+    padding:0px 30px 0px 0px;
+    text-align: justify;
 
 }

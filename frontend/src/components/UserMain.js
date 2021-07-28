@@ -10,7 +10,7 @@ import NavBar from './NavBar';
 import FindPeople from './FindPeople';
 import FooterModule from './footer';
 import SearchIcon from '@material-ui/icons/Search';
-import { Button } from '@material-ui/core';
+import { Button, Hidden } from '@material-ui/core';
 import Nav from './Nav';
 
 function UserMain() {
@@ -21,8 +21,8 @@ function UserMain() {
     const [searchValue,setsearchValue]= React.useState(null);
     const [currentPage,setcurrenPage]=React.useState(0);
 
-    const start =currentPage*12;
-    const end = start+12;
+    const start =currentPage*9;
+    const end = start+9;
 
     const searchTypeOptions =[
         { label:"Role", value:"Role"},
@@ -92,43 +92,45 @@ function UserMain() {
             }
         });
 
-
+       
 
     return (
+
+      
         < div className={styles.main}>
          <NavBar middleText="Users"/> 
-        
-        <div className = {styles.userInput}>
-          <div  className = {styles.searchBar}>
-            <input className={styles.searchInput} placeholder="Type a Role or Skill" type="text" onChange={(event)=>onTextInput(event)}></input>
-            <span className={styles.searchInputIcon} onClick={event=>onSearch(event)}><SearchIcon/></span>
-          </div>
+        <div  class="container">
+        <div class="row align-items-center" >
+          <div class="col-sm-12 col-md-6 col-lg-8">
+          <input style={{width:'100%'}}placeholder="Type a Role or Skill" type="text" onChange={(event)=>onTextInput(event)}></input>
           
-            <div class={styles.searchDropdown}>
-                <Select options ={searchTypeOptions} onChange={onDropdownSelect}></Select>
           </div>
+             <div class="col-sm-12 col-md-3 col-lg-3">
+             <Select  options ={searchTypeOptions} onChange={onDropdownSelect}></Select>
+             </div> 
+             <div class="col-sm-12 col-md-3 col-lg-1">
+             <button style={{width:'100%', height:'200%' , border:'2px solid black', backgroundColor:'white'}} onClick={event=>onSearch(event)}><SearchIcon/></button> 
+             </div>
+            
         </div>
+        </div>
+        
         {
-          userList? <div className = {styles.UserDisplay} >
-        <div className ={styles.flexWrapperFour}>
-                {userList.slice(start,start+4).map((eachUser)=>(
-                   <div key={eachUser._id} className={styles.UserCard}><SearchCard userName={eachUser.name} userId={eachUser._id} userRole={eachUser.role}/></div>
+          userList? <div class="container " style={{overflow:'hidden'}}>
+          {/* className = {styles.UserDisplay} > */}
+        <div class="row " >
+         {/* className ={styles.flexWrapperFour}> */}
+                {userList.slice(start,start+9).map((eachUser)=>(
+                   <div class="col-sm-12 col-md-6 col-lg-4" key={eachUser._id} ><SearchCard userPhoto={eachUser.photo}userName={eachUser.name} userId={eachUser._id} userRole={eachUser.role}/></div>
                 ))}
         </div>
-        <div className ={styles.flexWrapperFour}>
-                {userList.slice(start+4,start+8).map((eachUser)=>(
-                    <div key={eachUser._id} className={styles.UserCard}><SearchCard userName={eachUser.name} userId={eachUser._id} userRole={eachUser.role}/></div>
-                ))}
-            </div>
-            <div className ={styles.flexWrapperFour}>
-                {userList.slice(start+8,start+12).map((eachUser)=>(
-                    <div key={eachUser._id} className={styles.UserCard}><SearchCard userName={eachUser.name} userId={eachUser._id} userRole={eachUser.role}/></div>
-                ))}
-          </div></div>:<p>No Matches Found!! Please Try another Filter</p>}
-          <div className={styles.navigationButton}>
-          <Button disabled={currentPage === 0 ?true:false} onClick={decreaseCount} >Previous</Button>
-          <Button disabled={userList.length<currentPage+12} onClick={increaseCount}>Next</Button>
-          </div>        
+        <div class="row justify-content-center">
+          <Button class="col-sm-5 col-md-4 col-lg-2 p-3 m-3 border bg-light" disabled={currentPage === 0 ?true:false} onClick={decreaseCount} >Previous</Button>
+          <Button class="col-sm-5 col-md-4 col-lg-2 p-3 m-3 border bg-light" disabled={userList.length<currentPage+9} onClick={increaseCount}>Next</Button>
+          </div> 
+       </div>  :<p>No Matches Found!! Please Try another Filter</p>}
+          {/* <div className={styles.navigationButton}> */}
+                 
         <FooterModule/>
         </div>
     )
