@@ -50,7 +50,7 @@ router.get('/profile', isLoggedIn, async function (req, res) {   //ask the team
         "time":"",
       });
    
-      res.redirect('http://localhost:3000/oldUser/?'+obj)
+      res.redirect('http://localhost:3000/oldUser/?'+obj)             //change 
       // res.redirect("http://localhost:3000/edit") 
     }else {
 
@@ -69,7 +69,7 @@ router.get('/profile', isLoggedIn, async function (req, res) {   //ask the team
       "email":response.email
     });
     console.log(query)
-    res.redirect('http://localhost:3000/oldUser/?'+query)
+    res.redirect('http://localhost:3000/oldUser/?'+query)  //change
   }
     // res.redirect("http://localhost:3000/procomp")  //might have to change to router.redirect
   })
@@ -129,7 +129,7 @@ router.get('/auth/linkedin', passport.authenticate('linkedin', {
 router.get('/auth/linkedin/callback',
   passport.authenticate('linkedin', {
     successRedirect: '/profile',
-    failureRedirect: 'http://localhost:3000/first'
+    failureRedirect: 'http://localhost:3000/first'         //change
   }));
 
 router.get('/logout', function (req, res) {

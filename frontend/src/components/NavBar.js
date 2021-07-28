@@ -7,9 +7,17 @@ function NavBar({middleText}) {
     
     const data = JSON.parse(localStorage.getItem('userDetails'))
 
+    const logout=()=>{
+        localStorage.removeItem('userDetails')
+        window.location='/first'
+    }
+
+
     return (
         <div>
-            <div className={styles.navBarRow}>
+            {
+                data ?(
+                    <div className={styles.navBarRow}>
                 <div className={styles.navBarColumn_Left}>
                     <span className={styles.navBarColumn_Left_U}>o</span><span className={styles.navBarColumn_Left_Union}>union</span>
                 </div>
@@ -20,7 +28,18 @@ function NavBar({middleText}) {
                         <img className={styles.navBarImage} src={data.photo}/>
                     </a>
                 </div>
+                <div>
+                    <button onClick={logout}>
+                        Logout
+                    </button>
+                </div>
 		    </div>
+
+                ):(
+                    <h5> Redirecting...</h5>
+                )
+            }
+            
         </div>
     )
 }

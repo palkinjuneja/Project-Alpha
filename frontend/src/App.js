@@ -2,7 +2,6 @@
 import './App.css';
 import { useEffect, useState } from 'react'
 import SigninOnboard from './components/figmaLogin';
-import CompletedProfile from './components/figmaProfileComp';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import EditProfile from './components/EditProfile';
 import OldUser from './components/oldUser';
@@ -16,6 +15,35 @@ import InviteClick from './components/InviteClick';
 function App() {
   const [user, setUser] = useState("context message")
 
+  const isLoggedIn = () => {
+    const data = JSON.parse(localStorage.getItem('userDetails'))
+
+    if (data) {
+      return (
+        <Switch>
+          <Route path='/profile'>
+            <NewProfile />
+          </Route>
+          <Route path='/edit'>
+            <EditProfile />
+          </Route>
+          <Route path="/User/:userId" component={UserView} />
+          <Route path="/User" component={UserMain} />
+          <Route path="/findPeople" component={FindPeople} />
+          <Route path="/inviteClick" component={InviteClick} />
+        </Switch>)
+    } else {
+      return (
+        <div>
+          <h5>
+            You are not logged in !!
+          </h5>
+          <a href="/first">Click here to login</a>
+        </div>
+      )
+    }
+  }
+
   return (
     <UserContext.Provider value={[user, setUser]}>
       <Router>
@@ -25,19 +53,10 @@ function App() {
               <Route path='/first'>
                 <SigninOnboard />
               </Route>
-              <Route path='/profile'>
-                <NewProfile />
-              </Route>
-              <Route path='/edit'>
-                <EditProfile />
-              </Route>
               <Route path='/oldUser/*'>
                 <OldUser />
               </Route>
-              <Route path="/User/:userId" component={UserView} />
-              <Route path="/User" component={UserMain} />
-              <Route path="/findPeople" component={FindPeople}/>
-              <Route path ="/inviteClick" component={InviteClick}/>  
+              {isLoggedIn()}
             </Switch>
           </div>
         </div>
