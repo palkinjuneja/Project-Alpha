@@ -1,0 +1,50 @@
+.nav-main{
+    width:100%;
+    
+    background:black;
+    padding: 10px;
+    margin: 0;
+    align-items: center;
+  
+}
+
+.logo{
+    margin: 10px 0;
+
+}
+
+.middle-text{
+    text-align: center;
+    color:white;
+}
+
+.options-bar{
+    color:white;
+    text-align: right;
+    float:right;
+    align-items: right;
+}
+
+.options-bar a{
+    color:white;
+    
+}
+
+.profile-pic{
+    height:80px;
+    width:80px;
+    padding:5px;
+    color:white;
+    
+    margin:5px;
+    
+}
+.profile-pic img{
+    height:100%;
+    width:100%;
+    
+    color:white;
+    
+  
+    
+}

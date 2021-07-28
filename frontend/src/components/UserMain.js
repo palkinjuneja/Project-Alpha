@@ -11,7 +11,7 @@ import FindPeople from './FindPeople';
 import FooterModule from './footer';
 import SearchIcon from '@material-ui/icons/Search';
 import { Button, Hidden } from '@material-ui/core';
-import Nav from './Nav';
+import NavHeader from './navHeader';
 
 function UserMain() {
     const [userCall,setuserCall] = useState(true);
@@ -98,7 +98,7 @@ function UserMain() {
 
       
         < div className={styles.main}>
-         <NavBar middleText="Users"/> 
+         <NavHeader middleText="Users"/>
         <div  class="container">
         <div class="row align-items-center" >
           <div class="col-sm-12 col-md-6 col-lg-8">

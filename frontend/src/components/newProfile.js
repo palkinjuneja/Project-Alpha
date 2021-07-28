@@ -21,6 +21,7 @@ import LinkIcon from '@material-ui/icons/Link';
 import DataService from "../services/backendRoutes"
 import { UserContext } from '../userContext';
 import FooterModule from './footer';
+import NavHeader from './navHeader';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -88,11 +89,12 @@ const NewProfile = () => {
 
   return (
     <div>
+      <NavHeader middleText="Request/Invite Section"/>
       {data ? (
         <div>
           <div className='OeditProfile'>
             <div className='OrelativeWrapperTwo'>
-              <NavBar middleText="My Profile" />
+              
               <button className="editProfileButton" onClick={onEditHandler}>
                    Edit Profile
                </button>
@@ -108,7 +110,7 @@ const NewProfile = () => {
               <form>
                 <div className='Otimer'>
                 <TimerIcon />
-                  <label for="time">Availability <br /> </label>
+                  <label for="time">Availability(in Hrs/Week)* <br /> </label>
                   <input id="time"
                     type="text"
                     value={time}
@@ -132,7 +134,7 @@ const NewProfile = () => {
                         type="text"
                         value={profess}
                         onChange={handleprofess}
-                        placeholder="UX Designer @Google"
+                        placeholder="UX Designer"
                         readOnly="readonly"
                       ></input>
                     </div>

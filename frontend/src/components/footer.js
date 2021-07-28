@@ -15,7 +15,7 @@ function FooterModule() {
             <InviteButton/>
           </div>
           <p className={styles.collaboartionMadeEasy}>
-            Collaboartion made easy!
+            Collaboration made easy!
           </p>
           <div className={styles.line4} />
           <div className={styles.flexWrapperSeven}>

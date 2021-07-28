@@ -14,6 +14,7 @@ function RequestButton({project}) {
     const url="http://localhost:9000/request/";
     const [isRequestSent,setIsRequestSent]=useState(false);
     const [requestId,setRequestId]=useState(null);
+    let [requestStatus,setRequestStatus]=useState(null);
 
     const onclickHandler=()=>{
         if(isRequestSent){
@@ -44,6 +45,7 @@ function RequestButton({project}) {
             if(response.data.status==='success'){
                 setIsRequestSent(true);
                 setRequestId(response.data.result._id);
+                setRequestStatus(response.data.result.status_of_request);
                 document.getElementById("request-button").innerHTML="Cancel";
             }
             else{
@@ -68,6 +70,7 @@ function RequestButton({project}) {
             if(response.data.status==='success'){
                 setIsRequestSent(false);
                 setRequestId(null);
+                setRequestStatus(null);
                 document.getElementById("request-button").innerHTML="Request +";
                 ownershipRequestCheck();
             }
@@ -89,11 +92,13 @@ function RequestButton({project}) {
             if(response.data.isExist){
                 setIsRequestSent(true);
                 setRequestId(response.data.result._id);
+                setRequestStatus(response.data.result.status_of_request);
                 document.getElementById("request-button").innerHTML="Cancel";
             }
             else{
                 setIsRequestSent(false);
                 setRequestId(null);
+                setRequestStatus(null);
                 document.getElementById("request-button").innerHTML="Request +";
                 ownershipRequestCheck();
             }
@@ -102,9 +107,17 @@ function RequestButton({project}) {
             console.log(err);
         });
     },[])
+    const renderButton =()=>{
+        if((!requestStatus || requestStatus=='pending') && project.status=='Open')
+            return <button onClick={onclickHandler} id="request-button">Loading...</button>;
+        return null;
+    }
+
+    
+
     return (
         <div>
-            <button onClick={onclickHandler} id="request-button">Loading...</button> 
+            { renderButton() }            
         </div>
     )
 }

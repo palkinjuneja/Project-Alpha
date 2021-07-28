@@ -22,6 +22,7 @@ import DataService from "../services/backendRoutes"
 import { UserContext } from '../userContext';
 import FooterModule from './footer';
 import axios from 'axios';
+import NavHeader from './navHeader';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -106,14 +107,14 @@ const EditProfile = () => {
         github: github,
         portfolio: profile,
         login_token: data.login_token,
-        time: time
+        time: time,
+        userId:data.userId
       }
 
       DataService.setProfile(userData)
         .then(res => {
           console.log(res.data);
           localStorage.setItem('userDetails', JSON.stringify(userData))
-          
            window.location.href = "/profile";
         }
         )
@@ -143,11 +144,12 @@ const EditProfile = () => {
 
   return (
     <div> 
+      <NavHeader middleText="Edit Your Profile"/>
       { data ? (
       <div>
         <div className='OeditProfile'>
           <div className='OrelativeWrapperTwo'>
-            <NavBar middleText="Edit Your Profile"/>
+          
             <div className='Orectangle61' />
         
             <img
@@ -160,12 +162,12 @@ const EditProfile = () => {
             <form>
                     <div className='Otimer'>
                     <TimerIcon />
-                    <label for="time">Availability* <br/> </label>
+                    <label for="time">Availability (in Hrs/Week)* <br/> </label>
                         <input id="time"
                         type="text"
                         value={time}
                         onChange={handletime}
-                        placeholder="3 Hrs per week"
+                        placeholder="Time"
                         label="Required"
                         ></input>
                     </div>
@@ -184,7 +186,7 @@ const EditProfile = () => {
                         type="text"
                         value={profess}
                         onChange={handleprofess}
-                        placeholder="UX Designer @Google"
+                        placeholder="UX Designer"
                         ></input>
                     </div>
                 </form>

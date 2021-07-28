@@ -7,7 +7,7 @@ import EventAvailableIcon from '@material-ui/icons/EventAvailable';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkIcon from '@material-ui/icons/Link';
-import NavBar from './NavBar';
+import NavHeader from './navHeader'
 import FooterModule from './footer'
 
 function UserView() {
@@ -33,7 +33,7 @@ function UserView() {
     },[])
     return (
         <div className={styles.userView__Page}>
-           <NavBar middleText="User Profile"/>
+           <NavHeader middleText="User Profile"/>
            <div className={styles.userView__Banner}>
            </div>
            {/* <div className={styles.userView__mainDiv}> */}
@@ -67,7 +67,7 @@ function UserView() {
                </div>
                <div class="col-sm-12 col-md-12 col-lg-2 ">
                {/* <div className={styles.userView__availability}> */}
-                   <EventAvailableIcon/> <p className={styles.userView__availability__text}> &nbsp;&nbsp;{userData.availability} Hrs per week</p></div>
+                   <EventAvailableIcon/> <p className={styles.userView__availability__text}> &nbsp;&nbsp;{userData.availability} Hrs/Week</p></div>
            </div>
            </div>
            <FooterModule/>

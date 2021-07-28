@@ -1,8 +1,8 @@
 import React from 'react'
 import '../styles/projectDetailsDisplay.css'
-import '../styles/app.css'
 import Footer from './footer';
 import RequestButton from './requestButton';
+import NavHeader from './navHeader';
 
 
 
@@ -11,16 +11,7 @@ function ProjectDetailsDisplay({project}) {
   const project_id=project._id;
     return (
         <div>
-              <div className="topnav">
-                      <span style={{paddingLeft: 60}}>
-                      <span style={{fontSize:37, color:"pink"}}>O</span><span style={{fontSize:27, color:"white"}}>union</span>
-                      </span>
-                      <div className="topnav-right" style={{paddingRight: 63}}>
-                          <a href={"/project/"}>Home</a>
-                          <a href={"/user/"+"60f2bd89c6897f3604ef596d"}>My Projects</a>
-                          <a href="#myProjects">Display Pic</a>
-                     </div>
-               </div>
+             <NavHeader middleText={"Project "+project.project_name}/>
 
            <div >
             <div className = "container-fluid" style={{margin:0,padding:0}}>

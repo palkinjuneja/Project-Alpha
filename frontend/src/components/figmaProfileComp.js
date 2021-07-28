@@ -1,9 +1,11 @@
 import React from "react";
 import "../styles/figmaProfileComp.css"
+import NavHeader from "./navHeader";
 
 const CompletedProfile = () => {
   return (
     <div className='YcompletedProfile1'>
+      <NavHeader middleText="Profile"/>
       <div className='YrelativeWrapperThree'>
         <div className='Yrectangle61' />
         <div className='Ynavbar'>

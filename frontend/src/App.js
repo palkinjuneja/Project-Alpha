@@ -31,16 +31,14 @@ function App() {
             <Route path='/profile'>
                 <NewProfile />
               </Route>
-              <Route path='/edit'>
-                <EditProfile />
-              </Route>
+              
               <Route path="/User/:userId" component={UserView} />
               <Route path="/User" component={UserMain} />
-              <Route path="/findPeople" component={FindPeople}/>
               <Route path ="/Invites" component={Collab}/>  
+              <Route path="/project/:id" component={MyProject} />
               <Route path="/project" component={Project} />
         <Route path="/projectDetails/:id" component={ProjectDetails} />
-        <Route path="/user/:id" component={MyProject} />
+      
         <Route path="/createProject" component={CreateProject} />
         <Route path="/editProject/:id" component={EditProject} />
         </Switch>)
@@ -67,6 +65,9 @@ function App() {
               </Route>
               <Route path='/oldUser/*'>
                 <OldUser />
+              </Route>
+              <Route path='/edit'>
+                <EditProfile />
               </Route>
               {isLoggedIn()}
             </Switch>

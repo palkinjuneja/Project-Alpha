@@ -52,6 +52,8 @@ export const userGetterByRole = async (request,response)=>{
 
 export const userGetterById = async (request,response)=>{
     let id = request.query.id;
+    console.log("id : "+id);
+    console.log("Query : "+request.query);
     let user1 = await User.findById(id).then(result=>{
         console.log(result)
         response.send(result);
@@ -114,6 +116,7 @@ export const collaborationUpdateById = async (request,response)=>{
     var status = request.query.status;
     var owner = request.query.owner;
     var userId =  request.query.userId;
+    var userIdString = userId.toString();
     var projectId =  request.query.projectId;
     var userName = request.query.userName;
     var ownerName = request.query.ownerName;

@@ -7,7 +7,7 @@ import '../styles/figmaLogin.css'
 const SigninOnboard = () => {
   return (
     <div className='XsigninOnboard'>
-      <div className='Xgroup1'>
+      <div className='Xgroup1' >
         <p className='Xu'>O</p>
         {/* <p className='XuTwo'>U</p> */}
       </div>

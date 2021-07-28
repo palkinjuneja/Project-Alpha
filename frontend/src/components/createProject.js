@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Footer from './footer';
-import '../styles/app.css'
+import '../styles/app.css';
+import NavHeader from './navHeader';
 
 
 function CreateProject(props) {
@@ -9,10 +10,10 @@ function CreateProject(props) {
 
     let [project, setData] = useState({
         project_name: "",
-        owner: "Nayan",
+        owner: data.name,
         description: "",
         domain: "",
-        owner_id: "60d77445f6098441c5c3d439",
+        owner_id: data.userId,
         requirement: "",
         status: "Open"
     })
@@ -83,16 +84,7 @@ function CreateProject(props) {
 
     return (
         <div>
-          <div className="topnav">
-          <span style={{paddingLeft: 60}}>
-            <span style={{fontSize:37, color:"pink"}}>O</span><span style={{fontSize:27, color:"white"}}>union</span>
-          </span>
-    <div className="topnav-right" style={{paddingRight: 63}}>
-      <a href={"/project/"}>Home</a>
-      <a href={"/user/"+"60f2bd89c6897f3604ef596d"}>My Projects</a>
-      <a href="#myProjects">Display Pic</a>
-    </div>
-  </div>
+           <NavHeader middleText="Create Project"/>
 
     <div style={{paddingLeft: "3%"}}>
     <pre style = {{background: "white", border: "none"}}></pre>

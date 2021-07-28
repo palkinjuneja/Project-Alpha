@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Footer from './footer';
-import '../styles/app.css'
+import '../styles/app.css';
+import NavHeader from './navHeader'
 
 
 function EditProject(props) {
-
+    const data = JSON.parse(localStorage.getItem('userDetails'))
     let [project, setData] = useState({
         project_name: "",
-        owner: "Nayan",
+        owner: data.name,
         description: "",
         domain: "",
-        owner_id: "60d77445f6098441c5c3d439",
+        owner_id: data.userId,
         requirement: "",
         status: "Open"
     })
@@ -69,7 +70,7 @@ function EditProject(props) {
                 status: project.status
             }
 
-            axios.put("http://localhost:5000/project/editProject/"+props.match.params.id, projectData)
+            axios.put("http://localhost:9000/project/editProject/"+props.match.params.id, projectData)
             .then(res=>{
                 window.location="http://localhost:3000/project";
             }
@@ -80,7 +81,7 @@ function EditProject(props) {
 
 
     const getData = async ()=>{
-        const res = await axios.get("http://localhost:5000/project/"+props.match.params.id);
+        const res = await axios.get("http://localhost:9000/project/"+props.match.params.id);
         const project = res.data;
 
         if(project !== ""){
@@ -110,16 +111,7 @@ function EditProject(props) {
 
     return (
         <div>
-          <div className="topnav">
-          <span style={{paddingLeft: 60}}>
-            <span style={{fontSize:37, color:"pink"}}>O</span><span style={{fontSize:27, color:"white"}}>union</span>
-          </span>
-    <div className="topnav-right" style={{paddingRight: 63}}>
-      <a href={"/project/"}>Home</a>
-      <a href={"/user/"+"60f2bd89c6897f3604ef596d"}>My Projects</a>
-      <a href="#myProjects">Display Pic</a>
-    </div>
-  </div>
+         <NavHeader middleText="Edit Project"/>
 
     <div style={{paddingLeft: 50, paddingRight: 50}}>
     <pre style = {{background: "white", border: "none"}}></pre>

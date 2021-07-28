@@ -7,6 +7,7 @@ import axios from 'axios';
 import { useState,useEffect } from "react";
 import InviteAction from "./InviteAction";
 import FooterModule from "./footer";
+import NavHeader from "./navHeader";
 const  Collab= () => {
     const [collabList,setCollabList] = useState([]);
     const [userList, setuserList] = useState([]);
@@ -77,6 +78,7 @@ const  Collab= () => {
         {
           let tmp = [];
           res.data.map(async(element)=>{
+            console.log("element is "+element.receiver)
             let res1 = await axios.get(process.env.REACT_APP_USER_ID+element.receiver);
             let res2 = await axios.get("http://localhost:9000/project/"+element.project_id);
             console.log("res1 is", res1.data )
@@ -153,7 +155,7 @@ console.log(userList);
   return (
     <div className={styles.requestInvite}>
       <div className={styles.relativeWrapperTwo}>
-      <NavBar middleText="Request/Invite Section"/>
+      <NavHeader middleText="Request/Invite Section"/>
         
       </div>
       <p className={styles.collabRequests}>
@@ -170,13 +172,8 @@ console.log(userList);
               
         
       </div>
-      <p className={styles.collabRequests}>
-        Collab Invitations
-      </p>
-      <div className={styles.flexWrapperOne}>
-      <Emptycard/>
-      
-      </div>
+     
+     
       <p className={styles.collabUpdates}>Collab Updates</p>
       <div className={styles.flexWrapperTwo}>
       {
