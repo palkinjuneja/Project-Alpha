@@ -36,7 +36,7 @@ const userSchema = new mongoose.Schema({
     project_id: {
         type: [mongoose.Schema.Types.ObjectId],         // refers to Project Collection from User
         ref: 'Project',
-        required: true
+        required: false
     }
 });
 

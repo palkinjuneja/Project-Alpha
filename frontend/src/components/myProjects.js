@@ -1,14 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Footer from './footer';
+import Pagination from './pagination';
 import '../stylesheet/app.css'
 
 function MyProject(props) {
 
   const [projects, setProjects] = useState([]);
 
+  const [showPerPage, setPerPage] = useState(1);
+    const [pageNumber, setPageNumber] = useState({ start: 0, end: showPerPage, cnt: 0});  
+
+    const pageNoChange = (start, end, cnt)=>{
+      setPageNumber((prevState)=>{
+        return {...prevState, start:start, end:end, cnt: cnt}
+      });
+    }
+
     const getData = async()=>{
-      const res = await axios.get("http://localhost:8000/user/"+props.match.params.id);
+      const res = await axios.get("http://localhost:8000/user/"+"610084096132d14ab0afeff0");
       if(res !== "")
       {
         let tmp = [];
@@ -29,24 +39,98 @@ function MyProject(props) {
     }, []);
 
 
+    const getSpace = () =>{
+      if(pageNumber.cnt==1){
+        return(
+          <>
+            <pre style = {{background: "white", border: "none"}}>
+
+            </pre>
+            <pre style = {{background: "white", border: "none"}}>
+              
+            </pre>
+            <pre style = {{background: "white", border: "none"}}>
+              
+            </pre>
+            <pre style = {{background: "white", border: "none"}}>
+
+            </pre>
+            <pre style = {{background: "white", border: "none"}}>
+              
+            </pre>
+            <pre style = {{background: "white", border: "none"}}>
+              
+            </pre>
+          </>
+        )
+      }
+      if(pageNumber.cnt==0){
+        return(
+          <>
+            <pre style = {{background: "white", border: "none"}}>
+
+            </pre>
+            <pre style = {{background: "white", border: "none"}}>
+              
+            </pre>
+            <pre style = {{background: "white", border: "none"}}>
+              
+            </pre>
+            <pre style = {{background: "white", border: "none"}}>
+
+            </pre>
+            <pre style = {{background: "white", border: "none"}}>
+              
+            </pre>
+            <pre style = {{background: "white", border: "none"}}>
+              
+            </pre>
+            <pre style = {{background: "white", border: "none"}}>
+              
+            </pre>
+            <pre style = {{background: "white", border: "none"}}>
+              
+            </pre>
+            <pre style = {{background: "white", border: "none"}}>
+              
+            </pre>
+            <pre style = {{background: "white", border: "none"}}>
+              
+            </pre>
+            <pre style = {{background: "white", border: "none"}}>
+              
+            </pre>
+            <pre style = {{background: "white", border: "none"}}>
+              
+            </pre>
+            <pre style = {{background: "white", border: "none"}}>
+              
+            </pre>
+          </>
+        )
+    }
+  }
+
     const getDiv = () =>{
       if(projects.length){
         return (
-          projects.map((project) => {
+          projects.slice(pageNumber.start,pageNumber.end).map((project) => {
             return (
-              <div className="col-sm-3" key={project._id}>
+              <div className="col-sm-12" key={project._id}>
                       <div className="card" style={{borderColor: "#00AA9E"}}>
-                        <div className="card-body">
+                        <div className="card-body" style={{paddingTop: "2%", paddingBottom: "2%"}}>
                           <h3 className="card-title">{project.project_name}</h3>
                           <h5 className="card-text">Satus: {project.status}</h5>
                           <p className="card-text">{project.description}</p>
-                          <a href="#" >More</a>
+                          <a href={"/projectDetails/"+project._id}>More</a>
+                          <button type="button" class="btn btn-primary" style = {{float: 'right'}} onClick={event =>  window.location.href='http://localhost:3000/editProject/'+project._id}>Edit</button>
                         </div>
                       </div>
                       <br/><br/>
                   </div>
             );
-          })
+          }
+          )
         )
       }
       else{
@@ -55,6 +139,14 @@ function MyProject(props) {
             <h1 style={{color: "red" , textAlign: "center"}}>No Projects Found!!</h1>
             <h1 style={{color: "green" , textAlign: "center"}}>Please Start Collaborating</h1>
           </div>
+        )
+      }
+    }
+
+    const getPagination = () =>{
+      if(projects.length){
+        return(
+          <Pagination showPerPage={showPerPage} pageNoChange={pageNoChange} projectCount={projects.length}/>
         )
       }
     }
@@ -74,21 +166,28 @@ function MyProject(props) {
 
     <div style={{paddingLeft: 50, paddingRight: 50}}>
   <div className = "container-fluid">
+  
+
+  <pre style = {{background: "white", border: "none"}}>
+
+  </pre>
+  <pre style = {{background: "white", border: "none"}}>
+  </pre>
+  <div className="container-fluid">
+  <h2 className="container-fluid" style={{textAlign: "center"}} >My Projects</h2>
   </div>
-
-  <pre style = {{background: "white", border: "none"}}>
-
-  </pre>
-  <pre style = {{background: "white", border: "none"}}>
-  </pre>
-  <h3 className="container-fluid">My Projects</h3>
   <pre style = {{background: "white", border: "none"}}>
 
   </pre>
 
-    <div className="container-fluid">
+    <div className="container-fluid" style={{text: "center", width: "70%"}}>
     { getDiv() }
     </div>
+    </div>
+    </div>
+    {getSpace()}
+    <div className="container-fluid">
+      {getPagination()}
     </div>
     <div className="stickBttm">
       <Footer />
@@ -98,3 +197,4 @@ function MyProject(props) {
 }
 
 export default MyProject;
+

@@ -9,10 +9,10 @@ function Pagination({showPerPage, pageNoChange, projectCount}) {
         setnoOfPages(Math.ceil(projectCount/showPerPage));
         const end = showPerPage * counter;
         const start = end-showPerPage;
+        
+        const cnt = Math.min(projectCount-showPerPage*(counter-1), showPerPage);
 
-        console.log(start, end, counter);
-
-        pageNoChange(start, end, counter);
+        pageNoChange(start, end, cnt);
 
     }, [counter, noOfPages, projectCount])
 

@@ -44,7 +44,7 @@ const projectSchema = new mongoose.Schema({
         required: true
     },
     requirements: {
-        type: [],
+        type: [String],
         required: true
     },
     collaborators: [collaboratorSchema]

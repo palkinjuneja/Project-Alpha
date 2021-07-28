@@ -20,28 +20,64 @@ function Projects(props) {
        }
     }
     
-    useEffect(() => getData(), [projects]);
+    useEffect(() => getData(), []);
 
-    const [showPerPage, setPerPage] = useState(12);
+    const [showPerPage, setPerPage] = useState(1);
     const [pageNumber, setPageNumber] = useState({ start: 0, end: showPerPage, cnt: 0});  
 
-    const pageNoChange = (start, end, counter)=>{
-      let cnt = projects.length-showPerPage*(counter-1);
-
+    const pageNoChange = (start, end, cnt)=>{
+      
       setPageNumber((prevState)=>{
         return {...prevState, start:start, end:end, cnt: cnt}
       });
     }
 
     const getSpace = () =>{
-      if(pageNumber.cnt<=4){
+      if(pageNumber.cnt==1){
         return(
           <>
+          <pre style = {{background: "white", border: "none"}}>
+          </pre>
             <pre style = {{background: "white", border: "none"}}>
 
             </pre>
             <pre style = {{background: "white", border: "none"}}>
               
+            </pre>
+            <pre style = {{background: "white", border: "none"}}>
+              
+            </pre>
+          </>
+        )
+      }
+      if(pageNumber.cnt==0){
+        return(
+          <>
+          <pre style = {{background: "white", border: "none"}}>
+          </pre>
+            <pre style = {{background: "white", border: "none"}}>
+              
+            </pre>
+            <pre style = {{background: "white", border: "none"}}>
+
+            </pre>
+            <pre style = {{background: "white", border: "none"}}>
+              
+            </pre>
+            <pre style = {{background: "white", border: "none"}}>
+              
+            </pre>
+            <pre style = {{background: "white", border: "none"}}>
+
+            </pre>
+            <pre style = {{background: "white", border: "none"}}>
+              
+            </pre>
+            <pre style = {{background: "white", border: "none"}}>
+              
+            </pre>
+            <pre style = {{background: "white", border: "none"}}>
+
             </pre>
             <pre style = {{background: "white", border: "none"}}>
               
@@ -55,7 +91,7 @@ function Projects(props) {
     }
 
     const getFooter = () =>{
-      if(pageNumber.cnt>4){
+      if(pageNumber.cnt === 1){
         return (
           <Footer />
         )
@@ -65,6 +101,45 @@ function Projects(props) {
           <div>
             <Footer />
           </div>
+        )
+      }
+    }
+
+    const getPagination = () =>{
+      if(projects.length){
+        return(
+          <Pagination showPerPage={showPerPage} pageNoChange={pageNoChange} projectCount={projects.length}/>
+        )
+      }
+    }
+
+    const getDiv = () =>{
+      if(projects.length){
+        return(
+          projects.slice(pageNumber.start,pageNumber.end).map((project) => {
+            return (
+              <div className="col-sm-10" key={project._id}>
+                      <div className="card" style={{borderColor: "#00AA9E"}}>
+                        <div className="card-body" style={{paddingTop: "2%", paddingBottom: "2%"}}>
+                          <h3 className="card-title">{project.project_name}</h3>
+                          <h5 className="card-text">Satus: {project.status}</h5>
+                          <p className="card-text">{project.description}</p>
+                          <a href={"/projectDetails/"+project._id}>More</a>
+                          <button type="button" class="btn btn-primary" style = {{float: 'right'}} onClick={event =>  window.location.href='http://localhost:3000/editProject/'+project._id}>Edit</button>
+                        </div>
+                      </div>
+                      <br/><br/>
+                  </div>
+            );
+          })
+        )
+      }
+      else{
+        return(
+            <div>
+              <h1 style={{color: "red" , textAlign: "center"}}>No Projects Found!!</h1>
+              <h1 style={{color: "green" , textAlign: "center"}}>Please Create One</h1>
+            </div>
         )
       }
     }
@@ -90,37 +165,27 @@ function Projects(props) {
   <pre style = {{background: "white", border: "none"}}>
 
   </pre>
-  <h3 className="container-fluid">Project Lists</h3>
+  <div className="container-fluid">
+  <h2 className="container" style={{textAlign: "center"}} >Project Lists</h2>
+  </div>
   <pre style = {{background: "white", border: "none"}}>
     <button type="button" class="btn btn-primary" style = {{float: "right", marginRight: 20}} onClick={event =>  window.location.href='http://localhost:3000/createProject'}>Create Project</button>
   </pre>
     <div className="container-fluid">
+      <div style={{text: "center", paddingLeft: `${projects.length? "13%": 0}`}}>
       {
-        projects.slice(pageNumber.start,pageNumber.end).map((project) => {
-          return (
-            <div className="col-sm-3" key={project._id}>
-                    <div className="card" style={{borderColor: "#00AA9E"}}>
-                      <div className="card-body">
-                        <h3 className="card-title">{project.project_name}</h3>
-                        <h5 className="card-text">Satus: {project.status}</h5>
-                        <p className="card-text">{project.description}</p>
-                        <a href={"/projectDetails/"+project._id}>More</a>
-                        <button type="button" class="btn btn-primary" style = {{float: 'right'}} onClick={event =>  window.location.href='http://localhost:3000/editProject/'+project._id}>Edit</button>
-                      </div>
-                    </div>
-                    <br/><br/>
-                </div>
-          );
-        })
+        getDiv()
       }
+      
+      
+
+      </div>
     </div>
     </div>
     {getSpace()}
     <div className="container-fluid">
-      <Pagination showPerPage={showPerPage} pageNoChange={pageNoChange} projectCount={projects.length}/>
+      {getPagination()}
     </div>
-    <pre style = {{background: "white", border: "none"}}>
-    </pre>
     {getFooter()}
   </div>
 )

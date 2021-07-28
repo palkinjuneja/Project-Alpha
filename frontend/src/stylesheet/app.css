@@ -2,6 +2,61 @@
   color: rgba(0, 0, 0, 0.05)
 }
 
+/* .zcontainer{
+  display: flex;
+  padding: 1en;
+  background-color: hsl(2002, 55%, 55%);
+  margin: 5;
+}
+.item{
+  flex: 1;
+  padding: 1em;
+  margin: 5;
+  background-color: white;
+} */
+/* 
+.equal-height-columns{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+}
+.equal-column-content{
+  height: 100%;
+}
+.col-md-3{
+  border: 1px solid red;
+  padding: 2px;
+} */
+
+/* .container{
+  width: auto;
+  margin: 50px auto 0;
+  display: table;
+  box-sizing: border-box;
+}
+.row{
+  margin: 10px 0;
+} */
+
+.column{
+  /* background: #ccc;
+  display: table-cell;
+  padding: 10px;
+  margin: 10px;
+  margin-bottom: 2%;
+  text-align: center;
+  height: 100%;
+  width: 33.33%;
+  vertical-align: middle;
+  border-right: 10px solid #fff;
+  border-left: 10px solid #fff;  */
+  /* display: flex; */
+  display: inline;
+}
+
+
 footer{
   padding: 30px;
   position: relative;
