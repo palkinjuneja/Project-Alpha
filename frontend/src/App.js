@@ -3,7 +3,6 @@ import './App.css';
 import { useEffect, useState } from 'react'
 import SigninOnboard from './components/figmaLogin';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import EditProfile from './components/EditProfile';
 import OldUser from './components/oldUser';
 import { UserContext } from './userContext';
 import NewProfile from './components/newProfile';
@@ -12,6 +11,8 @@ import UserMain from './components/UserMain';
 import FindPeople from './components/FindPeople';
 import InviteClick from './components/InviteClick';
 import ResponsiveEdit from './components/responsiveEditProfile';
+import ResponsiveProfile from './components/responsiveProfile';
+import ResponsiveLogin from './components/responsiveLogin';
 
 function App() {
   const [user, setUser] = useState("context message")
@@ -23,12 +24,12 @@ function App() {
       return (
         <Switch>
           <Route path='/profile'>
-            <NewProfile />
+            <ResponsiveProfile />
           </Route>
           <Route path='/edit'>
             <ResponsiveEdit />
           </Route>
-          <Route path='/resEdit' component={ResponsiveEdit}/>
+          <Route path='/resEdit' component={ResponsiveEdit} />
           <Route path="/User/:userId" component={UserView} />
           <Route path="/User" component={UserMain} />
           <Route path="/findPeople" component={FindPeople} />
@@ -54,6 +55,9 @@ function App() {
             <Switch>
               <Route path='/first'>
                 <SigninOnboard />
+              </Route>
+              <Route path='/second'>
+                <ResponsiveLogin />
               </Route>
               <Route path='/oldUser/*'>
                 <OldUser />

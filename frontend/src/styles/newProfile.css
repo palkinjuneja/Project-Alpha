@@ -1,9 +1,7 @@
 .editProfileButton{
     transition-duration: 0.4s;
     display: flex;
-    font-size: 25px;
-    margin-left: 1616px;
-    margin-top: 8px;
+    margin-top: 2%;
 }
 
 .editProfileButton:hover{
