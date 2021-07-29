@@ -11,6 +11,7 @@ import UserView from './components/UserView';
 import UserMain from './components/UserMain';
 import FindPeople from './components/FindPeople';
 import InviteClick from './components/InviteClick';
+import ResponsiveEdit from './components/responsiveEditProfile';
 
 function App() {
   const [user, setUser] = useState("context message")
@@ -25,8 +26,9 @@ function App() {
             <NewProfile />
           </Route>
           <Route path='/edit'>
-            <EditProfile />
+            <ResponsiveEdit />
           </Route>
+          <Route path='/resEdit' component={ResponsiveEdit}/>
           <Route path="/User/:userId" component={UserView} />
           <Route path="/User" component={UserMain} />
           <Route path="/findPeople" component={FindPeople} />

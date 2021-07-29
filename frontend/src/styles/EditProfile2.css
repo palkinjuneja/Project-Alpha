@@ -21,7 +21,6 @@
     position: relative;
   }
   .Orectangle61 {
-    /* width: 1440px; */
     height: 5%;
     background-color: rgba(247, 247, 247, 1);
     position: relative;
@@ -38,7 +37,7 @@
   .Ogroup188 {
       padding:10px;
       margin-bottom: 16.42px;
-    margin-left: 1398px;
+      margin-left: 72%;
     display: flex;
     align-items: flex-start;
   }
