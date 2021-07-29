@@ -1,0 +1,110 @@
+.footer {
+    background-color: rgba(247, 247, 247, 1);
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 0.1%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 1%;
+   margin-bottom: 0%;
+   padding-bottom: 0px;
+   position:relative;
+   width: 100%;
+   align-self: flex-end;
+   bottom: 0;
+   
+  
+  }
+  .upperDivision {
+    margin-bottom: 0.1%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width:95%;
+    justify-content: space-between;
+   
+  
+  }
+  .logo_Union {
+    padding-left:2%;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+  }
+  
+  .u {
+    font-family: "Lato";
+    font-size: 50px;
+    font-stretch:ultra-condensed;
+    font-weight: 90;
+    line-height: normal;
+    color:tomato;
+    position: relative;
+  }
+  
+  .unionTwo {
+    font-family: "Lato";
+    font-size: 24px;
+    font-weight: 900;
+    line-height: normal;
+    color: black;
+  }
+  .linkedIncon{
+    align-self: flex-end; 
+    font-size: large;
+  }
+  .linkedin{
+    font-size: large;
+  }
+  .collaboartionMadeEasy {
+    font-family: "Lato";
+    font-size: 24px;
+    font-weight: 400;
+    line-height: normal;
+    color: black-2;
+  
+    margin-left: 24px;
+  }
+  .line4 {
+    width: 95%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin-bottom: 0.1%;
+  }
+  .flexWrapperSeven {
+    padding: 0 0 0 24px;
+    display: flex;
+    align-items: flex-start;
+  }
+  .allRightsAreRegistered {
+    font-family: "Karla";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: normal;
+    color: black;
+   
+    margin-right: 690px;
+  }
+  .footerList {
+    
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  
+  .footer a {
+    color:black;
+    text-align: center;
+    padding:0px
+    }
+  .footer a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+    
+    /* Add a color to the active/current link */
+  .footer a.active {
+    background-color: #04AA6D;
+    color: white;
+    }

@@ -1,0 +1,235 @@
+
+.requestInvite {
+    background-color: rgba(255, 255, 255, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .relativeWrapperThree {
+    margin-bottom: 60px;
+    position: relative;
+  }
+  .navBar {
+    background-color: rgba(34, 34, 35, 1);
+    padding: 4px 111px;
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+  }
+  .logo {
+    margin-right: 818px;
+    padding: 19px 0 0;
+    display: flex;
+    align-items: flex-start;
+  }
+  .relativeWrapperTwo {
+    margin-right: 2px;
+    position: relative;
+  }
+  .u {
+    font-family: "Lato";
+    font-size: 36px;
+    font-weight: 900;
+    line-height: normal;
+    color: rgba(255, 90, 95, 1);
+    position: relative;
+  }
+  .relativeWrapperTwo {
+    margin-bottom: 42px;
+    position: relative;
+    width: 100%;
+  }
+  .uTwo {
+    font-family: "Lato";
+    font-size: 36px;
+    font-weight: 900;
+    line-height: normal;
+    color: rgba(255, 90, 95, 1);
+    position: absolute;
+    left: 0;
+    top: -19px;
+  }
+  .union {
+    font-family: "Lato";
+    font-size: 24px;
+    font-weight: 700;
+    line-height: normal;
+    color: rgba(255, 255, 255, 1);
+    margin-top: 10px;
+  }
+  .home {
+    font-family: "Montserrat";
+    font-size: 18px;
+    font-weight: 700;
+    line-height: normal;
+    color: rgba(255, 255, 255, 1);
+    margin-top: 20px;
+    margin-right: 24px;
+  }
+  .myProjects {
+    font-family: "Montserrat";
+    font-size: 18px;
+    font-weight: 700;
+    line-height: normal;
+    color: rgba(255, 255, 255, 1);
+    margin-top: 20px;
+    margin-right: 60px;
+  }
+  .rectangle74 {
+    width: 50px;
+    height: 50px;
+    margin-top: 4px;
+    border: 2px solid rgba(255, 255, 255, 1);
+    border-radius: 10px;
+  }
+  .requestInviteSection {
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 700;
+    line-height: normal;
+    color: rgba(255, 255, 255, 1);
+    position: absolute;
+    left: 618px;
+    bottom: 17px;
+  }
+  .rectangle123 {
+    width: 90px;
+    height: 40px;
+    background-color: rgba(196, 196, 196, 0.01);
+    position: absolute;
+    right: 352px;
+    top: 13px;
+  }
+  .collabRequests {
+    font-family: "Lato";
+    font-size: 24px;
+    font-weight: 700;
+    line-height: normal;
+    color: rgba(0, 0, 0, 1);
+    margin-bottom: 42px;
+    margin-left: 135px;
+  }
+  .flexWrapperOne {
+    margin-bottom: 60px;
+    padding: 0 0 0 135px;
+    display: flex;
+    align-items: flex-start;
+  }
+  .requestCard 
+    :not(:last-of-type) {
+      margin-right: 24px;
+    
+  }
+  .requestCardTwo {
+    margin-bottom: 60px;
+    margin-left: 135px;
+  }
+  .collabUpdates {
+    font-family: "Lato";
+    font-size: 24px;
+    font-weight: 700;
+    line-height: normal;
+    color: rgba(0, 0, 0, 1);
+    margin-bottom: 60px;
+    margin-left: 135px;
+  }
+  .flexWrapperTwo {
+    margin-bottom: 36px;
+    padding: 0 0 0 135px;
+    display: flex;
+    align-items: flex-start;
+  }
+  .flexWrapperThree {
+    margin-bottom: 233px;
+    padding: 0 0 0 135px;
+    display: flex;
+    align-items: flex-start;
+  }
+  .footer {
+    background-color: rgba(247, 247, 247, 1);
+    padding: 53px 111px 27px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .flexWrapperFour {
+    margin-bottom: 6.61px;
+    display: flex;
+    align-items: flex-start;
+  }
+  .logoTwo {
+    margin-right: 1016px;
+    padding: 19px 0 0;
+    display: flex;
+    align-items: flex-start;
+  }
+  .unionTwo {
+    font-family: "Lato";
+    font-size: 24px;
+    font-weight: 900;
+    line-height: normal;
+    color: rgba(34, 34, 35, 1);
+    margin-top: 10px;
+  }
+  .vector {
+    width: 2.51%;
+    height: 42.02%;
+    margin-top: 41px;
+    margin-right: 24px;
+  }
+  .vectorTwo {
+    width: 2.51%;
+    height: 34.16%;
+    margin-top: 47px;
+  }
+  .collaboartionMadeEasy {
+    font-family: "Lato";
+    font-size: 24px;
+    font-weight: 400;
+    line-height: normal;
+    color: rgba(0, 0, 0, 1);
+    margin-bottom: 24px;
+    margin-left: 24px;
+  }
+  .line4 {
+    width: 1218px;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin-bottom: 41px;
+  }
+  .flexWrapperFive {
+    padding: 0 0 0 24px;
+    display: flex;
+    align-items: flex-start;
+  }
+  .vectorThree {
+    width: 2.09%;
+    height: 88.89%;
+    margin-right: 14px;
+  }
+  .allRightsAreRegistered {
+    font-family: "Karla";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: normal;
+    color: rgba(34, 34, 35, 1);
+    margin-top: 3px;
+    margin-right: 690px;
+  }
+  .footerList {
+    margin-top: 10px;
+    display: flex;
+    align-items: flex-start;
+  }
+  .joinUnion {
+    font-family: "Montserrat";
+    font-size: 14px;
+    font-weight: 700;
+    line-height: normal;
+    color: rgba(0, 0, 0, 1);
+    
+  }
+  .joinUnion 
+    :not(:last-of-type) {
+      margin-right: 24px;
+}

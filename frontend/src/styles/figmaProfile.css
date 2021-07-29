@@ -1,0 +1,535 @@
+.linkedInImport {
+    background-color: white;
+    padding: 69px 0 168px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .relativeWrapperTwo {
+    margin-bottom: 45px;
+    position: relative;
+  }
+  .rectangle61 {
+    width: 1440px;
+    height: 170px;
+    background-color: rgba(247, 247, 247, 1);
+    position: relative;
+  }
+  .navbar {
+    background-color: black;
+    padding: 4px 72px 4px 111px;
+    display: flex;
+    align-items: flex-start;
+    position: absolute;
+    left: 0;
+    top: -69px;
+  }
+  .logo {
+    margin-right: 442px;
+    padding: 19px 0 0;
+    display: flex;
+    align-items: flex-start;
+  }
+  .relativeWrapperOne {
+    margin-right: 2px;
+    position: relative;
+  }
+  .u {
+    font-family: "Lato";
+    font-size: 36px;
+    font-weight: 900;
+    line-height: normal;
+    color: tomato;
+    position: relative;
+  }
+  .uTwo {
+    font-family: "Lato";
+    font-size: 36px;
+    font-weight: 900;
+    line-height: normal;
+    color: tomato;
+    position: absolute;
+    left: 0;
+    top: -19px;
+  }
+  .union {
+    font-family: "Lato";
+    font-size: 24px;
+    font-weight: 700;
+    line-height: normal;
+    color: white;
+    margin-top: 10px;
+  }
+  .editYourProfile {
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 700;
+    line-height: normal;
+    color: white;
+    margin-top: 20px;
+    margin-right: 536px;
+  }
+  .help {
+    font-family: "Open Sans";
+    font-size: 14px;
+    font-weight: 700;
+    line-height: normal;
+    color: white;
+    margin-top: 20px;
+  }
+  .rectangle2 {
+    width: 196px;
+    height: 172.43px;
+    position: absolute;
+    left: 110px;
+    bottom: -149.43px;
+    border: 2px solid black;
+    border-radius: 10px;
+  }
+  .group188 {
+    margin-bottom: 99.42px;
+    margin-left: 1016px;
+    display: flex;
+    align-items: flex-start;
+  }
+  .group {
+    margin-right: 18px;
+    padding: 3.16px 4.74px 3.16px 0;
+    position: relative;
+  }
+  .vector {
+    width: 5.27%;
+    height: 20.01%;
+    position: absolute;
+    left: 5.53px;
+    top: 0;
+  }
+  .vectorTwo {
+    width: 5.27%;
+    height: 20.01%;
+    position: absolute;
+    right: 10.26px;
+    top: 0;
+  }
+  .flexWrapperOne {
+    background-size: 100% 100%;
+    background-position: center;
+    background-image: url("https://static.overlay-tech.com/assets/10e0e728-4f4d-46a9-9ecb-1636d659215e.svg");
+    padding: 7.1px 0.79px 3.94px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+  }
+  .vectorThree {
+    width: 100%;
+    height: 11.11%;
+    background-color: rgba(34, 34, 35, 0.7);
+    margin-bottom: 1.58px;
+  }
+  .flexWrapperNineteen {
+    padding: 0 0 0 3.16px;
+    display: flex;
+    align-items: flex-start;
+    /* &:not(:last-of-type) {
+      margin-bottom: 1.58px;
+    } */
+  }
+
+  .flexWrapperNineteen:not(:last-of-type){
+    margin-bottom: 1.58px;
+  }
+
+  .vectorFour {
+    width: 33.36%;
+    align-self: stretch;
+    object-fit: cover;
+    /* &:not(:last-of-type) {
+      margin-right: 1.57px;
+    } */
+  }
+
+  .vectorFour:not(:last-of-type) {
+    margin-right: 1.57px;
+  }
+
+  .vectorFive {
+    width: 33.36%;
+    align-self: stretch;
+    margin-right: 1.58px;
+    object-fit: cover;
+  }
+  .vectorSix {
+    width: 60.08%;
+    align-self: stretch;
+    object-fit: cover;
+    /* &:not(:last-of-type) {
+      margin-right: 1.57px;
+    } */
+  }
+
+  .vectorSix:not(:last-of-type){
+    margin-right: 1.57px;
+  }
+
+  .flexWrapperTwo {
+    background-size: 100% 100%;
+    background-position: center;
+    background-image: url("https://static.overlay-tech.com/assets/862bd53f-e5b8-48df-b7bf-0adb1089e222.svg");
+    padding: 2.51px 3.24px 3.15px 5.52px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  .vectorSeven {
+    width: 100%;
+    height: 100%;
+  }
+  .num3HrsPerWeek {
+    font-family: "Lato";
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    color: rgba(0, 0, 0, 0.7);
+    margin-top: 6px;
+  }
+  .flexWrapperFourteen {
+    margin-bottom: 42px;
+    padding: 0 0 0 111px;
+    display: flex;
+    align-items: flex-start;
+  }
+  .flexWrapperTwentyOne {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* &:not(:last-of-type) {
+      margin-right: 118px;
+    } */
+  }
+
+  .flexWrapperTwentyOne:not(:last-of-type) {
+    margin-right: 118px;
+  }
+
+
+  .name {
+    margin-bottom: 46px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .jennyWillson {
+    font-family: "Lato";
+    font-size: 18px;
+    font-weight: 700;
+    line-height: normal;
+    color: black-2;
+    margin-bottom: 22px;
+    letter-spacing: 0.18px;
+  }
+  .flexWrapperTwentyFour {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: flex-start;
+  }
+  .group187 {
+    width: 16px;
+    height: 14px;
+    margin-top: 2px;
+    margin-right: 12px;
+  }
+  .uxDesignLeadership {
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+    color: black-2;
+  }
+  .uxDesignLeadershipEmphasis1 {
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 700;
+    line-height: normal;
+    color: black-2;
+  }
+  .flexWrapperTwentyFive {
+    display: flex;
+    align-items: center;
+  }
+  .group186 {
+    width: 15px;
+    height: 12px;
+    margin-right: 13px;
+  }
+  .jennyWilsonCom {
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 700;
+    line-height: normal;
+    color: black-2;
+  }
+  .vectorEight {
+    width: 24.59%;
+    align-self: stretch;
+    object-fit: cover;
+    /* &:not(:last-of-type) {
+      margin-right: 16px;
+    } */
+  }
+  .vectorEight:not(:last-of-type){
+    margin-right: 16px;
+  }
+
+  .vectorNine {
+    width: 24.59%;
+    height: 97.53%;
+    margin-right: 16px;
+  }
+  .experience {
+    font-family: "Lato";
+    font-size: 18px;
+    font-weight: 700;
+    line-height: normal;
+    color: black;
+    margin-bottom: 24px;
+  }
+  .flexWrapperThree {
+    background-color: rgba(247, 247, 247, 0.5);
+    border-radius: 5px;
+    padding: 6px 6px 6px 6px;
+    display: flex;
+    align-items: flex-start;
+    border: 1px solid black;
+  }
+
+  .tellUsAboutYourPreviousExperience {
+    width: 326px;
+    font-family: "Karla";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: normal;
+    color: black-2;
+  }
+  .skills {
+    font-family: "Lato";
+    font-size: 18px;
+    font-weight: 700;
+    line-height: normal;
+    color: black;
+    margin-bottom: 24px;
+    margin-left: 494px;
+  }
+  .flexWrapperFour {
+    background-color: rgba(247, 247, 247, 0.5);
+    margin-bottom: 100px;
+    margin-left: 493px;
+    border-radius: 5px;
+    padding: 13px 20px 96px 23px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    border: 1px solid black;
+  }
+  .flexWrapperSixteen {
+    margin-bottom: 31px;
+    display: flex;
+    align-items: center;
+  }
+  .addSkill {
+    font-family: "Karla";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: normal;
+    color: black-2;
+    margin-right: 563px;
+  }
+  .flexWrapperFive {
+    width: 12px;
+    height: 12px;
+    background-size: 100% 100%;
+    background-position: center;
+    background: url("https://static.overlay-tech.com/assets/927349fc-e178-44bd-9224-6946272827b6.svg"),
+      url("https://static.overlay-tech.com/assets/3cf7095d-1ecf-4097-be96-6123f0b4fe02.svg");
+  }
+  .flexWrapperSix {
+    background-color: white;
+    margin-bottom: 24px;
+    margin-left: 2px;
+    border-radius: 5px;
+    padding: 10px 473px 10px 24px;
+    display: flex;
+    align-items: center;
+    border: 1px solid black-2;
+  }
+  .skillExDesign {
+    font-family: "Karla";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: normal;
+    color: black-2;
+  }
+  .suggestedSkills {
+    font-family: "Karla";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: normal;
+    color: black-2;
+    margin-bottom: 26px;
+    margin-left: 3px;
+  }
+  .flexWrapperSeventeen {
+    margin-bottom: 16px;
+    padding: 0 0 0 2px;
+    display: flex;
+    align-items: flex-start;
+  }
+  .flexWrapperSeven {
+    background-color: white;
+    margin-right: 15px;
+    border-radius: 10px;
+    padding: 4px 21px 4px 20px;
+    display: flex;
+    align-items: center;
+    border: 1px solid black-2;
+  }
+  .webDesign {
+    font-family: "Karla";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: normal;
+    color: black-2;
+    margin-right: 4px;
+  }
+  .vectorTen {
+    width: 12.17%;
+    height: 66.67%;
+  }
+  .flexWrapperEight {
+    background-color: white;
+    margin-right: 15px;
+    border-radius: 10px;
+    padding: 4px 38px 4px 45px;
+    display: flex;
+    align-items: center;
+    border: 1px solid black-2;
+  }
+  .figma {
+    font-family: "Karla";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: normal;
+    color: black-2;
+    margin-right: 7px;
+  }
+  .vectorEleven {
+    width: 19.18%;
+    height: 66.67%;
+  }
+  .flexWrapperNine {
+    background-color: white;
+    border-radius: 10px;
+    padding: 4px 30px;
+    display: flex;
+    align-items: center;
+    border: 1px solid black-2;
+  }
+  .vectorTwelve {
+    width: 14.58%;
+    height: 66.67%;
+  }
+  .flexWrapperEighteen {
+    display: flex;
+    align-items: flex-start;
+  }
+  .flexWrapperTen {
+    background-color: white;
+    margin-right: 18px;
+    border-radius: 10px;
+    padding: 4px 25px 4px 29px;
+    display: flex;
+    align-items: center;
+    border: 1px solid black-2;
+  }
+  .vectorThirteen {
+    width: 13.73%;
+    height: 66.67%;
+  }
+  .flexWrapperEleven {
+    background-color: white;
+    margin-right: 18px;
+    border-radius: 10px;
+    padding: 4px 42px 4px 39px;
+    display: flex;
+    align-items: center;
+    border: 1px solid black-2;
+  }
+  .vectorFourteen {
+    width: 18.67%;
+    height: 66.67%;
+  }
+  .flexWrapperTwelve {
+    background-color: white;
+    border-radius: 10px;
+    padding: 4px 28px;
+    display: flex;
+    align-items: center;
+    border: 1px solid black-2;
+  }
+  .mythrilJs {
+    font-family: "Karla";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: normal;
+    color: black-2;
+    margin-right: 6px;
+  }
+  .vectorFifteen {
+    width: 14%;
+    height: 66.67%;
+  }
+  .line1 {
+    width: 692px;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    left: -1px;
+    top: 48px;
+  }
+  .flexWrapperFifteen {
+    padding: 0 0 0 493px;
+    display: flex;
+    align-items: center;
+  }
+  .flexWrapperThirteen {
+    margin-right: 24px;
+    border-radius: 10px;
+    padding: 15px 84px;
+    display: flex;
+    align-items: center;
+    border: 1px solid black-2;
+  }
+  .save {
+    font-family: "Montserrat";
+    font-size: 18px;
+    font-weight: 700;
+    line-height: normal;
+    color: black;
+  }
+  .group175 {
+    background-color: black;
+    border-radius: 10px;
+    padding: 16px 88px 16px 89px;
+    display: flex;
+    align-items: center;
+  }
+  .edit {
+    font-family: "Montserrat";
+    font-size: 18px;
+    font-weight: 700;
+    line-height: normal;
+    color: white;
+  }

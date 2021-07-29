@@ -1,0 +1,74 @@
+.main{
+  margin:0px;
+}
+
+.UserDisplay{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    margin-left: 10%;
+    margin-right: 10%;
+
+}
+.UserCard{
+    width:22%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.flexWrapperFour {
+    display: flex;
+    flex-direction: row;
+    align-items:flex-start;
+    justify-content:flex-start;
+    margin-top:0.5%;
+    padding: 0.5% 0% 0% 0.5%;
+    margin: 0%
+  }
+  .searchBar{
+    margin-left: 2%;
+    width: 100%;
+    margin-right:1%;
+    margin-bottom: 0px;
+    padding: 0px 0px 0px 0px;
+    border:1px solid black;
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    
+   
+  }
+  .searchDropdown{
+    min-width:50px;
+    width:10%;
+    height:100%;
+    padding-right:1%;
+    padding: 0px 0px 0px 0px; 
+    margin-left: 1%;
+    margin-right: 0%;
+  }
+  .searchInput{
+    width:96%;
+    padding: 0px;
+    height:97%;
+    border:none;
+    padding-left: 2%;
+  }
+  .searchInputIcon{
+    border-left: 1px solid grey;
+  
+  }
+  .userInput{
+    display: flex;
+    justify-content:left;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top:24px;
+   }
+
+   .navigationButton{
+     display: flex;
+     justify-content: center;
+     color:black;
+   }
+   

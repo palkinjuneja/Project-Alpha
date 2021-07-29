@@ -1,29 +1,30 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 // User Schema
-// [Nayan]: revisit this schema once the requirements become more clear
+// [Nayan]: revisit this schema once the requirement become more clear
+// some values modified
 
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: false
+        required: true
     },
     email: {
         type: String,
-        required: false,
+        required: true,
         unique: true
     },
     skill: {
         type: [String],
-        required: false
+        required: true
     },
     overview: {
         type: String,
-        required: false
+        required: true
     },
     linkedin: {
         type: String,
-        required: false
+        required: true
     },
     github: {
         type: String,
@@ -37,8 +38,31 @@ const userSchema = new mongoose.Schema({
         type: [mongoose.Schema.Types.ObjectId],         // refers to Project Collection from User
         ref: 'Project',
         required: false
+    },
+    login_token: {
+        type: String,
+        required: true
+    },
+    role: {
+        type: String,
+        required: true
+    },
+    collaboration_request_id: {
+        type: [mongoose.Schema.Types.ObjectId],         //refers to Collaboration Collection from User
+        ref: 'Collaboration',
+        required: false
+    },
+
+    time :{
+        type: Number,
+        required : true
+    },
+    
+    photo :{
+        type : String,
+        required : true
     }
 });
 
 const User = mongoose.model('User', userSchema);
-module.exports = User;
+export default User

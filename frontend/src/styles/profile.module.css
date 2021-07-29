@@ -1,0 +1,167 @@
+.userView__Banner{
+    min-width: 100%;
+    height: 15%;
+    background-color:#F7F7F7;
+    justify-content: center;
+   
+}
+
+
+.editProfile{
+    transition-duration: 0.4s;
+    display: flex;
+    font-size: 25px;
+    margin-left: 1616px;
+    margin-top: 8px;
+}
+
+.editProfile:hover{
+    background-color:black; /* Green */
+    color: white;
+}
+
+.userView__Page{
+    height:100vh;
+   
+    
+}
+.userView__navBar{
+    background-color:black;
+    height:7%;
+    margin:0px;
+    padding:0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.userView__navBar_Heading{
+    color:white;
+    font-size: 125%;
+    
+}
+.userView__mainDiv{
+    display: flex;
+    flex-direction: row;
+   justify-content:left;
+    margin-left:3%;
+    margin-right:3%;
+    margin-top: -2%;
+    margin-bottom:1%;
+    padding-left:1%;
+    padding-right:1%;
+    max-height: 100%;
+    overflow:  hidden;
+   
+}
+.userView__basicInfo{
+    display: flex;
+    flex-direction: column;
+    min-width:30%;
+    height:60vh;
+    margin:0%
+}
+.userView__basicInfoImage{
+    margin:1%;
+    width: 37%;
+    height:30%
+   
+}
+.userView__imageRectabgle{
+    width: 100%;
+    height: 100%;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+.userView__basicInfoText{
+    margin:2%;
+    padding:0.5%;
+}
+.userView__basicInfoText__name{
+    letter-spacing: 0.18px;
+    font-family: "Lato";
+    font-size: 100%;
+    font-weight: bold;
+    margin-bottom: 5%;
+}
+
+.userView___basicInfoText__role{
+    font-family: "Open Sans";
+    font-size: 80%;
+    font-weight: 400;
+    line-height: normal;
+    color: black-2;
+}
+.userView___basicInfoText__email{
+    font-family: "Open Sans";
+    font-size: 80%;
+    font-weight: bold;
+    line-height: normal;
+    color: black-2;
+}
+.userView__experience{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%;
+    margin-left:10%
+}
+.userView__availability{
+    display: flex;
+    flex-direction: row;
+    margin-left:10%;
+    margin-top: 5%;
+    min-width:15%;
+    margin-right: 2%;
+    
+    
+}
+.userView__availability__text{
+    font-family:"Open-sans";
+    font-size:80%;
+    margin:0px;
+    font-weight: 0;
+    color:black;
+    padding:0.5%;
+}
+.userView__socialLinks{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-top:5%;
+}
+.userView__socialLinks a {
+    color:black;
+    text-align: center;
+    padding:0px
+    }
+.userView__socialLinks a:hover {
+    background-color: #ddd;
+    color: black;
+}
+    
+    /* Add a color to the active/current link */
+.userView__socialLinks a.active {
+    background-color: #04AA6D;
+    color: white;
+    }
+.userView__Link{
+    margin-left: 2%;
+    margin-right:7%;
+   
+}
+.userView__experience__headings{
+    font-weight: bold;
+    color:black;
+    font-family: "Lato";
+    font-size:100%;
+    padding:0px 0px 0px 0px
+}
+.userView__experience__text{
+    color:black;
+    font-family: "Open Sans";
+    font-size:90%;
+    padding:0px;
+    font-weight: unset;
+    margin:0px;
+    padding:0px 30px 0px 0px
+
+}

@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const collaboratorSchema = new mongoose.Schema({
     user_id: {
@@ -43,7 +43,7 @@ const projectSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    requirements: {
+    requirement: {
         type: [String],
         required: true
     },
@@ -51,4 +51,4 @@ const projectSchema = new mongoose.Schema({
 })
 
 const Project = mongoose.model('Project', projectSchema);
-module.exports = Project;
+export default Project

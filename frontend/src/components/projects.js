@@ -2,17 +2,20 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Pagination from './pagination';
 import Footer from './footer';
-import '../stylesheet/app.css'
+import '../styles/app.css'
+import NavHeader from './navHeader';
+import FindPeople from './FindPeople';
 
 
 function Projects(props) {
 
     const [projects, setState] = useState([]);
+    const data = JSON.parse(localStorage.getItem('userDetails'));
 
     const getData = async ()=>{
        try{
           //Fetch Projects
-          const res = await axios.get("http://localhost:8000/project/");
+          const res = await axios.get(process.env.REACT_APP_BACKEND+"/project/");
           setState(res.data);
        }
        catch(err){
@@ -22,7 +25,7 @@ function Projects(props) {
     
     useEffect(() => getData(), []);
 
-    const [showPerPage, setPerPage] = useState(1);
+    const [showPerPage, setPerPage] = useState(8);
     const [pageNumber, setPageNumber] = useState({ start: 0, end: showPerPage, cnt: 0});  
 
     const pageNoChange = (start, end, cnt)=>{
@@ -125,7 +128,8 @@ function Projects(props) {
                           <h5 className="card-text">Satus: {project.status}</h5>
                           <p className="card-text">{project.description}</p>
                           <a href={"/projectDetails/"+project._id}>More</a>
-                          <button type="button" class="btn btn-primary" style = {{float: 'right'}} onClick={event =>  window.location.href='http://localhost:3000/editProject/'+project._id}>Edit</button>
+                          {(project.owner_id==data.userId)?
+                        <button type="button" class="btn btn-primary" style = {{float: 'right'}} onClick={event =>  window.location.href='/editProject/'+project._id}>Edit</button>:null}
                         </div>
                       </div>
                       <br/><br/>
@@ -146,16 +150,7 @@ function Projects(props) {
 
     return (
         <div>
-          <div className="topnav">
-          <span style={{paddingLeft: 60}}>
-            <span style={{fontSize:37, color:"pink"}}>O</span><span style={{fontSize:27, color:"white"}}>union</span>
-          </span>
-    <div className="topnav-right" style={{paddingRight: 63}}>
-      <a href={"/project/"} className = "active">Home</a>
-      <a href={"/user/"+"60f2bd89c6897f3604ef596d"}>My Projects</a>
-      <a href="#myProjects">Display Pic</a>
-    </div>
-  </div>
+         <NavHeader middleText=""/>
 
     <div style={{paddingLeft: 50, paddingRight: 50}}>
   <div className = "container-fluid">
@@ -165,11 +160,12 @@ function Projects(props) {
   <pre style = {{background: "white", border: "none"}}>
 
   </pre>
+  <FindPeople/>
   <div className="container-fluid">
   <h2 className="container" style={{textAlign: "center"}} >Project Lists</h2>
   </div>
   <pre style = {{background: "white", border: "none"}}>
-    <button type="button" class="btn btn-primary" style = {{float: "right", marginRight: 20}} onClick={event =>  window.location.href='http://localhost:3000/createProject'}>Create Project</button>
+    <button type="button" class="btn btn-primary" style = {{float: "right", marginRight: 20}} onClick={event =>  window.location.href='/createProject'}>Create Project</button>
   </pre>
     <div className="container-fluid">
       <div style={{text: "center", paddingLeft: `${projects.length? "13%": 0}`}}>

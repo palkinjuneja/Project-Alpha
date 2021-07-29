@@ -1,18 +1,20 @@
 import axios from 'axios';
 import React from 'react'
 import {useState,useEffect} from 'react'
-import '../stylesheet/requestButton.css'
+import '../styles/requestButton.css'
 
 function RequestButton({project}) {
 
+    const data = JSON.parse(localStorage.getItem('userDetails'))
     let project_id = project._id;
 
-    const senderId="60fc2729706aea482be968e0";
-    const recieverId="60fc2740ac407653808b9250";
+    const senderId=data.userId;
+    const recieverId=project.owner_id;
 
-    const url="http://localhost:8000/request/";
+    const url="https://stark-coast-33672.herokuapp.com/request/";
     const [isRequestSent,setIsRequestSent]=useState(false);
     const [requestId,setRequestId]=useState(null);
+    let [requestStatus,setRequestStatus]=useState(null);
 
     const onclickHandler=()=>{
         if(isRequestSent){
@@ -24,7 +26,7 @@ function RequestButton({project}) {
     }
 
     const ownershipRequestCheck=()=>{
-        if(senderId==project.owner_id)
+        if("Project Union"==project.owner)
         {
             document.getElementById("request-button").innerHTML="Request Ownership";
         }
@@ -43,6 +45,7 @@ function RequestButton({project}) {
             if(response.data.status==='success'){
                 setIsRequestSent(true);
                 setRequestId(response.data.result._id);
+                setRequestStatus(response.data.result.status_of_request);
                 document.getElementById("request-button").innerHTML="Cancel";
             }
             else{
@@ -67,6 +70,7 @@ function RequestButton({project}) {
             if(response.data.status==='success'){
                 setIsRequestSent(false);
                 setRequestId(null);
+                setRequestStatus(null);
                 document.getElementById("request-button").innerHTML="Request +";
                 ownershipRequestCheck();
             }
@@ -83,16 +87,18 @@ function RequestButton({project}) {
 
     useEffect(()=>{
         axios
-        .get("http://localhost:8000/request/"+senderId+'/'+project_id)
+        .get("https://stark-coast-33672.herokuapp.com/request/"+senderId+'/'+project_id)
         .then((response)=>{
             if(response.data.isExist){
                 setIsRequestSent(true);
                 setRequestId(response.data.result._id);
+                setRequestStatus(response.data.result.status_of_request);
                 document.getElementById("request-button").innerHTML="Cancel";
             }
             else{
                 setIsRequestSent(false);
                 setRequestId(null);
+                setRequestStatus(null);
                 document.getElementById("request-button").innerHTML="Request +";
                 ownershipRequestCheck();
             }
@@ -101,9 +107,17 @@ function RequestButton({project}) {
             console.log(err);
         });
     },[])
+    const renderButton =()=>{
+        if((!requestStatus || requestStatus=='pending') && project.status=='Open')
+            return <button onClick={onclickHandler} id="request-button">Loading...</button>;
+        return null;
+    }
+
+    
+
     return (
         <div>
-            <button onClick={onclickHandler} id="request-button">Loading...</button> 
+            { renderButton() }            
         </div>
     )
 }

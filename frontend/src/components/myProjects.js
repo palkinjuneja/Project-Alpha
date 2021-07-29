@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Footer from './footer';
 import Pagination from './pagination';
-import '../stylesheet/app.css'
+import '../styles/app.css'
+import NavHeader from './navHeader'
 
 function MyProject(props) {
 
   const [projects, setProjects] = useState([]);
+  const currentUser = JSON.parse(localStorage.getItem('userDetails'))
 
   const [showPerPage, setPerPage] = useState(1);
     const [pageNumber, setPageNumber] = useState({ start: 0, end: showPerPage, cnt: 0});  
@@ -18,12 +20,12 @@ function MyProject(props) {
     }
 
     const getData = async()=>{
-      const res = await axios.get("http://localhost:8000/user/"+"610084096132d14ab0afeff0");
+      const res = await axios.get(process.env.REACT_APP_BACKEND+"/userById/"+currentUser.userId);
       if(res !== "")
       {
         let tmp = [];
         res.data.project_id.map(async(id)=>{
-          let res1 = await axios.get("http://localhost:8000/project/"+id);
+          let res1 = await axios.get(process.env.REACT_APP_BACKEND+"/project/"+id);
           if(res1 !== "")
           {
             let tmp1 = [...tmp, res1.data];
@@ -123,7 +125,7 @@ function MyProject(props) {
                           <h5 className="card-text">Satus: {project.status}</h5>
                           <p className="card-text">{project.description}</p>
                           <a href={"/projectDetails/"+project._id}>More</a>
-                          <button type="button" class="btn btn-primary" style = {{float: 'right'}} onClick={event =>  window.location.href='http://localhost:3000/editProject/'+project._id}>Edit</button>
+                          <button type="button" class="btn btn-primary" style = {{float: 'right'}} onClick={event =>  window.location.href='/editProject/'+project._id}>Edit</button>
                         </div>
                       </div>
                       <br/><br/>
@@ -153,16 +155,7 @@ function MyProject(props) {
 
     return (
         <div>
-          <div className="topnav">
-          <span style={{paddingLeft: 60}}>
-            <span style={{fontSize:37, color:"pink"}}>O</span><span style={{fontSize:27, color:"white"}}>union</span>
-          </span>
-    <div className="topnav-right" style={{paddingRight: 63}}>
-      <a href="http://localhost:3000/project">Home</a>
-      <a href={"http://localhost:3000/user/"+props.match.params.id} className="active">My Projects</a>
-      <a href="#myProjects">Display Pic</a>
-    </div>
-  </div>
+         <NavHeader middleText=""/>
 
     <div style={{paddingLeft: 50, paddingRight: 50}}>
   <div className = "container-fluid">
@@ -197,4 +190,3 @@ function MyProject(props) {
 }
 
 export default MyProject;
-
