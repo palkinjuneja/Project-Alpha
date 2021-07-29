@@ -166,7 +166,7 @@ function Projects(props) {
   </div>
   <pre style = {{background: "white", border: "none"}}>
   {/* <FindPeople/> */}
-  <button type="button" class="btn btn-dark col-sm-12 col-md-6 col-lg-2" style = {{float: "left", marginLeft: 20 ,marginBottom:20 , height:'50px'}} onClick={event =>  window.location.href='/User'}>See who's on Union</button>
+  <button type="button" class="btn btn-dark col-sm-12 col-md-6 col-lg-2" style = {{float: "right", marginRight: 20 ,marginBottom:20 , height:'50px'}} onClick={event =>  window.location.href='/User'}>See who's on Union</button>
     <button type="button" class="btn btn-dark col-sm-12 col-md-6 col-lg-2" style = {{float: "right", marginRight: 20,marginBottom:20,height:'50px'}} onClick={event =>  window.location.href='/createProject'}>Create Project</button>
   </pre>
     <div className="container-fluid">
