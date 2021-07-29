@@ -1,5 +1,6 @@
 import express from 'express'
 import Project from '../models/project.js'
+import User from '../models/user.js'
 
 const projectRouter = express.Router();
 
@@ -35,6 +36,15 @@ projectRouter.post('/create/', async(req, res) => {
     try{
         const project = await Project.create(req.body);
         if(project){
+
+            console.log(project)
+
+            let userUpdate = User.updateOne({"_id":project.owner_id},{$addToSet:{"project_id":project._id}}).then((res2)=>{
+                console.log("User Updated for Create Project");
+            })
+             let projectUpdate = Project.updateOne({"_id":project._id},{$addToSet:{"collaborators":{"user_id":project.owner_id,"name":project.owner}}}).then((res3)=>{
+                 console.log("Project Updated for Collaborators");
+             })
             res.status(200);
             res.json(project);
         }

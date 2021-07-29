@@ -10,7 +10,7 @@ function MyProject(props) {
   const [projects, setProjects] = useState([]);
   const currentUser = JSON.parse(localStorage.getItem('userDetails'))
 
-  const [showPerPage, setPerPage] = useState(1);
+  const [showPerPage, setPerPage] = useState(4);
     const [pageNumber, setPageNumber] = useState({ start: 0, end: showPerPage, cnt: 0});  
 
     const pageNoChange = (start, end, cnt)=>{
@@ -20,9 +20,10 @@ function MyProject(props) {
     }
 
     const getData = async()=>{
-      const res = await axios.get(process.env.REACT_APP_BACKEND+"/userById/"+currentUser.userId);
+      const res = await axios.get(process.env.REACT_APP_USER_ID+currentUser.userId);
       if(res !== "")
       {
+        console.log("result is "+res)
         let tmp = [];
         res.data.project_id.map(async(id)=>{
           let res1 = await axios.get(process.env.REACT_APP_BACKEND+"/project/"+id);

@@ -110,7 +110,7 @@ console.log(userList);
                 userList.map((element)=>{
                     return(   
                         
-                           <div >
+                           <div class ="col-sm-12 col-md-6 col-lg-4">
                              <RequestCard className={styles.requestCard} data={element}/>  
 
                        </div>)})
@@ -127,20 +127,23 @@ console.log(userList);
         return(
             userList1.map((element)=>{
                 return(   
-                    
-                       <div >
+                    <div class="row">
+                         <div class ="col-sm-12 col-md-6 col-lg-4" >
                          <RequestCard className={styles.requestCard} data={element}/>  
 
-                   </div>)})
+                   </div>
+                    </div>
+                      )})
         )
     }else if(userList2.length){
       return(
           userList2.slice(0,4).map((element)=>{
               return(   
-                  
-                     <div >
+                <div class="row">
+                     <div class ="col-sm-12 col-md-6 col-lg-4">
                        <RequestCard className={styles.requestCard} data={element}/>  
 
+                 </div>
                  </div>)})
       )
   }
@@ -161,21 +164,25 @@ console.log(userList);
       <p className={styles.collabRequests}>
         Collab Requests
       </p>
-      <div className={styles.flexWrapperOne}>
+      <div class = "container">
+      {/* <div className={styles.flexWrapperOne}> */}
+      <div class="row">
       
-    
       {
                getCard()
-                     
+               
                         
       } 
               
         
       </div>
+      </div>
+     
      
      
       <p className={styles.collabUpdates}>Collab Updates</p>
-      <div className={styles.flexWrapperTwo}>
+      {/* <div className={styles.flexWrapperTwo}> */}
+      <div class="container">
       {
           getupdatedCard()
       }

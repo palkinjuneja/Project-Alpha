@@ -142,11 +142,11 @@ export const collaborationUpdateById = async (request,response)=>{
                 
                 if (ownerName == "Project Union"){
                   //  let projectUpdate = Project.updateOne({"_id":projectId},{$addToSet:{"collaborators":{"user_id":userId,"user_name":userName}}},{$set:{"owner_id":userId,"owner":userName}}).then((res3)=>{
-                    let projectUpdate = Project.updateOne({"_id":projectId},{$addToSet:{"collaborators":{"user_id":userId,"user_name":userName}},$set:{"owner_id":userId,"owner":userName}}).then((res3)=>{
+                    let projectUpdate = Project.updateOne({"_id":projectId},{$addToSet:{"collaborators":{"user_id":userId,"name":userName}},$set:{"owner_id":userId,"owner":userName}}).then((res3)=>{
                         console.log("Project Updated with Owner");
                     })
                 }else{
-                    let projectUpdate = Project.updateOne({"_id":projectId},{$addToSet:{"collaborators":{"user_id":userId,"user_name":userName}}}).then((res3)=>{
+                    let projectUpdate = Project.updateOne({"_id":projectId},{$addToSet:{"collaborators":{"user_id":userId,"name":userName}}}).then((res3)=>{
                         console.log("Project Updated");
                     })
                 }

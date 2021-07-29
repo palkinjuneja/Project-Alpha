@@ -48,13 +48,10 @@ function ProjectDetailsDisplay({project}) {
                 <div className="row collaborators-main">
                 <div className="col-md-12 col-lg-13 col-sm-12 collaborators-heading">Collaborators :</div>
                 <div className="row collaborators-wrapper">
-                <div  className="col-md-3 col-sm-6 col-lg-3 collaborators-item-wrapper">
-                        <div className="row"><a href='#'>{project.owner_name}</a></div>
-                        <div className="row"><a href='#'>(Owner)</a></div>
-                    </div>
+                
                   {project.collaborators.map((collaborator)=>(
-                    <div key={collaborator.user_id} className="col-md-3 col-sm-6 col-lg-3 collaborators-item-wrapper">
-                        <div className="row"><a href='#'>{collaborator.user_name}</a></div>
+                    <div key={collaborator.user_id} className="col-md-3 col-sm-6 col-lg-1 collaborators-item-wrapper">
+                        <div className="row"><a href={'/User/'+collaborator.user_id}>{collaborator.name}</a></div>
                     </div>
                   ))}
                 

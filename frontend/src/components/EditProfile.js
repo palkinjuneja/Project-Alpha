@@ -91,11 +91,11 @@ const EditProfile = () => {
     event.preventDefault();
     console.log(inputFields)
     let skills =[];
-    skills = inputFields.toString().split(",")
+    skills = inputFields.toString().toLowerCase().split(",")
     console.log(skills)
 
 
-    if (experience && time && profess && linkedin)  //add skill
+    if (experience && time && profess && linkedin && skills.length)  //add skill
     {
       const userData = {
         name: data.name,
@@ -103,7 +103,7 @@ const EditProfile = () => {
         photo: data.photo,
         skill: skills,
         overview: experience,
-        role: profess,
+        role: profess.toLowerCase(),
         linkedin: linkedin,
         github: github,
         portfolio: profile,
@@ -145,7 +145,7 @@ const EditProfile = () => {
 
   return (
     <div> 
-      <NavHeader middleText="Edit Your Profile"/>
+      {/* <NavHeader middleText="Edit Your Profile"/> */}
       {data ? (
                 <div>
                     <div className='OeditProfile'>
@@ -182,7 +182,7 @@ const EditProfile = () => {
                                         <input type="text" className="form-control"
                                             value={profess}
                                             onChange={handleprofess}
-                                            placeholder="UX Designer"
+                                            placeholder="eg: UX Designer"
                                         />
                                     </div>
                                 </div>
@@ -212,7 +212,7 @@ const EditProfile = () => {
                                 <div className="form-group col justify-content-center">
                                     <TimerIcon />
                                     <label for="inputAddress2">Availability*</label>
-                                    <input type="text" className="form-control" onChange={handletime} value={time} placeholder="Time in hours" />
+                                    <input type="text" className="form-control" onChange={handletime} value={time} placeholder="Time in hours/week" />
                                 </div>
 
                             </form>
@@ -220,11 +220,10 @@ const EditProfile = () => {
 
                         <Container>
                             <form className={classes.root}>
-                            <label for="skills"></label>
+                            <label for="skills">Skills</label>
                                 <div className='form-group'>
                                     <TextField style={{ textTransform: "lowercase" }}
                                         name="skill"
-                                        label="Skills"
                                         placeholder="Eg: Html,Css.."
                                         value={inputFields}
                                         onChange={handleChangeInput}

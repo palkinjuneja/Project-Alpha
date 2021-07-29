@@ -11,7 +11,7 @@ function RequestButton({project}) {
     const senderId=data.userId;
     const recieverId=project.owner_id;
 
-    const url="https://stark-coast-33672.herokuapp.com/request/";
+    const url=process.env.REACT_APP_BACKEND+"/request/";
     const [isRequestSent,setIsRequestSent]=useState(false);
     const [requestId,setRequestId]=useState(null);
     let [requestStatus,setRequestStatus]=useState(null);
@@ -87,7 +87,7 @@ function RequestButton({project}) {
 
     useEffect(()=>{
         axios
-        .get("https://stark-coast-33672.herokuapp.com/request/"+senderId+'/'+project_id)
+        .get(process.env.REACT_APP_BACKEND+"/request/"+senderId+'/'+project_id)
         .then((response)=>{
             if(response.data.isExist){
                 setIsRequestSent(true);
@@ -108,7 +108,7 @@ function RequestButton({project}) {
         });
     },[])
     const renderButton =()=>{
-        if((!requestStatus || requestStatus=='pending') && project.status=='Open')
+        if((!requestStatus || requestStatus=='pending') && project.status=='Open' && project.owner_id !=data.userId)
             return <button onClick={onclickHandler} id="request-button">Loading...</button>;
         return null;
     }

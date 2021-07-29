@@ -1,24 +1,37 @@
-
+.mainwrapper{
+  width:100%;
+  height:100%;
+  margin:0;
+}
 
 .XsigninOnboard {
     background-color:white;
-    padding: 0 0 0 52px;
+    padding: 0 0 0 0px;
     display: flex;
     align-items: flex-start;
+    width:100%;
     /* zoom: 3;  */
     /* -moz-transform: scale(3); 
     -moz-transform-origin: 0 0;
      */ 
+     margin:0;
   }
+
+  .xonein{
+    padding:52px;
+ 
+    
+  }
+
   .Xgroup1 {
-    margin-top: 1%;
+    margin-top: 9px;
     margin-right: 1px;
     padding: 19px 0 0;
     position: relative;
   }
   .Xu {
     font-family: "Lato";
-    font-size: 47px;
+    font-size: 37px;
     font-weight: 900;
     line-height: normal;
     color: tomato;
@@ -52,16 +65,18 @@
     opacity: 0.X63;
   }
   .XworkOnTheRealWorldProjectsWithEas {
-    height: 167px;
-    width: 502px;
+    height: 50%;
+    width: 70%;
     /* font-family: "Montserrat"; */
     font-size: 36px;
     font-weight: 400;
     line-height: normal;
     color: black-2;
     display: flex;
-    margin-bottom: 108px;
-    margin-left: 39px;
+    margin-top:50px;
+    margin-bottom:80px;
+    margin-left: auto;
+    margin-right:auto ;
   }
   .XsignInWith {
     font-family: "Open Sans";
@@ -104,8 +119,10 @@
     margin-left: 38px;
   }
   .XrelativeWrapperOne {
-    width:50%;
+    width:100%;
     position: relative;
+    margin: 0;
+    padding:0;
   }
   .XfoundationsocialLinkedin {
     width: 59px;
@@ -116,7 +133,7 @@
   }
   .XflexWrapperOne {
     background-color: black;
-    padding: 53px 83px 364px 226px;
+    padding: 20%;
     display: flex;
     flex-direction: column;
     /* align-items: flex-start; */
@@ -132,20 +149,41 @@
     margin-left: 428px;
   }
   .XcollaborationOnProjectsMadeEasyWith {
-    max-width: 420px;
+    width: 70%;
     /* font-family: "Montserrat"; */
     font-size: 36px;
     font-weight: 700;
     line-height: normal;
     color: white;
     margin-bottom: 16px;
-    margin-left: 1px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .XfindThePassionateTeamToKickStartY {
-    max-width: 383px;
-    font-family: "Open Sans";
+   width: 70%;
+    /* font-family: "Open Sans"; */
     font-size: 24px;
     font-weight: 400;
     line-height: normal;
     color: white;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:50px;
+  }
+
+  .leftdiv{
+    background: black;
+  }
+
+  .rightdiv{
+    padding:50px;
+  }
+
+  .lnimage{
+    height:100px;
+    width:100px;
+  }
+
+  .bottomright{
+    margin-bottom:100px;
   }

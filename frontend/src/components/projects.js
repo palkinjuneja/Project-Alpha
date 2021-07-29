@@ -160,12 +160,14 @@ function Projects(props) {
   <pre style = {{background: "white", border: "none"}}>
 
   </pre>
-  <FindPeople/>
+ 
   <div className="container-fluid">
   <h2 className="container" style={{textAlign: "center"}} >Project Lists</h2>
   </div>
   <pre style = {{background: "white", border: "none"}}>
-    <button type="button" class="btn btn-primary" style = {{float: "right", marginRight: 20}} onClick={event =>  window.location.href='/createProject'}>Create Project</button>
+  {/* <FindPeople/> */}
+  <button type="button" class="btn btn-dark" style = {{float: "left", marginLeft: 20 ,marginBottom:20 , height:'50px'}} onClick={event =>  window.location.href='/User'}>See who's on Union</button>
+    <button type="button" class="btn btn-dark" style = {{float: "right", marginRight: 20,marginBottom:20,height:'50px'}} onClick={event =>  window.location.href='/createProject'}>Create Project</button>
   </pre>
     <div className="container-fluid">
       <div style={{text: "center", paddingLeft: `${projects.length? "13%": 0}`}}>

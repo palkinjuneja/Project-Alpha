@@ -7,7 +7,7 @@ function FindPeople() {
     }
     return (
         <div >
-            <button  style={{height:'35px' , padding: '10px' ,color:'white', backgroundColor:'black', textAlign:'center'}} name="findPeopleButton"onClick={onClickFindPeopleButton}>See who's on Union</button>
+            <button   name="findPeopleButton"onClick={onClickFindPeopleButton}>See who's on Union</button>
         </div>
     )
 }

@@ -1,14 +1,12 @@
 .editProfileButton{
-    transition-duration: 0.4s;
-    display: flex;
-    font-size: 25px;
-    margin-left: 1616px;
-    margin-top: 8px;
+  transition-duration: 0.4s;
+  display: flex;
+  margin-top: 2%;
 }
 
 .editProfileButton:hover{
-  background-color:black; /* Green */
-  color: white;
+ background-color:black; 
+ color: white;
 }
 
 .editProfile {
