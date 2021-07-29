@@ -12,7 +12,6 @@ function FooterModule() {
               <span className={styles.unionTwo}>Union</span>
             </div>
             <div className={styles.linkedIncon}><a className={styles.linkedin}target="_blank" href= "https://www.linkedin.com/company/union-platform-for-people-and-projects/"><LinkedInIcon/></a></div>
-            <InviteButton/>
           </div>
           <p className={styles.collaboartionMadeEasy}>
             Collaboration made easy!

@@ -41,8 +41,8 @@
     margin:0%
 }
 .userView__basicInfoImage{
-    margin:1%;
-    width: 60%;
+    margin-right:'0.5%';
+    width: 70%;
     height:50%
    
 }
@@ -87,10 +87,9 @@
 .userView__availability{
     display: flex;
     flex-direction: row;
-    margin-left:10%;
+    
     margin-top: 5%;
-    min-width:15%;
-    margin-right: 2%;
+  
     
     
 }
@@ -101,7 +100,7 @@
     font-weight: 0;
     color:black;
     padding:0.5%;
-    margin-top: 15%;
+   
 }
 .userView__socialLinks{
     display: flex;

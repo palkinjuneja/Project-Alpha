@@ -44,55 +44,62 @@ const  Collab= () => {
         }
       }
       const getData1 = async()=>{
-        const res = await axios.get(process.env.REACT_APP_BACKEND+"/getCollabRequest?status=rejected&user="+currentUserData.userId+"&key=sender");
+        const resDeclined = await axios.get(process.env.REACT_APP_BACKEND+"/getCollabRequest?status=rejected&user="+currentUserData.userId+"&key=sender").then((res)=>{
+          if(res !== "")
+          {
+            let tmp = [];
+            res.data.map(async(element)=>{
+              let res1 = await axios.get(process.env.REACT_APP_USER_ID+element.receiver);
+              let res2 = await axios.get(process.env.REACT_APP_BACKEND+"/project/"+element.project_id);
+              console.log("res1 is", res1.data )
+              console.log("res2 is", res2.data )
+              if(res1 !== "")
+              {
+                let combine ={};
+                combine ={"collab":element,"user": res1.data, "project":res2.data}
+                let tmp1 = [...tmp, combine];
+                 setuserList1(tmp1);
+                tmp = tmp1;
+              }
+            })
+          }
+        })
         // collab req -> status : pending and receiever : current user
         // colab req -> status : pending and sender : current user
         // collab req : sender : me and status !=pending
     
-        if(res !== "")
-        {
-          let tmp = [];
-          res.data.map(async(element)=>{
-            let res1 = await axios.get(process.env.REACT_APP_USER_ID+element.receiver);
-            let res2 = await axios.get(process.env.REACT_APP_BACKEND+"/project/"+element.project_id);
-            console.log("res1 is", res1.data )
-            console.log("res2 is", res2.data )
-            if(res1 !== "")
-            {
-              let combine ={};
-              combine ={"collab":element,"user": res1.data, "project":res2.data}
-              let tmp1 = [...tmp, combine];
-               setuserList1(tmp1);
-              tmp = tmp1;
-            }
-          })
-        }
+        
       }
       const getData2 = async()=>{
-        const res = await axios.get(process.env.REACT_APP_BACKEND+"/getCollabRequest?status=accepted&user="+currentUserData.userId+"&key=sender");
+        const resAccet = await axios.get(process.env.REACT_APP_BACKEND+"/getCollabRequest?status=accepted&user="+currentUserData.userId+"&key=sender").then((res)=>{
+          if(res !== "")
+          {
+            let tmp = [];
+            res.data.map(async(element)=>{
+              console.log("element is "+element.receiver)
+              let res1 = await axios.get(process.env.REACT_APP_USER_ID+element.receiver);
+              let res2 = await axios.get(process.env.REACT_APP_BACKEND+"/project/"+element.project_id);
+              console.log("res1 is", res1.data )
+              console.log("res2 is", res2.data )
+              if(res1 !== "")
+              {
+                let combine ={};
+                combine ={"collab":element,"user": res1.data, "project":res2.data}
+                let tmp1 = [...tmp, combine];
+                 setuserList2(tmp1);
+                tmp = tmp1;
+              }
+            })
+          }
+          setuserList1(userList1.concat(userList2))
+
+
+        })
         // collab req -> status : pending and receiever : current user
         // colab req -> status : pending and sender : current user
         // collab req : sender : me and status !=pending
     
-        if(res !== "")
-        {
-          let tmp = [];
-          res.data.map(async(element)=>{
-            console.log("element is "+element.receiver)
-            let res1 = await axios.get(process.env.REACT_APP_USER_ID+element.receiver);
-            let res2 = await axios.get(process.env.REACT_APP_BACKEND+"/project/"+element.project_id);
-            console.log("res1 is", res1.data )
-            console.log("res2 is", res2.data )
-            if(res1 !== "")
-            {
-              let combine ={};
-              combine ={"collab":element,"user": res1.data, "project":res2.data}
-              let tmp1 = [...tmp, combine];
-               setuserList2(tmp1);
-              tmp = tmp1;
-            }
-          })
-        }
+        
       }
 console.log(userList);
 
@@ -123,30 +130,23 @@ console.log(userList);
     }
     const getupdatedCard=()=>{
       console.log("Lists are "+userList1+" second"+userList2)
-      if(userList1.length){
+      
+      if(userList1.length || userList2.length){
+        var UserListUpdated = userList1.concat(userList2)
+        console.log("Updated List",UserListUpdated)
+
         return(
-            userList1.map((element)=>{
+        
+          UserListUpdated.map((element)=>{
                 return(   
-                    <div class="row">
+                    
                          <div class ="col-sm-12 col-md-6 col-lg-4" >
-                         <RequestCard className={styles.requestCard} data={element}/>  
-
-                   </div>
-                    </div>
+                         <RequestCard className={styles.requestCard} data={element}/>  </div>
                       )})
+         
+            
         )
-    }else if(userList2.length){
-      return(
-          userList2.slice(0,4).map((element)=>{
-              return(   
-                <div class="row">
-                     <div class ="col-sm-12 col-md-6 col-lg-4">
-                       <RequestCard className={styles.requestCard} data={element}/>  
-
-                 </div>
-                 </div>)})
-      )
-  }
+    }
         else {
             return(
                 <Emptycard/>
@@ -183,10 +183,11 @@ console.log(userList);
       <p className={styles.collabUpdates}>Collab Updates</p>
       {/* <div className={styles.flexWrapperTwo}> */}
       <div class="container">
+      <div class="row">
       {
           getupdatedCard()
       }
-        
+        </div>
       </div>
       <FooterModule/>
     </div>

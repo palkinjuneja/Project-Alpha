@@ -40,7 +40,7 @@ function UserView() {
            <div class="container " style={{marginTop:'-1%' ,minHeight:'70vh'} }>
            <div class="row justify-content-center">
                {/* <div className={styles.userView__basicInfo}> */}
-               <div class="col-sm-12 col-md-12 col-lg-4 ">
+               <div class="col-sm-12 col-md-12 col-lg-3 ">
                    <div className={styles.userView__basicInfoImage}>
                    <img alt="" className={styles.userView__imageRectabgle} src={userData.photo}/>
                    </div>
@@ -58,16 +58,16 @@ function UserView() {
                    </div>
                 </div>
                {/* <div className={styles.userView__experience}> */}
-               <div class="col-sm-12 col-md-12 col-lg-6  ">
+               <div class="col-sm-12 col-md-12 col-lg-7">
                    <p className={styles.userView__experience__headings}>Experience</p>
                    <p className={styles.userView__experience__text}>{userData.overview}</p>
                    <p className={styles.userView__experience__headings}>Skills</p>
                    {userSkill ? <div>{userSkill.map((eachSkill)=>(<p className={styles.userView__experience__text}>{userSkill.indexOf(eachSkill)+1}.{eachSkill}</p>))}
                    </div>:<p></p>}
                </div>
-               <div class="col-sm-12 col-md-12 col-lg-2 ">
+               <div class="col-sm-12 col-md-12 col-lg-2 " style={{marginTop:"2%"}}>
                {/* <div className={styles.userView__availability}> */}
-                   <EventAvailableIcon/> <p className={styles.userView__availability__text}> &nbsp;&nbsp;{userData.availability} Hrs/Week</p></div>
+                   <EventAvailableIcon/> <p className={styles.userView__availability__text}> &nbsp;&nbsp;{userData.time} Hrs/Week</p></div>
            </div>
            </div>
            <FooterModule/>

@@ -95,7 +95,7 @@ const EditProfile = () => {
     console.log(skills)
 
 
-    if (experience && time && profess && linkedin && skills.length)  //add skill
+    if (experience && time && profess && linkedin && skills[0])  //add skill
     {
       const userData = {
         name: data.name,
