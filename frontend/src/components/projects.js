@@ -161,16 +161,25 @@ function Projects(props) {
 
   </pre>
  
-  <div className="container-fluid">
-  <h2 className="container" style={{textAlign: "center"}} >Project Lists</h2>
+  <div className="container-fluid ">
+  
+  <h2 style={{textAlign: "center"}} >Project Lists</h2>
   </div>
   <pre style = {{background: "white", border: "none"}}>
   {/* <FindPeople/> */}
-  <button type="button" class="btn btn-dark col-sm-12 col-md-6 col-lg-2 btnHover" style = {{float: "right", marginRight: 20 ,marginBottom:20 , height:'50px'}}  onClick={event =>  window.location.href='/User'}>See who's on Union</button>
-    <button type="button" class="btn btn-dark col-sm-12 col-md-6 col-lg-2 btnHover" style = {{float: "right", marginRight: 20,marginBottom:20,height:'50px'}} onClick={event =>  window.location.href='/createProject'}>Create Project</button>
+  <div className="container-fluid align-content-center justify-content-center" style={{paddingLeft:"14%"}}>
+  
+  <div class="row">
+    <button type="button" class="btn btn-dark col-sm-12 col-md-3 col-lg-2 btnHover m-2  " style = {{float:'right', marginBottom:20 , height:'50px'}}  onClick={event =>  window.location.href='/User'}>See who's on Union</button>
+    <button type="button" class="btn btn-dark col-sm-12 col-md-3 col-lg-2 btnHover m-2 " style = {{ float:'right',margmarginBottom:20,height:'50px'}} onClick={event =>  window.location.href='/createProject'}>Create Project</button>
+  </div>
+  </div>
   </pre>
     <div className="container-fluid">
+   
       <div style={{text: "center", paddingLeft: `${projects.length? "13%": 0}`}}>
+    
+      
       {
         getDiv()
       }

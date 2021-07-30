@@ -89,13 +89,13 @@ const EditProfile = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log(inputFields)
+    
     let skills =[];
     skills = inputFields.toString().toLowerCase().split(",")
-    console.log(skills)
+    
 
 
-    if (experience && time && profess && linkedin && skills[0])  //add skill
+    if (experience && time && profess && linkedin && skills[0]!='')  //add skill
     {
       const userData = {
         name: data.name,
@@ -220,7 +220,7 @@ const EditProfile = () => {
 
                         <Container>
                             <form className={classes.root}>
-                            <label for="skills">Skills</label>
+                            <label for="skills">Skills*</label>
                                 <div className='form-group'>
                                     <TextField style={{ textTransform: "lowercase" }}
                                         name="skill"

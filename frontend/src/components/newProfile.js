@@ -61,14 +61,13 @@ const NewProfile = () => {
 
 
   const retrieveData = () => {
-
+   
     // console.log(response.data);
     // setData(response.data)
     if (typeof(data.skill)=='string'){
       var skill2 = [];
       skill2.push(data.skill);
       setSkill(skill2)
-
     }else{setSkill(data.skill)}
     
     setexperience(data.overview)    //exp
