@@ -9,9 +9,10 @@
 }
 
 .logo{
-    margin: 10px 0;
+    margin: 8px 0;
     text-align:center;
-
+    align-items: center;
+   
 }
 
 .middle-text{
@@ -19,13 +20,16 @@
     color:white;
     margin: 5px;
     margin-bottom: 10px;
+   font-size:larger
 }
 
 .options-bar{
     color:white;
-    text-align: center;
+    text-align: center;   
     float:center;
     align-items: right;
+    justify-content: center;
+ 
 }
 
 .options-bar a{
@@ -34,8 +38,8 @@
 }
 
 .profile-pic{
-    height:80px;
-    width:80px;
+    height:60px;
+    width:60px;
     padding:5px;
     color:white;
     

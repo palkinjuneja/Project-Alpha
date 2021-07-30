@@ -18,7 +18,7 @@ function NavHeader({middleText}) {
                <a href="/project" className="col-md-3 col-sm-12">Home</a> 
                <a href={"/project/"+currentUserData.userId} className="col-md-3 col-sm-12">My Projects</a> 
                <a href="/Invites" className="col-md-3 col-sm-12">Requests/Invites</a> 
-               <div onClick={logout} className="col-md-3 col-sm-12">Logout</div>
+               <a onClick={logout} className="col-md-3 col-sm-12">Logout</a>
             </div>
             <div className="col-md-2 col-sm-2 col-lg-2 profile-pic" onClick={() =>{window.location.href="/profile"}}><img src={currentUserData.photo}></img></div> 
         </div>

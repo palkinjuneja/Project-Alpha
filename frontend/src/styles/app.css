@@ -94,3 +94,11 @@ float: right;
   background: rgba(14, 9, 9, 0.863);
   color: white;
 }
+.btnHover:hover{
+  background-color:black;
+  color:white
+}
+.btnHover{
+  background-color:rgba(36, 36, 36, 0.911);
+  color:white
+}
