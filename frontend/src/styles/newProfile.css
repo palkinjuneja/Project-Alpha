@@ -8,7 +8,11 @@
  background-color:black; 
  color: white;
 }
-
+.pic{
+  height: "50px";
+  width: "50px";
+  border-radius: 20.70rem!important; 
+}
 .editProfile {
   background-color: rgba(255, 255, 255, 1);
   /* padding: 69px 0 168px; */

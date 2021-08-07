@@ -7,7 +7,25 @@
     align-items: center;
   
 }
+.Xu {
+    font-family: "Lato";
+    font-size: 37px;
+    font-weight: 900;
+    line-height: normal;
+    color: tomato;
+    position: relative;
+  }
 
+ 
+  .Xunion {
+    /* font-family: "Lato"; */
+    font-size: 26px;
+    font-weight: 700;
+    line-height: normal;
+    color: black-2;
+    margin-bottom: 92px;
+    opacity: 0.X63;
+  }
 .logo{
     margin: 8px 0;
     text-align:center;

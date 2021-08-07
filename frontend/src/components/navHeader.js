@@ -1,5 +1,6 @@
 import React from 'react'
 import '../styles/navHeader.css'
+import logo3 from "../images/logo3.png";
 
 function NavHeader({middleText}) {
     const currentUserData = JSON.parse(localStorage.getItem('userDetails'));
@@ -11,7 +12,7 @@ function NavHeader({middleText}) {
         <div>
         <div className="row nav-main">
             <div className="col-md-3 col-sm-12 col-lg-3 logo" onClick={() =>{window.location.href="/project"}}>
-                <span style={{fontSize:37, color:"pink"}}>O</span><span style={{fontSize:27, color:"white"}}>union</span>
+            <img src={logo3} ></img>
             </div>
             <div className="col-md-3 col-sm-12 col-lg-3  middle-text">{middleText}</div>
             <div className="col-md-4 col-sm-10 options-bar">

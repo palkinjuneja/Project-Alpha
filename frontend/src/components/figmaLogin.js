@@ -1,16 +1,18 @@
 import React from "react";
 import { Switch, Route, Link } from "react-router-dom";
+import logo from "../images/logo.jpeg";
 
 // import styles from "./figma.css";
 import '../styles/figmaLogin.css'
+import {LinkedInLoginButton} from "react-social-login-buttons";
 
 const SigninOnboard = () => {
   return (
     <div className='conatiner-fluid row mainwrapper'>
     <div className='col-md-6 col-lg-6 col-sm-12 rightdiv'>
       {/* <div className='Xgroup1'> */}
-      <div className=''>
-        <span className='Xu'>O</span><span className='Xunion'>Union</span>
+      <div className='logoimg'>
+     <img src={logo} ></img><span className='Xunion'>Union</span>
         {/* <p className='XuTwo'>U</p> */}
       </div>
       {/* <div className='XflexWrapperTwo'>  */}
@@ -19,17 +21,14 @@ const SigninOnboard = () => {
         <p
           className='XworkOnTheRealWorldProjectsWithEas row'
         >
-          Work on the real world projects with easy
-          collaboration on different teams.
+          One stop solution for finding ideas & people for all your side-projects! 
         </p>
-        <p className='XsignInWith'>Sign-In with </p>
-        <a href={process.env.REACT_APP_BACKEND+"/auth/linkedin"}>
-        <img
-          alt=""
-          className='Xvector lnimage'
-          src="https://static.overlay-tech.com/assets/dc8cedd2-4afa-4dbf-b32c-80f1c7aa3ee0.svg"
-        />
-        </a>
+        
+        <div className='lncontainer'>
+        <div className="lnimage">
+        <LinkedInLoginButton onClick={e=>window.location.href=process.env.REACT_APP_BACKEND+"/auth/linkedin"}  />
+        </div>
+        </div>
         <p className='XalreadyHaveAnAccount bottomright'>
           Start Building!!!!
         </p>
@@ -48,13 +47,17 @@ const SigninOnboard = () => {
           </p>
           <p className='XcollaborationOnProjectsMadeEasyWith'>
           
-            Collaboration on projects made easy with Union.
+            Find Projects.
           </p>
-          <p className='XfindThePassionateTeamToKickStartY' > 
-    
-            Find an exciting project and a passionate team  to kick-start your
-            ideas.
+          <p className='XcollaborationOnProjectsMadeEasyWith'>
+          
+            Find People.
           </p>
+          <p className='XcollaborationOnProjectsMadeEasyWith'>
+          
+            Build!
+          </p>
+         <div className="extra"></div>
         </div>
       </div>
     </div>
