@@ -2,6 +2,24 @@
   margin-top: 15px;
 }
 
+.container-new{
+  margin-right:0;
+  padding-left:0px;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  margin-left: 0;
+  margin-right: auto;
+  left:0;
+  padding-right: 16px;
+}
+
+.pic{
+    height: "50px";
+    width: "50px";
+    border-radius: 20.70rem!important; 
+}
+                       
 .editProfile {
     background-color: rgba(255, 255, 255, 1);
     /* padding: 69px 0 168px; */

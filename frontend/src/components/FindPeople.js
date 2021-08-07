@@ -1,4 +1,5 @@
 import React from 'react'
+import '../styles/app.css';
 
 function FindPeople() {
     const onClickFindPeopleButton=event=>{
@@ -7,7 +8,7 @@ function FindPeople() {
     }
     return (
         <div >
-            <button   name="findPeopleButton"onClick={onClickFindPeopleButton}>See who's on Union</button>
+            <button type="button" class="btn btn-dark btnHoverFind"style={{backgroundColor:"black", color:"white" , border:"1px solid white" }}   name="findPeopleButton"onClick={onClickFindPeopleButton}>Find People</button>
         </div>
     )
 }

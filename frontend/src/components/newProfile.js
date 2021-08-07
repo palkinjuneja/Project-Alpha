@@ -99,7 +99,7 @@ const NewProfile = () => {
                 <div className="container">
                   <div className="col">
                     <figure className="figure">
-                      <img src={data.photo} style={{ height: "50%", width: "50%" }} className="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure." />
+                      <img src={data.photo} style={{ height: "50%", width: "50%" }} className="figure-img img-fluid rounded pic" alt="A generic square placeholder image with rounded corners in a figure." />
                     </figure>
                   </div>
                   <div className="col" style={{ marginBottom: "5%" }}>
@@ -151,8 +151,8 @@ const NewProfile = () => {
                   </div>
                 </form>
 
-                <Container>
-                  <p>Current Skills</p>
+                <div>
+                  <p><b>Current Skills</b></p>
                   <div>
                     <ul>
                       {skills.map((skill) => {
@@ -168,7 +168,7 @@ const NewProfile = () => {
                       })}
                     </ul>
                   </div>
-                </Container>
+                </div>
               </div>
             </div>
 

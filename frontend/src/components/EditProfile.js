@@ -153,12 +153,12 @@ const EditProfile = () => {
                            
 
                         </div>
-
+                        
                         <div className="container">
                             <div className="container">
                                 <div className="col">
                                     <figure className="figure">
-                                        <img src={data.photo} style={{ height: "50%", width: "50%" }} className="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure." />
+                                        <img src={data.photo} style={{ height: "50%", width: "50%" }} className="figure-img img-fluid rounded pic" alt="A generic square placeholder image with rounded corners in a figure." />
                                     </figure>
                                 </div>
                                 <div className="col" style={{ marginBottom: "5%" }}>
@@ -218,8 +218,8 @@ const EditProfile = () => {
                             </form>
                         
 
-                        <Container>
-                            <form className={classes.root}>
+                            <div>
+                            <form  className="container-new">
                             <label for="skills">Skills*</label>
                                 <div className='form-group'>
                                     <TextField style={{ textTransform: "lowercase" }}
@@ -230,17 +230,17 @@ const EditProfile = () => {
                                     />
                                 </div>
                             </form>
-                        </Container>
+                        </div>
 
 
-                        <div className='container'>
-                            <div className="justify-content-center">
+                        <div >
+                            <div className="container-new">
                                 <Button onClick={submitHandler}
                                     className={classes.button}
                                     variant="contained"
                                     color="primary"
                                     type="submit"
-                                    style={{ width: "213px", height: "46px" }}
+                                    style={{ width: "213px", height: "46px" ,padding:"0",left:"0"}}
                                 >Submit</Button>
                             </div>
                         </div>

@@ -28,7 +28,7 @@ function RequestButton({project}) {
     const ownershipRequestCheck=()=>{
         if("Project Union"==project.owner)
         {
-            document.getElementById("request-button").innerHTML="Request Ownership";
+            document.getElementById("request-button").innerHTML="Request for Ownership";
         }
     }
 
@@ -46,16 +46,16 @@ function RequestButton({project}) {
                 setIsRequestSent(true);
                 setRequestId(response.data.result._id);
                 setRequestStatus(response.data.result.status_of_request);
-                document.getElementById("request-button").innerHTML="Cancel";
+                document.getElementById("request-button").innerHTML="Cancel Request";
             }
             else{
-                document.getElementById("request-button").innerHTML="Request +";
+                document.getElementById("request-button").innerHTML="Request for collaboration";
                 ownershipRequestCheck();
                 console.log('request failed sendrequest');
             }
         })
         .catch((error)=>{
-            document.getElementById("request-button").innerHTML="Request +";
+            document.getElementById("request-button").innerHTML="Request for collaboration";
             ownershipRequestCheck();
             console.log('error');
         })
@@ -71,16 +71,16 @@ function RequestButton({project}) {
                 setIsRequestSent(false);
                 setRequestId(null);
                 setRequestStatus(null);
-                document.getElementById("request-button").innerHTML="Request +";
+                document.getElementById("request-button").innerHTML="Request for collaboration";
                 ownershipRequestCheck();
             }
             else{
-                document.getElementById("request-button").innerHTML="Cancel";
+                document.getElementById("request-button").innerHTML="Cancel Request";
                 console.log('request failed cancelrequest');
             }
         })
         .catch((error)=>{
-            document.getElementById("request-button").innerHTML="Cancel";
+            document.getElementById("request-button").innerHTML="Cancel Request";
             console.log('error');
         })
     }
@@ -93,13 +93,13 @@ function RequestButton({project}) {
                 setIsRequestSent(true);
                 setRequestId(response.data.result._id);
                 setRequestStatus(response.data.result.status_of_request);
-                document.getElementById("request-button").innerHTML="Cancel";
+                document.getElementById("request-button").innerHTML="Cancel Request";
             }
             else{
                 setIsRequestSent(false);
                 setRequestId(null);
                 setRequestStatus(null);
-                document.getElementById("request-button").innerHTML="Request +";
+                document.getElementById("request-button").innerHTML="Request for collaboration";
                 ownershipRequestCheck();
             }
         })

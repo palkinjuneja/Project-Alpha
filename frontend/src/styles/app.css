@@ -2,6 +2,8 @@
   color: rgba(0, 0, 0, 0.05)
 }
 
+
+
 footer{
   padding: 30px;
   position: relative;
@@ -100,5 +102,9 @@ float: right;
 }
 .btnHover{
   background-color:rgba(36, 36, 36, 0.911);
+  color:white
+}
+.btnHoverFind{
+  background-color:rgba(32, 32, 31, 0.911);
   color:white
 }

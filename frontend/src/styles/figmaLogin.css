@@ -4,6 +4,15 @@
   margin:0;
 }
 
+.logoimg{
+  
+  display:flex;
+  align-items: baseline;
+}
+.logo1{
+  padding-bottom: 2px;
+}
+
 .XsigninOnboard {
     background-color:white;
     padding: 0 0 0 0px;
@@ -30,12 +39,20 @@
     position: relative;
   }
   .Xu {
-    font-family: "Lato";
-    font-size: 37px;
-    font-weight: 900;
-    line-height: normal;
-    color: tomato;
-    position: relative;
+   
+width: 27px;
+height: 43px;
+
+
+font-family: Lato;
+font-style: normal;
+font-weight: 900;
+font-size: 36px;
+line-height: 43px;
+
+color: #FF5A5F;
+
+transform: rotate(-180deg);
   }
   .XuTwo {
     font-family: "Lato";
@@ -61,12 +78,13 @@
     font-weight: 700;
     line-height: normal;
     color: black-2;
-    margin-bottom: 92px;
+    
+    padding-top:-10px;
     opacity: 0.X63;
   }
   .XworkOnTheRealWorldProjectsWithEas {
     height: 50%;
-    width: 70%;
+    width: 80%;
     /* font-family: "Montserrat"; */
     font-size: 36px;
     font-weight: 400;
@@ -150,12 +168,13 @@
   }
   .XcollaborationOnProjectsMadeEasyWith {
     width: 70%;
-    /* font-family: "Montserrat"; */
-    font-size: 36px;
+    font-family: "-apple-system BlinkMacSystemFont Segoe UI Roboto Oxygen Montserrat Ubuntu Cantarell Fira Sans Droid Sans Helvetica Neue sans-serif";
+    
+    font-size: 42px;
     font-weight: 700;
     line-height: normal;
     color: white;
-    margin-bottom: 16px;
+    margin-bottom: 10px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -180,10 +199,19 @@
   }
 
   .lnimage{
+    margin-left:30px;
     height:100px;
-    width:100px;
+    width:250px;
+   
+    
   }
+
+  
 
   .bottomright{
     margin-bottom:100px;
+  }
+
+  .extra{
+    height:300px;
   }
