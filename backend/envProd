@@ -1,0 +1,3 @@
+MONGODB_URL = mongodb+srv://admin:Admin@union.um26t.mongodb.net/Union?retryWrites=true&w=majority
+LINKEDIN_REDIRECT=https://stark-coast-33672.herokuapp.com
+FRONTEND_REDIRECT=https://union-collab-app.herokuapp.com
