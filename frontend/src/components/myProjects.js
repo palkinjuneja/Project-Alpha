@@ -23,7 +23,7 @@ function MyProject(props) {
       const res = await axios.get(process.env.REACT_APP_USER_ID+currentUser.userId);
       if(res !== "")
       {
-        console.log("result is "+res)
+        //console.log("result is "+res)
         let tmp = [];
         res.data.project_id.map(async(id)=>{
           let res1 = await axios.get(process.env.REACT_APP_BACKEND+"/project/"+id);

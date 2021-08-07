@@ -18,14 +18,14 @@ function ProjectDetails() {
             
             if(result === null || result===undefined)
             {   
-                console.log("project is null");
+              //  console.log("project is null");
             }
             else
             {
                 setProject(result.data);
         }})
         .catch(err=>{
-            console.log(err);
+           // console.log(err);
             return(
             <>
                 <h1>Status 501</h1>

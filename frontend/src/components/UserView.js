@@ -22,10 +22,10 @@ function UserView() {
         const getRequest = process.env.REACT_APP_USER_ID+userId;
         axios.get(getRequest).then(res=>{
             setUserData(res.data);
-            console.log(res.data.skill);
+           // console.log(res.data.skill);
             setuserSkill(res.data.skill);
         }).catch(err=>{
-            console.log("error:",{err});
+            //console.log("error:",{err});
             return (
             <div>{err}</div>
             )

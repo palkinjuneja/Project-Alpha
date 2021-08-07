@@ -81,7 +81,7 @@ const DialogActions = withStyles((theme) => ({
   
 
   const handleAccept=((event)=>{
-      console.log("Request Accepted");
+     // console.log("Request Accepted");
       // Send to Project Url
       window.location.href="/Project"
   })

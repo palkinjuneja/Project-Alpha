@@ -19,7 +19,7 @@ function Projects(props) {
           setState(res.data);
        }
        catch(err){
-         console.log(err);
+        // console.log(err);
        }
     }
     

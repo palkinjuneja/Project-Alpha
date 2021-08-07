@@ -40,13 +40,13 @@ function UserMain() {
         var searchTerm = event.target.value;
         searchTerm = searchTerm.toLowerCase();
         setsearchValue(searchTerm);
-        console.log(event.target.value);
+      //  console.log(event.target.value);
 
       }
 
       const onSearch =(event) =>{
        setuserCall(true);
-        console.log(event.target.value);
+      //  console.log(event.target.value);
 
       }
 
@@ -69,14 +69,14 @@ function UserMain() {
           }else{
             getRequest = process.env.REACT_APP_USER_ALL;
           }
-          console.log(`get Request is ${getRequest}`);
+         // console.log(`get Request is ${getRequest}`);
         axios.get(getRequest).then(res=>{
             setuserList(res.data);
             setuserCall(false);
             setloading(false);
-            console.log(`Fetched Users are ${res.data}`);
+          //  console.log(`Fetched Users are ${res.data}`);
         }).catch(err=>{
-            console.log("error:",{err});
+          //  console.log("error:",{err});
             setloading(true);
             return (
             <div>{err}</div>
@@ -86,7 +86,7 @@ function UserMain() {
         }
     
         useEffect(()=>{
-            console.log(searchType);
+           // console.log(searchType);
             if(userCall){
             fetchUsers();
             }

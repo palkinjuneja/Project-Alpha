@@ -12,7 +12,7 @@ import {
 
   const OldUser=()=> {    
     const {search} = useLocation()
-    console.log(search)
+   // console.log(search)
     const{name,email,login_token,skill,overview,portfolio,role,photo, github, linkedin,time,id}=queryString.parse(search)
     const obj ={
       name: name,

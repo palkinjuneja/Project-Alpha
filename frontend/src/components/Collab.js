@@ -21,17 +21,16 @@ const  Collab= () => {
         // collab req -> status : pending and receiever : current user
         // colab req -> status : pending and sender : current user
         // collab req : sender : me and status !=pending4
-        console.log("result is ",res);
+        
     
         if(res !== "")
         {
           let tmp = [];
           res.data.map(async(element)=>{
-            console.log(process.env.REACT_APP_USER_ID+element.sender)
+          
             let res1 = await axios.get(process.env.REACT_APP_USER_ID+element.sender);
             let res2 = await axios.get(process.env.REACT_APP_BACKEND+"/project/"+element.project_id);
-            console.log("res1 is", res1.data )
-            console.log("res2 is", res2.data )
+          
             if(res1 !== "")
             {
               let combine ={};
@@ -51,8 +50,7 @@ const  Collab= () => {
             res.data.map(async(element)=>{
               let res1 = await axios.get(process.env.REACT_APP_USER_ID+element.receiver);
               let res2 = await axios.get(process.env.REACT_APP_BACKEND+"/project/"+element.project_id);
-              console.log("res1 is", res1.data )
-              console.log("res2 is", res2.data )
+             
               if(res1 !== "")
               {
                 let combine ={};
@@ -76,11 +74,10 @@ const  Collab= () => {
           {
             let tmp = [];
             res.data.map(async(element)=>{
-              console.log("element is "+element.receiver)
+            
               let res1 = await axios.get(process.env.REACT_APP_USER_ID+element.receiver);
               let res2 = await axios.get(process.env.REACT_APP_BACKEND+"/project/"+element.project_id);
-              console.log("res1 is", res1.data )
-              console.log("res2 is", res2.data )
+            
               if(res1 !== "")
               {
                 let combine ={};
@@ -101,13 +98,13 @@ const  Collab= () => {
     
         
       }
-console.log(userList);
+
 
     useEffect(() => {
     getData();
     getData1();
     getData2();
-    console.log(userList)
+
 
 
     }, [])
@@ -129,12 +126,10 @@ console.log(userList);
         }
     }
     const getupdatedCard=()=>{
-      console.log("Lists are "+userList1+" second"+userList2)
       
       if(userList1.length || userList2.length){
         var UserListUpdated = userList1.concat(userList2)
-        console.log("Updated List",UserListUpdated)
-
+      
         return(
         
           UserListUpdated.map((element)=>{

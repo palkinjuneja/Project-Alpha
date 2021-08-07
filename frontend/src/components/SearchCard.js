@@ -5,7 +5,7 @@ import { useParams } from "react-router";
 const SearchCard = ({userPhoto,userName,userId,userRole}) => {
 
   const fetchSingleUser=(event) => {
-    console.log("Button Clicked"+userId)
+   // console.log("Button Clicked"+userId)
     const url = '/User/'+userId;
     window.location.href= url;
 

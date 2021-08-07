@@ -51,13 +51,13 @@ function RequestButton({project}) {
             else{
                 document.getElementById("request-button").innerHTML="Request for collaboration";
                 ownershipRequestCheck();
-                console.log('request failed sendrequest');
+              //  console.log('request failed sendrequest');
             }
         })
         .catch((error)=>{
             document.getElementById("request-button").innerHTML="Request for collaboration";
             ownershipRequestCheck();
-            console.log('error');
+            //console.log('error');
         })
     }
 
@@ -76,12 +76,12 @@ function RequestButton({project}) {
             }
             else{
                 document.getElementById("request-button").innerHTML="Cancel Request";
-                console.log('request failed cancelrequest');
+              //  console.log('request failed cancelrequest');
             }
         })
         .catch((error)=>{
             document.getElementById("request-button").innerHTML="Cancel Request";
-            console.log('error');
+           // console.log('error');
         })
     }
 
@@ -104,7 +104,7 @@ function RequestButton({project}) {
             }
         })
         .catch((err)=>{
-            console.log(err);
+          //  console.log(err);
         });
     },[])
     const renderButton =()=>{

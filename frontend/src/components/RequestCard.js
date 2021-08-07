@@ -25,7 +25,7 @@ const RequestCard = ({data}) => {
    
 
    }else if(data.collab.status_of_request=="accepted"){
-     console.log("Entering")
+     //console.log("Entering")
     if(open){
       return(
         <InviteAccepted modalAction={open} data={data}/>

@@ -54,34 +54,34 @@ const EditProfile = () => {
 
     const handletime=(event)=>{
         settime(event.target.value)
-        console.log(event.target.value);
+        //console.log(event.target.value);
     }
 
     const handleprofess=(event)=>{
         setprofess(event.target.value)
-        console.log(event.target.value);
+       // console.log(event.target.value);
     }
     const handleexperience=(event)=>{
         setexperience(event.target.value)
-        console.log(event.target.value);
+        //console.log(event.target.value);
     }
 
     const handleprofile=(event)=>{
         setprofile(event.target.value)
-        console.log(event.target.value);
+       // console.log(event.target.value);
     }
     const handlelinkedin=(event)=>{
         setlinkedin(event.target.value)
-        console.log(event.target.value);
+       // console.log(event.target.value);
     }
     const handlegithub=(event)=>{
         setgithub(event.target.value)
-        console.log(event.target.value);
+        //console.log(event.target.value);
     }
 
     const handleChangeInput = (event) => {
       setInputFields(event.target.value);
-      console.log(inputFields)
+     // console.log(inputFields)
     }
     const classes = useStyles()
 
@@ -114,7 +114,6 @@ const EditProfile = () => {
 
       DataService.setProfile(userData)
         .then(res => {
-          console.log(res.data);
           localStorage.setItem('userDetails', JSON.stringify(userData))
            window.location.href = "/profile";
         }

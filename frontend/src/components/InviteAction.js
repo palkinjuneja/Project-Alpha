@@ -93,13 +93,13 @@ const DialogActions = withStyles((theme) => ({
       const getRequest = process.env.REACT_APP_REQUEST_ACTION+"id="+data.collab._id+
       "&status="+request+"&owner="+data.project.owner_id+
       "&projectId="+data.project._id+"&userId="+data.user._id+"&userName="+data.user.name+"&ownerName="+data.project.owner;
-      console.log(getRequest)
+      //console.log(getRequest)
       
       axios.put(getRequest).then(res=>{
-            console.log("Request Handled Successfully");
+           // console.log("Request Handled Successfully");
             setOpen(false)
         }).catch(err=>{
-            console.log("error:",{err});
+           // console.log("error:",{err});
             return (
             <div>{err}</div>
             )
@@ -110,12 +110,12 @@ const DialogActions = withStyles((theme) => ({
   }, [request])
 
   const handleAccept=((event)=>{
-      console.log("Request Accepted");
+     // console.log("Request Accepted");
       setRequest("accepted")  
       handleClose()   
   })
   const handleDecline=((event)=>{
-    console.log("Request Declined")
+   // console.log("Request Declined")
     setRequest("rejected")
     handleClose()
 })

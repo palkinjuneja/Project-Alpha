@@ -47,12 +47,12 @@ const NewProfile = () => {
 
   const handletime = (event) => {
     settime(event.target.value)
-    console.log(event.target.value);
+    //console.log(event.target.value);
   }
 
   const handleprofess = (event) => {
     setprofess(event.target.value)
-    console.log(event.target.value);
+   // console.log(event.target.value);
   }
  
   const classes = useStyles()
